@@ -39,21 +39,23 @@ include ../mixins/containers_aph.pug
 			p Networking model
 			ul
 				li vše, co je potřeba synchronizovat mezi zařízeními
+			.fragment.top-40.right-40
+				img.height-650(src=imgAssets+'models_cs.svg')
 +frameInbox('Příklad: Super Mario Bros.')
 	.important-green
 		.text-center
 			img.height-300(src=imgAssets+'mario_screen.jpg')
 		.bottom-40.left-40
-			img.height-370(src=imgAssets+'mario_model.svg')
+			img.height-370(src=imgAssets+'mario_model_cs.svg')
 		.right-0.bottom-150
 			img.height-320(src=imgAssets+'mario_spritesheet.png')
 +mcontainer('Herní model')
 	+frameShard.height-30p.top-280.center.z-index-100
 		div
 			ul
-				li.fragment jakmile složitost systému dosáhne určité hranice, je k modelování systému nezbytné použít systém samotný
-				li.fragment jednoduchý doménový model najdeme např. u turn-based her, puzzle her a grid-based platformerů
-				li.fragment složité hry typu GTA mohou obsahovat klíčová data přímo v herní scéně (presentačním modelu) 
+				li.fragment.downside komplexní systém je možno přesně modelovat pouze modelem, který je totožný s oním systémem
+				li.fragment jednoduchý doménový model najdeme u her, které se dají modelovat jako stavový automat (např. u turn-based her, puzzle her a adventur)
+				li.fragment u komplexních her jako GTA dává smysl vytvářet doménový model pouze pro základní mechaniky
 +frameInbox('Příklad: Šachy')
 	.flex-cols-2.items-center.fill
 		figure
@@ -103,7 +105,7 @@ include ../mixins/containers_aph.pug
 +frameInbox('Heroes of Might and Magic model')
 	div
 		ul
-			li obsahuje pouze atributy
+			li jsou zde pouze atributy
 		.text-center.mt-10
 			img.height-750(src=imgAssets+'diag_heroes.svg')
 +frameInbox('Příklad: Textová adventura')
@@ -115,7 +117,7 @@ include ../mixins/containers_aph.pug
 +frameInbox('Příklad: Textová adventura')
 	div
 		ul
-			li obsahuje jak atributy tak pravidla
+			li jsou zde jak atributy tak pravidla
 		.text-center
 			img.height-750(src=imgAssets+'diag_adventure.svg')
 +frameInbox('Příklad: Pacman')
@@ -126,6 +128,6 @@ include ../mixins/containers_aph.pug
 +frameInbox('Pacman - architektura')
 	div
 		ul
-			li obsahuje pouze atributy
+			li jsou zde pouze atributy
 		.text-center.mt-20
 			img.height-600(src=imgAssets+'diag_pacman.svg')

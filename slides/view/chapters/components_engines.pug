@@ -21,7 +21,7 @@ include ../mixins/containers_aph.pug
 				ul
 					li
 						a(href="https://github.com/AtomicGameEngine/AtomicGameEngine") https://github.com/AtomicGameEngine/AtomicGameEngine
-					li C++, forsaken, but still a good source of inspiration
+					li C++ (bridge into JS and C#), forsaken, but still a good source of inspiration
 			.scope.fragment
 				p Unity
 				ul
@@ -29,11 +29,11 @@ include ../mixins/containers_aph.pug
 			.scope.fragment
 				p Unreal Engine
 				ul
-					li hybrid component architecture
+					li hybrid object-component architecture
 			.scope.fragment
 				p Godot Engine
 				ul
-					li signal-passing architecture
+					li node-based OOP architecture, signals
 	.bottom-0.right-0
 		img.height-400(src=imgAssets+'engines.gif')
 +frameInbox('Example: Artemis Engine')
@@ -45,7 +45,7 @@ include ../mixins/containers_aph.pug
 +frameInbox('Unity')
 	.important-green
 		ul
-			li.fragment ECS architecture with messaging system
+			li.fragment DOTS architecture (Data-Oriented Technology Stack), ECS superset
 			li.fragment entities are game objects, components have data, systems contain logic
 			li.fragment <span class="highlight code">MonoBehaviour</span> can encapsulate both data and logic
 		.space-xl

@@ -7,6 +7,10 @@ Versioning info:
 - third number indicates minor changes, such as hotfixes and updates
 
 
+## [6.6] - 2023-10-27
+### Added
+Lecture 4 new slides
+
 ## [6.5] - 2023-10-18
 ### Added
 Lecture 3 new slides

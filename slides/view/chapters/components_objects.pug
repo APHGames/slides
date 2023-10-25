@@ -5,15 +5,15 @@ include ../mixins/containers_aph.pug
 - var defaultBgr = 'backgrounds/objects.jpg';
 
 +mchapter('Object-oriented architecture', imgAssets+'chapter_components_oop.svg')
-+frameInbox('Example: Platformer Scene')
++frameInbox('Example: Platformer')
 	.text-center
 		img.height-700(src=imgAssets+'platformer.jpg')
 	.bottom-80.left-270
 		img.height-390(src=imgAssets+'platformer.svg')
-+frameInbox('Hierarchy for the model')
++frameInbox('Hierarchy for the domain model')
 	.important-green.fill.center
 		img.height-750(src=imgAssets+'diag_platformer_oop.svg')
-+frameInbox('Issue #1: Static and dynamic object')
++frameInbox('Issue #1: Adding physics')
 	.important-green.fill.center
 		img.height-750(src=imgAssets+'diag_platformer_oop_2.svg')
 +frameInbox('Other Issues')
@@ -35,7 +35,7 @@ include ../mixins/containers_aph.pug
 		.right-0.top-150.fragment(data-fragment-index="5")
 			img.height-400(src=imgAssets+'mage.png')
 		+tipKeen1('Not every set of relationships can be described in a directed acyclic graph').bottom-0
-+frameInbox('All-purpose object pattern')
++frameInbox('All-in-one pattern')
 	.important-green
 		ul
 			li.fragment used in 90's and early 2000's
@@ -67,11 +67,9 @@ include ../mixins/containers_aph.pug
 				ul
 					li.fragment.upside simple
 					li.fragment.upside fast prototyping
-					li.fragment.upside low overhead
 					li.fragment.upside easy to debug
 			div
 				ul
-					li.fragment.downside hard to maintain
 					li.fragment.downside hard to scale
 					li.fragment.downside not flexible
 					li.fragment.downside game objects may have features they don't need

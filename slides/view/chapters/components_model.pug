@@ -51,9 +51,9 @@ include ../mixins/containers_aph.pug
 	+frameShard.height-30p.top-280.center.z-index-100
 		div
 			ul
-				li.fragment the more emergent the game, the more coupled the models
-				li.fragment turn-based games may have a domain model that contains both attributes and rules
-				li.fragment interactive games have domain model spread over all structures 
+				li.downside.fragment a complex system can only be modelled by a model that closely resembles the original system
+				li.fragment a simple domain model can be found among games that can be modelled as a state machine (i.e., turn-based games, puzzles, adventures)
+				li.fragment for complex games like GTA, only a domain model for base mechanics makes sense 
 +frameInbox('Example: Chess')
 	.flex-cols-2.items-center.fill
 		figure
@@ -65,7 +65,7 @@ include ../mixins/containers_aph.pug
 +frameInbox('Chess Model')
 	div
 		ul
-			li contains both attributes and game rules (in <span class="code">makeMove()</span>)
+			li we have here both the attributes and the game rules (in <span class="code">makeMove()</span>)
 		.text-center
 			img.height-750(src=imgAssets+'diag_chess.svg')
 +frameInboxMid('Chess models')
@@ -103,21 +103,21 @@ include ../mixins/containers_aph.pug
 +frameInbox('Heroes of Might and Magic model')
 	div
 		ul
-			li contains only attributes
+			li we have here only the attributes
 		.text-center.mt-10
 			img.height-750(src=imgAssets+'diag_heroes.svg')
 +frameInbox('Example: Text Adventure')
-	div
-		ul
-			li contains both attributes and rules
-		.text-center
-			img.height-750(src=imgAssets+'diag_adventure.svg')
-+frameInbox('Adventure events')
 	.fill.center
 		figure
 			img.height-700(src=imgAssets+'belegost.png')
 	.top-100
 		img.height-350(src=imgAssets+'adventure_events.svg')
++frameInbox('Example: Text Adventure')
+	div
+		ul
+			li we have here both the attributes and the rules
+		.text-center
+			img.height-750(src=imgAssets+'diag_adventure.svg')
 +frameInbox('Example: Pacman')
 	.fill.center
 		img.height-800(src=imgAssets+'pacman.png')
@@ -126,6 +126,6 @@ include ../mixins/containers_aph.pug
 +frameInbox('Pacman architecture')
 	div
 		ul
-			li contains only attributes
+			li we have here only the attributes
 		.text-center.mt-20
 			img.height-600(src=imgAssets+'diag_pacman.svg')

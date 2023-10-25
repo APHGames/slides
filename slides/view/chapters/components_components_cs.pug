@@ -10,7 +10,7 @@ include ../mixins/containers_aph.pug
 		ul
 			li.fragment(data-fragment-index="1") modulární část systému, jejíž chování je definováno z hlediska přijímaných a poskytnutých rozhraní
 			li.fragment(data-fragment-index="2") komponenty jsou <span class="highlight">plug-and-play objekty</span>
-			li.fragment(data-fragment-index="3") upřednostňuje kompozici před dědičností
+			li.fragment(data-fragment-index="3") upřednostňuje kompozici před dědičností a DOP (Data-Oriented Programming)
 			li.fragment(data-fragment-index="4") chování objektu je stanoveno tím, jaké obsahuje komponenty
 			li.fragment(data-fragment-index="5") <span class="highlight">Dungeon Siege (2002)</span> - jedna z prvních her s komponentovou architekturou
 		.space-2xl
@@ -60,10 +60,10 @@ include ../mixins/containers_aph.pug
 	.top-140.left-370
 		img.height-450(src=imgAssets+'components_jazz.jpg')
 	.fill.center.absolute
-		img.height-700(src=imgAssets+'cmp_jazz.svg')
-+mcontainer('Největší výzva v komponentové architektuře')
+		img.height-700(src=imgAssets+'cmp_jazz_cs.svg')
++mcontainer('Největší dilema v komponentové architektuře')
 	+frameShard.height-30p.top-280.center.z-index-100
-		div.highlight Je důležité si dobře promyslet, kdo za co zodpovídá
+		div.highlight Jak vhodně rozdělit zodpověnosti?
 +frameInbox('Příklad: Pacman')
 	.important-green
 		.text-center

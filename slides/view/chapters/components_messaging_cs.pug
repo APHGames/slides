@@ -17,7 +17,7 @@ include ../mixins/containers_aph.pug
 		.scope.fragment
 			p Přímým voláním
 			ul
-				li rychlý, ale zvyšuje zadrátovanost
+				li rychlé, ale zvyšuje zadrátovanost
 				li musíme vědět, koho volat
 				li volání typu <span class="code">getComponentByName().sth()</span>
 		.scope.fragment
@@ -26,7 +26,6 @@ include ../mixins/containers_aph.pug
 				li eventy a commandy
 				li každá komponenta deklaruje, které typy zpráv ji zajímají
 				li např. jakmile dostaneme zprávu ITEM_PICK, přehrajeme zvuk
-				li komponenta vyšle zprávu, ale už ji nezajímá, kdo na ní zareaguje
 		.top-160.right-150
 			img.width-750(src=imgAssets+'messaging.svg')
 +frameInbox('Message Broker')

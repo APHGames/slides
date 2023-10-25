@@ -17,10 +17,9 @@ include ../mixins/containers_aph.pug
 		.scope.fragment
 			p By direct calls
 			ul
-				li OOP way
 				li fast, but increases coupling
 				li we need to know what to call
-				li e.g. calling a global component that is always present
+				li <span class="code">getComponentByName().sth()</span> way
 		.scope.fragment
 			p By using a message broker
 			ul
@@ -55,12 +54,12 @@ include ../mixins/containers_aph.pug
 				li a) component sends a message to subscribers
 				li b) component sends a message to all objects that meet specific criteria
 				li example: notify all nearby units that the player has entered the area
-				li example: collision trigger - notify all subscribers 
+				li example: the player stepped into a puddle - play a sound
 		.scope.fragment
 			p Broadcast
 			ul
 				li rarely used, usually for global messages
-				li example: level completed, game over
+				li example: game over, debugging component
 		.bottom-0.right-20
 			img.height-680(src=imgAssets+'messaging_types.svg')
 +frameInbox('Example: Unity Messages')
@@ -71,7 +70,7 @@ include ../mixins/containers_aph.pug
 		ul
 			li.fragment facilitates communication between application parts via <span class="highlight">Message Passing</span>
 			li.fragment messages are classified into commands and events
-			li.fragment all messages are wrapped into <span class="highlight code">IMessageContext</span>, containing additional information
+			li.fragment all messages are wrapped into <span class="highlight code">IMessageContext</span>
 		.space-xl
 		.text-center
 			img.height-300(src=imgAssets+'diag_message_unreal.svg')
@@ -80,7 +79,7 @@ include ../mixins/containers_aph.pug
 		ul
 			li.upside.fragment facilitates event-based approach
 			li.upside.fragment components can react on any message that goes into the event bus
-			li.downside.fragment not intended for per-frame processing
+			li.downside.fragment not intended for per-frame processing (less so for dynamics or related object movement)
 			li.downside.fragment once established, it's not easy to revise the messaging architecture
 			li.mt-40.fragment if there is something that should run every frame, it's better to use polling or direct call
 		.bottom-0.right-60

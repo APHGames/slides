@@ -10,7 +10,7 @@ include ../mixins/containers_aph.pug
 		ul
 			li.fragment(data-fragment-index="1") a unit of composition with specified interfaces and explicit context dependencies
 			li.fragment(data-fragment-index="2") components are <span class="highlight">plug-and-play objects</span>
-			li.fragment(data-fragment-index="3") prefers composition over inheritance
+			li.fragment(data-fragment-index="3") prefers composition over inheritance and DOP (Data-Oriented Programming)
 			li.fragment(data-fragment-index="4") behavior of an entity is determined by the aggregation of its components
 			li.fragment(data-fragment-index="5") <span class="highlight">Dungeon Siege (2002)</span> - one of the first games featuring component-based systems
 		.space-2xl
@@ -23,8 +23,7 @@ include ../mixins/containers_aph.pug
 		ul
 			li.fragment.highlight Entity-Component-System (+ Attribute)
 			li.fragment common pattern for component-oriented libraries and engines
-			li.fragment game object is just a container for data and logic
-			li.fragment components are attached to their game objects
+			li.fragment game object is just a container for data and logic that will be supplied by attached components
 			li.fragment can be easily integrated into the <span class="highlight">scene graph</span>
 		.text-center
 			img.height-500.mt-15(src=imgAssets+'ecs.svg')
@@ -41,7 +40,7 @@ include ../mixins/containers_aph.pug
 		.scope.fragment
 			p System
 			ul
-				li a superior component responsible for a bigger scope (HealthSystem, GameManager, AudioSystem)
+				li a superior component responsible for a bigger scope (HealthSystem, StatsSystem, ScoreSystem)
 		.scope.fragment
 			p Attribute
 			ul
@@ -62,6 +61,9 @@ include ../mixins/containers_aph.pug
 		img.height-450(src=imgAssets+'components_jazz.jpg')
 	.fill.center.absolute
 		img.height-700(src=imgAssets+'cmp_jazz.svg')
++mcontainer('The greatest dilemma in component architecture')
+	+frameShard.height-30p.top-280.center.z-index-100
+		div.highlight How to divide responsibilities appropriately?
 +frameInbox('Example: Pacman')
 	.important-green
 		.text-center
@@ -109,8 +111,8 @@ include ../mixins/containers_aph.pug
 		.space-md
 		div
 			ul
-				li.downside.fragment dynamic typing - everything is assembled at runtime
-				li.downside.fragment all depedencies have to be wired together
+				li.downside.fragment everything is assembled at runtime
+				li.downside.fragment static code analysis will not reveal potential issues
 				li.downside.fragment the code must be written in a generic way
 				li.downside.fragment refactoring may become annoying
 				li.downside.fragment harder to debug
