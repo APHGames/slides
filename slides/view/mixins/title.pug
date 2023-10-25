@@ -70,6 +70,27 @@ mixin titleCommonCs(title)
 			div.text-center.text-center.width-700
 				h2.font-thin.uppercase!=title
 
+mixin titleGamification(name, label, icon)
+	+frameOutbox()
+		.absolute.left-10.top-15
+			.flex-row
+				div.mt-10
+					img.height-70(src!=globalAssets+'cvut_logo.svg')
+				.flex-col.font-light.text-sm.ml-10
+					p FIT ČVUT
+					p.mt-8 Adam Vesecký a Honza Matoušek
+		.absolute.right-10.top-15
+			.flex-col.font-light.text-xl.text-right
+				.text-xs BI-PRR
+				.text-xs.mt-2!=label
+		.height-120
+		div.flex-col.items-center.text-center
+			div.relative
+				img.width-1100(id='logo_title', src=icon)
+			div.text-center.text-center.width-700
+				h2.font-thin.uppercase!=name
+
+
 mixin titleLectureCs(name, label, icon)
 	+frameOutbox()
 		.absolute.left-10.top-15
