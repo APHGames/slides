@@ -1,0 +1,61 @@
+include ../mixins/containers.pug
+include ../mixins/containers_aph.pug
+
+- var imgAssets = '../assets/patterns_optimizing/';
+- var defaultBgr = 'backgrounds/lab.jpg';
+
++mchapter('Optimalizační vzory', imgAssets+'chapter_patterns_optimizing.svg')
++frameInbox('Ukládání dat')
+	.important-green
+		.flex-cols-2
+			figure.fragment
+				img.width-750.height-650(src=imgAssets+'memory_noopt.svg')
+				p Náhodně
+			figure.fragment
+				img.width-750.height-650(src=imgAssets+'memory_opt.svg')
+				p Sekvenčně
++frameInbox('Flyweight')
+	.important-orange
+		ul
+			li.fragment(data-fragment-index='1') způsob, jak pomocí sdílených dat uchovávat velké množství objektů
+			li.fragment(data-fragment-index='2') příklady: instanced rendering, particle systémy, staty jednotek v RTS 
+			li.fragment(data-fragment-index='3') zde přesuneme pozice a index dlaždice (Sprite) do pole
+		.text-center.mt-20.fragment(data-fragment-index='3')
+			img.height-610(src=imgAssets+'flyweight.svg')
++frameInbox('Execution Order')
+	.important-orange
+		ul
+			li.fragment stavy herních objektů jsou konzistentní na začátku a na konci iterace herní smyčky
+			li.fragment snadno se během updatu dostanou do nekonzistentního stavu - <span class="highlight">one-frame-off lag</span>
+			li.fragment možná řešení: bucket update, script execution order (Unity), process priority (Godot)
+		.center.fragment
+			figure.mt-40
+				img.width-1200(src=imgAssets+'update_inconsistencies_cs.svg')
+				p Objekt A čte předchozí stav objektu B a objekt B čte předchozí stav objektu C
++frameInbox('Dirty Flag')
+	.important-green
+		ul
+			li.fragment označí objekty, které byly změnou uvedeny do nekonzistentního stavu
+			li.fragment příklad: animace, fyzika, transformace (nejčastější)
+			li.fragment je potřeba flag nastavit vždy, když se změní jakýkoliv závislý atribut
+		.scope
+			p.fragment Clean-up
+			ul
+				li.fragment Když potřebujeme číst aktuální stav
+					ul
+						li.upside.fragment pokud aktuální stav nepotřebujeme, vyhneme se zbytečné rekalkulaci
+						li.downside.fragment pokud aktuální stav potřebujeme příliš často, hra může zamrznout
+				li.fragment Dávkové zpracování v předem daném bodě
+					ul
+						li.upside.fragment mnohem lepší kontrola
+						li.downside.fragment stejně může hra zamrznout, pokud je dirty flagů příliš mnoho
+				li.fragment Na pozadí
+					ul
+						li.upside.fragment lépe se rozdrobí výpočetní výkon
+						li.downside.fragment nebezpečí race-condition
+		.bottom-80.right-50.fragment
+			img.height-360(src=imgAssets+'dirty_flag.svg')
++frameInbox('Příklad: Godot Cache')
+	div
+		.code.text-xs
+			include ../../assets/patterns_optimizing/snippets_generated/godot_cache.html

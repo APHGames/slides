@@ -1,0 +1,47 @@
+include ../mixins/containers.pug
+include ../mixins/containers_aph.pug
+
+- var imgAssets = '../assets/patterns_creational/';
+- var defaultBgr = 'backgrounds/minecraft_blocks.png';
+
++mchapter('Sestavovací vzory', imgAssets+'chapter_patterns_creational.svg')
++frameInbox('Builder')
+	.important-orange
+		ul.spacing-4xs
+			li.fragment šablona, která obsahuje atributy, na základě kterých sestaví nový objekt
+			li.fragment implementuje "chainable" princip - každá metoda vrací zpět samotný builder
+		.code.mt-20.text-2xs.fragment
+			include ../../assets/patterns_creational/snippets_generated/builder.html
+			.right-0.bottom-150
+				img.height-420(src=imgAssets+'builder.svg')
++frameInbox('Builder: příklad (COLFIO)')
+	.fill.center
+		.code.text-md.fragment
+			include ../../assets/patterns_creational/snippets_generated/builder_ecslite.html
++frameInbox('Prototyp')
+	.important-orange
+		ul
+			li.fragment <span class="highlight">Builder</span> vytváří nový objekty na základě vnitřních atributů, <span class="highlight">Prototyp</span> je vytváří zkopírováním sebe sama
+			li.fragment v některých implementacích je prototyp reaktivní - pokud jej změníme, změní se všechny instance
+			li.fragment např. linked prefabs v Unity
+		.flex-cols-2.items-end.mt-20.fragment
+			img.height-420.mb-60(src=imgAssets+'prototype.svg')
+			figure
+				img.height-500(src=imgAssets+'unity_prefab.gif')
+				p Prefabs v Unity
++frameInbox('Transmuter')
+	.important-green
+		ul
+			li.fragment modifikuje stav a chování objektu
+			li.fragment užitečný, pokud změna není triviální 
+			li.fragment můžeme přesunout modifikační proces z komponent do separátních funkcí
+		.code.mt-20.text-sm.fragment
+			include ../../assets/patterns_creational/snippets_generated/transmuter.html
+		.text-center.mt-20.fragment
+			img.height-300(src=imgAssets+'transmuter.svg')
++frameInbox('Factory')
+	.important-orange
+		ul
+			li.fragment <span class="highlight">Builder</span> sestavuje objekty, <span class="highlight">Factory</span> orchestruje sestavení
+		.code.mt-20.text-xs.fragment
+			include ../../assets/patterns_creational/snippets_generated/factory.html

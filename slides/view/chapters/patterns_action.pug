@@ -19,9 +19,9 @@ include ../mixins/containers_aph.pug
 				img.height-300(src=imgAssets+'unreal_blueprints.png')
 				p Unreal Blueprints
 			figure.fragment
-				img.height-300(src=imgAssets+'unity_bolt.png')
-				p Unity Bolt
-+frameInbox('Example: Godot Editor')
+				img.height-300(src=imgAssets+'unity_visual.jpg')
+				p Unity Visual Scripting
++frameInbox('Example: Godot Editor (Cancelled in Godot 4)')
 	.important-green
 		.text-center
 			img.height-750(src=imgAssets+'events_godot.jpg')
@@ -32,24 +32,22 @@ include ../mixins/containers_aph.pug
 		.scope.fragment
 			p What we need
 			ul
-				li.fragment built-in event emitter
-				li.fragment a good way of how to define events for levels (declarative and imperative)
-				li.fragment structures for evaluation of conditional events (e.g. history of recent events)
-				li.fragment a good visualisation, if the events are branching
-		.bottom-0.right-0.fragment
-			img.height-440(src=imgAssets+'events_pokemon.jpg')
+				li.fragment event emitter (a library responsible for sending events)
+				li.fragment a list of events that take place in the game
+				li.fragment for each component, a list of events it can either send or react to
+		.bottom-0.right-50.fragment
+			img.height-460(src=imgAssets+'events_openttd.png')
 		.bottom-0.left-50.fragment
-			img.height-360(src=imgAssets+'events_owlboy.jpg')
-		+tipKeen1('Avoid placing conditions in declarative languages').bottom-0
+			img.height-460(src=imgAssets+'events_lol.jpg')
 +frameInbox('Processes and Actions')
 	.important-orange
 		ul
 			li.fragment <span class="highlight">Process</span> - something that requires more than one frame to finish
 				ul
-					li.fragment basically everything that involves animations and accumulated player input
+					li.fragment basically everything that involves animations
 		.space-md
 		.scope.fragment
-			p Example: Pacman actions
+			p Example: Pacman
 			div.center
 				img.height-400(src=imgAssets+'action_pacman.svg')
 			.left-700.bottom-100
@@ -57,14 +55,14 @@ include ../mixins/containers_aph.pug
 +frameInbox('Chain')
 	.important-green
 		ul
-			li.fragment <span class="highlight">Chain</span> - a set of commands, events and processes that need to be evaluated in a given order
+			li.fragment <span class="highlight">Chain</span> - a pattern that allows to execute a sequence of events/commands in a given order
 			li.mt-20.fragment 
 				p.highlight Implementation
 				ul
-					li.fragment <span class="highlight-2">callbacks</span> - basically in every language, very bad robustness
-					li.fragment <span class="highlight-2">listener chaining</span> - any language with closures (Java, JavaScript, C#,..)
+					li.fragment <span class="highlight-2">callback chaining</span> - basically in every language, very bad robustness
 					li.fragment <span class="highlight-2">iterator blocks</span> - C#
-					li.fragment <span class="highlight-2">async actions and generators</span> - JavaScript
+					li.fragment <span class="highlight-2">async/await </span> - JavaScript and C#
+					li.fragment <span class="highlight-2">generators</span> - JavaScript
 					li.fragment <span class="highlight-2">coroutines</span> - Kotlin, Ruby, Lua,...
 		.bottom-0.right-0.fragment
 			img.height-400(src=imgAssets+'chain_pokemon.gif')
@@ -78,11 +76,10 @@ include ../mixins/containers_aph.pug
 	div.fill.center
 		.code
 			include ../../assets/patterns_action/snippets_generated/chain_ecslite.html
-+frameInbox('Delay')
++frameInbox('Delayed invocation')
 	.important-green
 		ul
 			li.fragment an action/event that should happen after a given amount of time
-			li.fragment can be implemented with by same means as the chain
 			li.fragment
 				span.highlight always prefer an approach the engine recommends over features built into the scripting language
 				ul
@@ -90,11 +87,11 @@ include ../mixins/containers_aph.pug
 			li.fragment example: Unity Delayed Invocation
 				.code.text-sm.mt-20
 					include ../../assets/patterns_action/snippets_generated/unity_delayed_invocation.html
-+frameInbox('Delay Example (ECSLite library)')
++frameInbox('Delay Invocation Example (COLFIO library)')
 	div.fill.center
 		.code
 			include ../../assets/patterns_action/snippets_generated/delay_ecslite.html
-+frameInbox('Delay Example (KKD)')
++frameInbox('Delay Invocation Example (KKD)')
 	div.fill.center
 		.code.text-sm
 			include ../../assets/patterns_action/snippets_generated/delay_kkd.html
@@ -109,7 +106,7 @@ include ../mixins/containers_aph.pug
 			li.upside.fragment separated
 				.code.text-2xs
 					include ../../assets/patterns_action/snippets_generated/separation_good.html
-+frameInbox('Example: Quake death script')
++frameInbox('Antipattern: Quake death script')
 	.flex-cols-2
 		.code.text-2xs
 			include ../../assets/patterns_action/snippets_generated/quake.html
@@ -123,9 +120,9 @@ include ../mixins/containers_aph.pug
 			li.fragment(data-fragment-index="3") if the scope affects <span class="highlight">only one entity</span>, it should be a component attached to that entity
 				ul
 					li.fragment(data-fragment-index="4") <span class="highlight-2">example:</span> a worker that goes to the forest for some wood
-			li.fragment(data-fragment-index="5") if the scope affects <span class="highlight">more entities</span>, it's often a component/system attached to a parent element up the scene graph (e.g. the root object)
+			li.fragment(data-fragment-index="5") if the scope affects <span class="highlight">more entities</span>, it's should be implemented in systems (or in a component of parent nodes)
 				ul
-					li.fragment(data-fragment-index="6") <span class="highlight-2">example:</span> battle formation controller, duel controller (who wins, who loses)
+					li.fragment(data-fragment-index="6") <span class="highlight-2">example:</span> battle formation controller
 		.flex-cols-2.mt-15
 			figure.fragment(data-fragment-index="4")
 				img.height-330(src=imgAssets+'ownership_cossacks3.jpg')

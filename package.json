@@ -1,7 +1,7 @@
 {
   "name": "aph-slides",
   "author": "Adam Vesecký",
-  "version": "6.6",
+  "version": "6.7",
   "license": "MIT",
   "scripts": {
     "dev": "npm run copydata && npm run serve",

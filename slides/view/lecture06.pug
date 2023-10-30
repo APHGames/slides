@@ -1,6 +1,6 @@
 // GROUP=Lectures
 // COURSE=APH
-// NAME=Audio
+// NAME=Space
 // LOCALE=en 
 // ORDER=6
 // LOCKED=true
@@ -17,24 +17,28 @@ include ./mixins/summary.pug
 - var defaultBgr = 'backgrounds/bgr_arcades2.jpg';
 
 html(lang='en')
-	+header('Audio', 'Adam Vesecký', themePath + 'resources/favicon.png', themePath + 'theme_aph.scss')
+	+header('Space', 'Adam Vesecký', themePath + 'resources/favicon.png', themePath + 'theme_aph.scss')
+
 	.reveal
 		.slides
-			+titleLecture('Audio', 'Lecture 6', globalAssets+'lectures/ic_lecture06.svg')
+			+titleLecture('Space', 'Lecture 7', globalAssets+'lectures/ic_lecture07.svg')
 			+frameInbox('Literature')
 				ul
 					li
-						a(href="https://www.amazon.com/Game-Sound-Introduction-History-Practice/dp/026203378X") Collins, Karen. 2008. Game Sound: An Introduction to the History, Theory, and Practice of Video Game Music and Sound Design
-				div.text-center
-					img.height-500(src=globalAssets+'book_audio.jpg' alt='Collins, Karen. Game Sound: An Introduction to the History, Theory, and Practice of Video Game Music and Sound Design')
-			include ./chapters/audio_digital_sound.pug
-			include ./chapters/audio_synth.pug
-			include ./chapters/audio_music.pug
-			include ./chapters/audio_sounds.pug
-			include ./chapters/audio_apis.pug
-			- var defaultBgr = 'backgrounds/bgr_arcades2.jpg';
-			+summary_lecture06()
-			+quote-gta()
+						a(href="https://www.amazon.com/Essential-Mathematics-Games-Interactive-Applications/dp/0123742978") Verth, Van. 2008. Essential Mathematics for Games and Interactive Applications
+					li
+						a(href="https://www.amazon.com/Procedural-Generation-Design-Tanya-Short/dp/1498799191") Adams, Tarn & Short, Tanya X. 2017. Procedural Generation in Game Design 
+				.flex-cols-2
+					div.text-center
+						img.height-500(src=globalAssets+'book_math_for_games.jpg' alt='Verth, Van. Essential Mathematics for Games and Interactive Applications')
+					div.text-center
+						img.height-500(src=globalAssets+'book_procedural_generation.jpg' alt='Adams, Tarn & Short, Tanya X. Procedural Generation in Game Design')
+			include ./chapters/space_randomness.pug
+			include ./chapters/space_procedural.pug
+			include ./chapters/space_geometric_hashing.pug
+			include ./chapters/space_navigation.pug
+			+summary_lecture07()
+			+quote-mightmagic()
 
-	+footer('Adam Vesecký (FIT CTU)', 'Architecture of Computer Games, Lecture 6: Audio')
+	+footer('Adam Vesecký (FIT CTU)', 'Architecture of Computer Games, Lecture 7: Space')
 	script(src!='../../scripts/reveal-setup.js')

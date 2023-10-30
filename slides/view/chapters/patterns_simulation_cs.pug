@@ -1,0 +1,62 @@
+include ../mixins/containers.pug
+include ../mixins/containers_aph.pug
+
+- var imgAssets = '../assets/patterns_simulation/';
+- var defaultBgr = 'backgrounds/control_room.png';
+
++mchapter('Simulační vzory', imgAssets+'chapter_patterns_simulation.svg')
++frameInbox('Sandbox')
+	.important-green
+		ul
+			li.fragment(data-fragment-index="1") plná simulace se odehrává v bezprostřední blízkosti hráče (influence sphere)
+			li.fragment(data-fragment-index="2") prostředí dál od hráče se buďto nesimuluje vůbec nebo značně zjednodušeně
+			li.fragment(data-fragment-index="3") používá se především v závodních hrách a open-world hrách
+		.bottom-50.left-50.fragment(data-fragment-index="2")
+			img.height-450(src=imgAssets+'sandbox_arma3.jpg')
+		.bottom-90.left-210.fragment(data-fragment-index="2")
+			img.height-250(src=imgAssets+'sandbox.svg')
+		.bottom-50.right-50.fragment(data-fragment-index="2")
+			img.height-450(src=imgAssets+'sandbox_mariokart.jpg')
++frameInbox('Replay')
+	.important-green
+		ul
+			li.fragment umožňuje reprodukovat libovolný stav hry v libovolném čase
+			li.fragment všechny herní objekty musí mít reprodukovatelné chování (podobné multiplayeru)
+			li.mt-20.fragment
+				span.highlight Řešení a)
+				ul
+					li.fragment uložit všechny vstupní události od hráče a přehrát je ve stejném pořadí
+					li.fragment použito ve hře Doom
+					li.downside.fragment hra musí být plně deterministická, což dnes skoro nikdy neplatí
+			li.mt-20.fragment
+				span.highlight Řešení b)
+				ul
+					li.fragment mít každou akci, která modifikuje herní stav, reverzibilní
+					li.downside.fragment značně komplikuje náhodný přístup
+			li.mt-20.fragment
+				span.highlight Řešení c)
+				ul
+					li.fragment vytvářet snapshot každých X framů
+					li.fragment použito ve hře Braid
++frameInbox('Příklad: Braid')
+	div
+		ul
+			li.fragment 40MB pro ~60 minut replaye, používá klíčové snímky pro interpolaci
+			li.fragment ukládá se stav hry kromě particle emitorů
+			li.fragment audio engine měl vlastní timer s 10% marginem
+		.bottom-0.left-0
+			img.height-200(src=imgAssets+'braid_c.png')
+		.bottom-0.left-500
+			img.height-150(src=imgAssets+'braid_b.png')
+		.bottom-0.right-0
+			img.height-350(src=imgAssets+'braid_a.png')
++frameInbox('Příklad: Doom Demo Soubor')
+	div
+		ul.spacing-xs
+			li.fragment Lump (*.LMP)
+			li.fragment fixní časová smyčka, 35 FPS (zpracováno příkazem <span class="highlight">tick</span>)
+			li.fragment soubor obsahuje pouze údaje z klávesnice při každém ticku
+			li.fragment hra hraje sama, používajíc vstupní údaje ze souboru
+			li.fragment 13B header + 4B data pro každý tick <span class="highlight">~140B/s</span>
+		.mt-20.text-center.fragment
+			img.height-500(src=imgAssets+'doom_replay.svg')

@@ -9,9 +9,8 @@ include ../mixins/containers_aph.pug
 	.important-green
 		ul
 			li.fragment(data-fragment-index="1") full simulation takes place within a space close to the player (influence sphere)
-			li.fragment(data-fragment-index="2") simulation in an area further away is either <span class="highlight">omitted or simplified</span>
-			li.fragment(data-fragment-index="3") often used in racing games and open-world games with <span class="highlight">persistent objects</span>
-			li.fragment(data-fragment-index="4") can be implemented as a separate branch of the scene - the same objects are used, but certain components (rigidbody, animator,...) are disabled
+			li.fragment(data-fragment-index="2") simulation in an area further away is either omitted or simplified
+			li.fragment(data-fragment-index="3") often used in racing games and open-world games
 		.bottom-50.left-50.fragment(data-fragment-index="2")
 			img.height-450(src=imgAssets+'sandbox_arma3.jpg')
 		.bottom-90.left-210.fragment(data-fragment-index="2")
@@ -28,7 +27,7 @@ include ../mixins/containers_aph.pug
 				ul
 					li.fragment store all input events from the player and re-play them in the same order
 					li.fragment used in Doom
-					li.downside.fragment not robust, may break on other platforms
+					li.downside.fragment the game has to be deterministic, which no longer applies
 			li.mt-20.fragment
 				span.highlight Solution b)
 				ul
@@ -42,9 +41,8 @@ include ../mixins/containers_aph.pug
 +frameInbox('Example: Braid')
 	div
 		ul
-			li.fragment 40MB for ~60 minutes of replay
+			li.fragment 40MB for ~60 minutes of replay, uses keyframes for interpolation
 			li.fragment saved 100% state (compressed, removed looping particle emitters)
-			li.fragment arbitrary seek required to expand 2 frames (full snapshot and delta)
 			li.fragment audio engine had its own timer with 10% safe margin
 		.bottom-0.left-0
 			img.height-200(src=imgAssets+'braid_c.png')
@@ -56,7 +54,7 @@ include ../mixins/containers_aph.pug
 	div
 		ul.spacing-xs
 			li.fragment Lump file (*.LMP)
-			li.fragment fixed time-loop at a rate of 35 FPS (handled by <span class="highlight">tic</span> command)
+			li.fragment fixed time-loop at a rate of 35 FPS (handled by <span class="highlight">tick</span> command)
 			li.fragment the file contains only keyboard inputs at each tick
 			li.fragment the game plays the demo, injecting input commands from the demo file
 			li.fragment 13B header + 4B data for each tick <span class="highlight">~140B/s</span>

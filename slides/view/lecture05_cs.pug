@@ -3,7 +3,6 @@
 // NAME=Patterny a postupy
 // LOCALE=cs 
 // ORDER=5
-// LOCKED=true
 doctype html
 include ./mixins/header.pug
 include ./mixins/containers.pug
@@ -16,39 +15,39 @@ include ./mixins/summary.pug
 - var globalAssets = '../assets/all/';
 - var defaultBgr = 'backgrounds/bgr_arcades2.jpg';
 
-html(lang='en')
-	+header('Patterns', 'Adam Vesecký', themePath + 'resources/favicon.png', themePath + 'theme_aph.scss')
+html(lang='cs')
+	+header('Patterny', 'Adam Vesecký', themePath + 'resources/favicon.png', themePath + 'theme_aph.scss')
 	.reveal
 		.slides
-			+titleLecture('Patterns', 'Lecture 5', globalAssets+'lectures/ic_lecture05.svg')
-			+frameInbox('Literature')
+			+titleLectureCs('Patterny', 'Přednáška 5', globalAssets+'lectures/ic_lecture05.svg')
+			+frameInbox('Literatura')
 				ul
 					li
 						a(href="https://www.amazon.com/Game-Programming-Patterns-Robert-Nystrom/dp/0990582906") Nystrom, Robert. 2014. Game Programming Patterns
 				div.text-center
 					img.height-550(src=globalAssets+'book_programming_patterns.jpg' alt='Nystrom, Robert. Game Programming Patterns')
-			include ./chapters/patterns_intro.pug
-			include ./chapters/patterns_action.pug
-			include ./chapters/patterns_optimizing.pug
-			include ./chapters/patterns_structural.pug
-			include ./chapters/patterns_state.pug
-			include ./chapters/patterns_creational.pug
-			include ./chapters/patterns_simulation.pug
-			+frameInbox('Design practices: Summary')
+			include ./chapters/patterns_intro_cs.pug
+			include ./chapters/patterns_action_cs.pug
+			include ./chapters/patterns_optimizing_cs.pug
+			include ./chapters/patterns_structural_cs.pug
+			include ./chapters/patterns_state_cs.pug
+			include ./chapters/patterns_creational_cs.pug
+			include ./chapters/patterns_simulation_cs.pug
+			+frameInbox('Patterny - shrnutí')
 				.important-green
 					ul.spacing-md
-						li.fragment use <span class="highlight">Builder</span> to build new objects
-						li.fragment use <span class="highlight">Factory</span> to manage construction of new objects
-						li.fragment use <span class="highlight">Prototype</span> to clone already existing objects
-						li.fragment use <span class="highlight">Chain</span> to chain up complex actions/processes
-						li.fragment use <span class="highlight">Selectors</span> to access attributes that are deep in the scene hierarchy
-						li.fragment use <span class="highlight">Flag</span> to collect a set of features of an object 
-						li.fragment use <span class="highlight">Numeric state</span> for a simple finite state machine
-						li.fragment use <span class="highlight">Transmuter</span> to change a composition of components upon an object
-						li.fragment use <span class="highlight">Context</span> to store global game data
+						li.fragment <span class="highlight">Builder</span> používáme pro vytváření nových objektů
+						li.fragment <span class="highlight">Factory</span> používáme pro orchestraci vytváření objektů
+						li.fragment <span class="highlight">Prototyp</span> používáme pro klonování šablonových objektů
+						li.fragment <span class="highlight">Chain</span> synchronizuje komplexní procesy
+						li.fragment <span class="highlight">Selektor</span> centralizuje informaci, jak se dostat k nějakému objektu
+						li.fragment <span class="highlight">Flag</span> uchovává informaci o binárních vlastnostech objektu 
+						li.fragment <span class="highlight">Numerický stav</span> implementuje jednoduchý stavový automat
+						li.fragment <span class="highlight">Transmuter</span> mění vlastnosti herního objektu
+						li.fragment <span class="highlight">Context</span> uchovává globální data
 			- var defaultBgr = 'backgrounds/bgr_arcades2.jpg';
-			+summary_lecture05()
-			+quote-skyrim()
+			+summary_lecture05cs()
+			+quote-openttdcs()
 
-	+footer('Adam Vesecký (FIT CTU)', 'Architecture of Computer Games, Lecture 5: Patterns')
+	+footer('Adam Vesecký (FIT ČVUT)', 'Architektura Počítačových Her, Přednáška 5: Patterny')
 	script(src!='../../scripts/reveal-setup.js')

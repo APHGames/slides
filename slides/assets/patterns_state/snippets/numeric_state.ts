@@ -9,6 +9,7 @@ updateCreature() {
 updateCreature() {
   if(eventSystem.isPressed(KeyCode.UP) && this.creature.state !== STATE_JUMPING) {
     this.creature.changeState(STATE_JUMPING);
+    eventSystem.handleKey(KeyCode.UP);
     this.creature.jump();
   }
 }

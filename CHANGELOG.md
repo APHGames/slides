@@ -6,6 +6,11 @@ Versioning info:
 - second number indicates a week (1 for the first week)
 - third number indicates minor changes, such as hotfixes and updates
 
+## [6.7] - 2023-11-3
+### Added
+Lecture 5 new slides
+DRM slides
+Gamification slides
 
 ## [6.6] - 2023-10-27
 ### Added

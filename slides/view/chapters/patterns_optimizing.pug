@@ -18,18 +18,28 @@ include ../mixins/containers_aph.pug
 	.important-orange
 		ul
 			li.fragment(data-fragment-index='1') an object keeps shared data to support large number of fine-grained objects
-			li.fragment(data-fragment-index='2') e.g. instanced rendering, geometry hashing, particle systems
+			li.fragment(data-fragment-index='2') e.g., instanced rendering, particle systems
 			li.fragment(data-fragment-index='3') here we move a position and a tile index (Sprite) into an array
 		.text-center.mt-20.fragment(data-fragment-index='3')
 			img.height-610(src=imgAssets+'flyweight.svg')
++frameInbox('Execution Order')
+	.important-orange
+		ul
+			li.fragment game objects are consistent in the beginning and in the end of an update loop iteration
+			li.fragment they can easily get into an unconsitent state - <span class="highlight">one-frame-off lag</span>
+			li.fragment possible solutions: bucket update, script execution order (Unity), process priority (Godot)
+		.center.fragment
+			figure.mt-40
+				img.width-1200(src=imgAssets+'update_inconsistencies.svg')
+				p The object A reads the previous state of the object B, and the object B reads the previous state from the object C
 +frameInbox('Dirty Flag')
 	.important-green
 		ul
 			li.fragment marks changed objects that need to be recalculated
-			li.fragment can be applied to various attributes (animation, physics, transformation)
+			li.fragment e.g., animations, physics, transformations (the most common case)
 			li.fragment you have to make sure to set the flag every time the state changes
 		.scope
-			p.fragment Cleaning
+			p.fragment Clean-up
 			ul
 				li.fragment When the result is needed
 					ul
@@ -38,10 +48,10 @@ include ../mixins/containers_aph.pug
 				li.fragment At well-defined checkpoints
 					ul
 						li.upside.fragment less impact on user experience
-						li.downside.fragment you never know, when it happens
+						li.downside.fragment still, the game can freeze with too many dirty flags
 				li.fragment On the background
 					ul
-						li.upside.fragment you can do more redundant work
+						li.upside.fragment more granular processing
 						li.downside.fragment danger of race-condition
 		.bottom-50.right-50.fragment
 			img.height-460(src=imgAssets+'dirty_flag.svg')

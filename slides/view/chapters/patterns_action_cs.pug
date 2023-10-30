@@ -1,0 +1,132 @@
+include ../mixins/containers.pug
+include ../mixins/containers_aph.pug
+
+- var imgAssets = '../assets/patterns_action/';
+- var defaultBgr = 'backgrounds/ships.jpg';
+
++mchapter('Procesní návrhové vzory', imgAssets+'chapter_patterns_action.svg')
++frameInbox('Data-Passing Komponenty')
+	.important-green
+		ul
+			li.fragment ~vizuální programování
+			li.fragment hlavním aspektem je modelování přenosu dat a signálů z jedné komponenty do druhé
+			li.fragment každá komponenta má porty, na které je možno připojit daný stream
+			li.fragment vyžaduje vizuální editor
+			li.upside.fragment vhodné pro zpracování dynamických dat (shadery, animace, jednoduché AI)
+		.space-lg
+		.flex-cols-2
+			figure.fragment
+				img.height-300(src=imgAssets+'unreal_blueprints.png')
+				p Unreal Blueprinty
+			figure.fragment
+				img.height-300(src=imgAssets+'unity_visual.jpg')
+				p Unity Visual Scripting
++frameInbox('Příklad: Godot Editor (zrušen ve verzi 4)')
+	.important-green
+		.text-center
+			img.height-750(src=imgAssets+'events_godot.jpg')
++frameInbox('Event System')
+	.important-green
+		ul
+			li.fragment hry jsou obecně postavené na událostech
+		.scope.fragment
+			p Co potřebujeme
+			ul
+				li.fragment event emitter (knihovna, která řeší posílání událostí)
+				li.fragment seznam klíčových událostí, které se ve hře odehrávají
+				li.fragment u každé komponenty seznam událostí, na které má reagovat a které může sama posílat
+		.bottom-0.right-50.fragment
+			img.height-460(src=imgAssets+'events_openttd.png')
+		.bottom-0.left-50.fragment
+			img.height-460(src=imgAssets+'events_lol.jpg')
++frameInbox('Procesy a akce')
+	.important-orange
+		ul
+			li.fragment <span class="highlight">Proces</span> - zpravidla něco, co se odehrává po dobu více než 1 framu
+				ul
+					li.fragment prakticky vše, co je nějakým způsobem navázané na animace
+		.space-md
+		.scope.fragment
+			p Příklad: Pacman
+			div.center
+				img.height-400(src=imgAssets+'action_pacman_cs.svg')
+			.left-700.bottom-100
+				img.height-100(src=imgAssets+'fsm_pacman.png')
++frameInbox('Chain')
+	.important-green
+		ul
+			li.fragment <span class="highlight">Chain</span> - vzor, který umožňuje provést v daném pořadí sekvenci událostí
+			li.mt-20.fragment 
+				p.highlight Implementace
+				ul
+					li.fragment <span class="highlight-2">callback chaining</span> - dostupné prakticky v každém jazyku, nedostatečná robustnost
+					li.fragment <span class="highlight-2">iterator blocks</span> - C#
+					li.fragment <span class="highlight-2">async/await</span> - JavaScript a C#
+					li.fragment <span class="highlight-2">generátory</span> - JavaScript
+					li.fragment <span class="highlight-2">coroutine</span> - Kotlin, Ruby, Lua,...
+		.bottom-0.right-0.fragment
+			img.height-400(src=imgAssets+'chain_pokemon.gif')
+		.bottom-40.left-40.fragment
+			img.height-230(src=imgAssets+'chain_cs.svg')
++frameInbox('Příklad: Chain (C#)')
+	div
+		.code
+			include ../../assets/patterns_action/snippets_generated/chain.html
++frameInbox('Příklad: Chain (COLFIO knihovna)')
+	div.fill.center
+		.code
+			include ../../assets/patterns_action/snippets_generated/chain_ecslite.html
++frameInbox('Delayed Invocation')
+	.important-green
+		ul
+			li.fragment volání, které má nastat až za nějaký čas
+			li.fragment
+				span.highlight vždy je potřeba preferovat featury doporučené enginem nad built-in funkcemi skriptovacího jazyka
+				ul
+					li.fragment např. <span class="highlight-2 code">setTimeout()</span> v JavaScriptu je navázaný na event loopu platformy, ne na game loopu JS enginů
+			li.fragment příklad: Unity Delayed Invocation
+				.code.text-sm.mt-20
+					include ../../assets/patterns_action/snippets_generated/unity_delayed_invocation.html
++frameInbox('Delayed Invocation příklad (COLFIO knihovna)')
+	div.fill.center
+		.code
+			include ../../assets/patterns_action/snippets_generated/delay_ecslite.html
++frameInbox('Delayed Invocation příklad (KKD)')
+	div.fill.center
+		.code.text-sm
+			include ../../assets/patterns_action/snippets_generated/delay_kkd.html
++frameInbox('Separation of concerns')
+	.important-green
+		ul.spacing-2xs
+			li.fragment obvyklý problém je zpracování komplexních událostí na jednom místě
+			li.fragment řešení: použít události a delegovat zpracování jinam
+			li.downside.fragment na jednom místě
+				.code.text-2xs
+					include ../../assets/patterns_action/snippets_generated/separation_wrong.html
+			li.upside.fragment odděleně
+				.code.text-2xs
+					include ../../assets/patterns_action/snippets_generated/separation_good.html
++frameInbox('Antipattern: Quake death script')
+	.flex-cols-2
+		.code.text-2xs
+			include ../../assets/patterns_action/snippets_generated/quake.html
+		div
+			img.height-700.mt-70.ml-80(src=imgAssets+'quake_logo.png')
++frameInbox('Responsibility ownership')
+	.important-orange
+		ul
+			li.fragment(data-fragment-index="1") určuje, která komponenta by měla být zodpovědná za daný scope/akci/rozhodnutí
+			li.fragment(data-fragment-index="2") vícero způsobů; mělo by být konzistentní napříč hrou
+			li.fragment(data-fragment-index="3") pokud se daný problém týká <span class="highlight">pouze jedné entity</span>, měla by ten problém řešit jedna z jejích komponent
+				ul
+					li.fragment(data-fragment-index="4") <span class="highlight-2">příklad:</span> dělník jde do lesa pro dřevo
+			li.fragment(data-fragment-index="5") pokud se daný problém týká <span class="highlight">vícero entit</span>, měl by se v rámci ECS řešit v systémech (či v komponentě rodičovských uzlů)
+				ul
+					li.fragment(data-fragment-index="6") <span class="highlight-2">příklad:</span> controller bitevní formace
+		.flex-cols-2.mt-15
+			figure.fragment(data-fragment-index="4")
+				img.height-330(src=imgAssets+'ownership_cossacks3.jpg')
+				p Individuální jednotky
+			figure.fragment(data-fragment-index="6")
+				img.height-330(src=imgAssets+'ownership_group_cossacks3.jpg')
+				p Bitevní formace

@@ -1,0 +1,18 @@
+include ../mixins/containers.pug
+include ../mixins/containers_aph.pug
+
+- var imgAssets = '../assets/patterns_intro/';
+- var defaultBgr = 'backgrounds/puzzle.jpg';
+
++mcontainer
+	+frameShard().top-40p
+		+quote('Pokud se herní vývojáři kdy zaobírali návrhovými vzory, málokdy vytvořili něco komplexnějšího než singleton. Kniha Design Patterns se ve své původní podobě na hry vůbec nehodí.', 'Robert Nystrom').text-xl
++frameInbox('Návrhové vzory')
+	div
+		.flex-cols-2
+			figure.fragment
+				img.height-700(src=imgAssets+'patterns_apps.svg')
+				p Návrhové vzory v aplikacích
+			figure.fragment
+				img.height-700(src=imgAssets+'patterns_games.svg')
+				p Návrhové vzory ve hrách

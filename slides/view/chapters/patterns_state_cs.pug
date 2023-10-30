@@ -1,0 +1,42 @@
+include ../mixins/containers.pug
+include ../mixins/containers_aph.pug
+
+- var imgAssets = '../assets/patterns_state/';
+- var defaultBgr = 'backgrounds/geometry.png';
+
++mchapter('Stavové vzory', imgAssets+'chapter_patterns_state.svg')
++frameInbox('Mutability')
+	.important-green
+		ul.spacing-xl
+			li.fragment immutabilní stav je luxus, který si můžou dovolit jen jednoduché hry
+			li.fragment většina struktur je zkrátka mutabilních
+			li.fragment <span class="highlight">selektor</span> nám umožní přístup k atributům, které jsou v hlubší hierarchii
+			li.fragment <span class="highlight">dirty flag</span> nám pomůže zjistit, zda se objekt změnil během update
+			li.fragment <span class="highlight">transmuter</span> nám pomůže centralizovat komplexní modifikace (o tom za chvíli)
+			li.fragment <span class="highlight">messaging</span> nám pomůže zjistit, co se událo za změnu ve hře
++frameInbox('Flag')
+	.important-orange
+		ul
+			li.fragment(data-fragment-index='1') <span class="highlight">bitové pole</span>, které obsahuje binární vlastnosti herního objektu
+			li.fragment(data-fragment-index='2') můžeme použít i pro dotazy (např. najdi všechny objekty s flagem MOVABLE)
+			li.fragment(data-fragment-index='3') podobné jako stavový automat, jen se liší v použití
+			li.fragment(data-fragment-index='4') pokud jsou flagy všech objektů snadno přístupné, je hledání velmi rychlé
+		.bottom-70.left-150.fragment(data-fragment-index='1')
+			img.height-250(src=imgAssets+'flag_01.svg')
+		.bottom-50.right-300.fragment(data-fragment-index='1')
+			img.height-150(src=imgAssets+'mage.png')
++frameInbox('Příklad: Flag Table')
+	.important-green
+		.text-center
+			img.height-700(src=imgAssets+'flag_02_cs.svg')
+		.bottom-100.left-280
+			img.height-500(src=imgAssets+'flag_units.png')
++frameInbox('Numerický stav')
+	.important-orange
+		ul
+			li.fragment nejjednodušší stav herního objektu
+			li.fragment umožňuje implementovat jednoduchý stavový automat
+		.code.mt-20.fragment
+			include ../../assets/patterns_state/snippets_generated/numeric_state.html
+			.bottom-300.right-200
+				img.height-400(src=imgAssets+'jump.gif')

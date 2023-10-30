@@ -23,15 +23,16 @@ include ../mixins/containers_aph.pug
 			ul
 				li.fragment shared data structure for a scope (or the whole game)
 				li.fragment may contain both states and properties
-				li.fragment provides global or scoped data (e.g. player score, money, number of lives)
+				li.fragment e.g., player score, virtual money, number of lives
 				li.fragment often used in behavioral trees
 		.code.text-sm.mt-20.fragment
 			include ../../assets/patterns_structural/snippets_generated/context.html
 +frameInbox('Null Component')
 	.important-green
 		ul
-			li.fragment in some cases, components need to communicate directly (instead of sending messages)
-			li.fragment if we want to avoid using null-checks, we can introduce a dummy component that doesn't do anything
+			li.fragment Null Component or Dummy Component
+			li.fragment on the outside, it is identified as an actual component, on the inside, however, it doesn't do anything
+			li.fragment can be used in the cases when the presence of the actual component is required, yet its functionality isn't (e.g., if we mute all sounds)
 			li.fragment example: instant animations for debugging purposes
 				.code.text-md.mt-20
 					include ../../assets/patterns_structural/snippets_generated/null_component.html
@@ -40,7 +41,6 @@ include ../mixins/containers_aph.pug
 		ul
 			li.fragment a function that returns a value
 			li.fragment centralizes the knowledge of how to find an entity/attribute/component
-			li.upside.fragment can be used by components to access dynamic data
-			li.upside.fragment can form a hierarchy from other selectors
+			li.upside.fragment can form a hierarchy
 		.code.mt-20.fragment
 			include ../../assets/patterns_structural/snippets_generated/selector.html

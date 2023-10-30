@@ -1,0 +1,46 @@
+include ../mixins/containers.pug
+include ../mixins/containers_aph.pug
+
+- var imgAssets = '../assets/patterns_structural/';
+- var defaultBgr = 'backgrounds/objects.jpg';
+
++mchapter('Strukturální vzory', imgAssets+'chapter_patterns_structural.svg')
++frameInbox('Dvoufázová inicializace')
+	.important-green
+		ul.spacing-3xs
+			li.fragment obchází nutnost inicializovat objekt přes konstruktor
+			li.fragment <span class="highlight code">konstruktor</span> vytvoří objekt, metoda <span class="highlight code">init</span> method ho inicializuje
+			li.upside.fragment objekt můžeme inicializovat vícekrát
+			li.upside.fragment objekt můžeme alokovat předem, než jej inicializujeme
+		.code.text-sm.mt-20.fragment
+			include ../../assets/patterns_structural/snippets_generated/twostage.html
+			.bottom-0.right-40
+				img.height-500(src=imgAssets+'brainbot.gif')
++frameInbox('Context')
+	.important-green
+		.scope.fragment
+			p Context (Blackboard)
+			ul
+				li.fragment sdílená datová struktura pro daný scope (nebo celou hru)
+				li.fragment může obsahovat prakticky cokoliv
+				li.fragment příklad: score hráče, virtuální peníze, počet životů
+				li.fragment používá se často v behaviorálních stromech
+		.code.text-sm.mt-20.fragment
+			include ../../assets/patterns_structural/snippets_generated/context.html
++frameInbox('Null komponenta')
+	.important-green
+		ul
+			li.fragment Null komponenta či Dummy komponenta
+			li.fragment navenek je identifikovatelná jako skutečná komponenta, uvnitř ale nic nedělá
+			li.fragment používá se v případě, kdy je přítomnost skutečné komponenty žádaná, ale její funkcionalita nikoliv (např. pokud vypneme zvuky)
+			li.fragment příklad: instantní animace pro debugging
+				.code.text-md.mt-20
+					include ../../assets/patterns_structural/snippets_generated/null_component.html
++frameInbox('Selector')
+	.important-orange
+		ul
+			li.fragment funkce která vrací hodnotu
+			li.fragment centralizuje způsob přístupu k objektu
+			li.upside.fragment může tvořit hierarchii
+		.code.mt-20.fragment
+			include ../../assets/patterns_structural/snippets_generated/selector.html

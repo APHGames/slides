@@ -4,8 +4,8 @@ class NullAnimComponent extends Component {
 		super('AnimComponent')
 	}
 
-	playAnimation(id: string) {
+	onUpdate() {
 		// immediately end
-		this.sendMessage('ANIMATION_ENDED', { id });
+		this.finish();
 	}
 }
