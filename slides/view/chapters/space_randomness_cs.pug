@@ -1,0 +1,182 @@
+include ../mixins/containers.pug
+include ../mixins/containers_aph.pug
+
+- var imgAssets = '../assets/space_randomness/';
+- var defaultBgr = 'backgrounds/randomness.png';
+
++mchapter('Nahodilost', imgAssets+'chapter_random.svg')
++mcontainer('Nahodilost ve hrách')
+	+frameShard.width-80p.height-33p.top-220.left-180.center.z-index-100
+		+quote('Nahodilost je jeden z nejkritičtějších faktorů v gameplayi. Náhodné události poskytují hráčům jistou míru nejistoty, nutíce je k analyzování možných dopadů jejich kroků.')
++frameInbox('Náhodné generátory')
+	.important-green.spacing-2xs
+		.scope.fragment
+			p LCRNG
+			ul
+				li.fragment Linear Congruential Random Number Generator
+				li.fragment
+					include ../../assets/space_randomness/equations_generated/random_generator_methods_01.svg
+				li.fragment začíná na seedu
+				li.fragment funguje dobře s prvočísly
+				li.fragment pokud je dobře nakonfigurován, začne se cyklit až poté, co téměř vyčerpá celou doménu
+				li.fragment používá jej <span class="highlight code">rand()</span> ze standardní C knihovny
+		.scope.fragment
+			p Fibonacciho metody s lagem
+			ul
+				li.fragment
+					include ../../assets/space_randomness/equations_generated/random_generator_methods_02.svg
+				li.fragment díváme se do předchozí sekvence hodnot
+		.scope.fragment
+			p Carry metody
+			ul
+				li.fragment přenese část výsledku z předchozí fáze do méně významných bitů další fáze
+				li.fragment
+					include ../../assets/space_randomness/equations_generated/random_generator_methods_03.svg
++frameInbox('Náhodné generátory')
+	.important-green.spacing-2xs
+		.scope.fragment
+			p Mersenne Twister
+			ul
+				li.fragment obří perioda <span class="highlight code">2^19937-1</span>
+				li.fragment splňuje <a href="https://webhome.phy.duke.edu/~rgb/General/rand_rate/rand_rate.abs">Diehard test
+				li.fragment používá SIMD instrukce
+		.scope.fragment
+			p Mother of all
+			ul
+				li.fragment používá techniku násobení s přenosem
+				li.fragment rychlejší než twister, perioda <span class="highlight code">2^250</span>
+		.scope.fragment
+			p Xoroshiro128+
+			ul
+				li.fragment vylepšený MOA, je rychlejší ale ne tak kvalitní
+				li.fragment používán v <span class="highlight code">Math.random()</span> v browserech
+		.scope.fragment
+			p PCG Family
+			ul
+				li.fragment jednoduché a nenáročné algoritmy
+		.bottom-0.right-20
+			img.height-300(src=imgAssets+'dice.png')
++frameInbox('Distribuce náhodných funkcí')
+	div
+		.space-md
+		.flex-cols-5.mt-100
+			figure
+				img.width-280(src=imgAssets+'random_doom.png')
+				img.width-280(src=imgAssets+'random_doom_sp.png')
+				p Doom
+			figure
+				img.width-280(src=imgAssets+'random_openttd.png')
+				img.width-280(src=imgAssets+'random_openttd_sp.png')
+				p Transport Tycoon
+			figure
+				img.width-280(src=imgAssets+'random_lehmer.png')
+				img.width-280(src=imgAssets+'random_lehmer_sp.png')
+				p Lehmer RNG
+			figure
+				img.width-280(src=imgAssets+'random_gaussian.png')
+				img.width-280(src=imgAssets+'random_gaussian_sp.png')
+				p Gaussian MOA
+			figure
+				img.width-280(src=imgAssets+'random_xorshift.png')
+				img.width-280(src=imgAssets+'random_xorshift_sp.png')
+				p Xorshift
++frameInbox('Distribuce náhodných funkcí')
+	.important-orange.spacing-2xs
+		.scope.fragment(data-fragment-index='1')
+			p Uniformní rozdělení
+			ul
+				li.fragment(data-fragment-index='2') nejběžnější
+				li.fragment(data-fragment-index='3') <span class="highlight-2">použití:</span> šum, náhodné řazení, hod kostkou
+		.scope.fragment(data-fragment-index='4')
+			p Gaussovo (normální rozdělení)
+			ul
+				li.fragment(data-fragment-index='5') používá se u veličin, který mají nějaký průměr, od kterého se chceme odchýlit
+				li.fragment(data-fragment-index='6') dá se vypočítat s použitím uniformního generátoru (algoritmus Box-muller)
+				li.fragment(data-fragment-index='7') <span class="highlight-2">použití:</span> výška stromů, rozptyl při střelbě, rychlost, damage
+		.flex-cols-2
+			figure.fragment(data-fragment-index='1')
+				img.height-250(src=imgAssets+'distribution_uniform.svg')
+				p Uniformní rozdělení
+			figure.fragment(data-fragment-index='4')
+				img.height-250(src=imgAssets+'distribution_normal.svg')
+				p Gaussovo rozdělení
++frameInbox('Pojmy')
+	.important-orange
+		.spacing-4xs
+			.scope.fragment
+				p Seed
+				ul
+					li.fragment číslo, které inicializuje generátory náhodných čísel
+					li.fragment pro větší nahodilost se může smíchat s <span class="highlight-2">uživatelským vstupem</span> nebo <span class="highlight-2">časem</span>
+			.scope.fragment
+				p Loot
+				ul
+					li.fragment předměty, které hráč získá během gameplaye (virtuální peníze, nástroje, lektvary,...)
+			.scope.fragment
+				p Spinning
+				ul
+					li.fragment volání generátoru náhodných čísel každý frame bez použití jeho výsledku ve hře
+					li.fragment činí hru méně předvídatelnou
+			.scope.fragment
+				p Rarity Slotting
+				ul
+					li.fragment kategorizace předmětů v RPG hrách (common, rare, epic, legendary)
+					li.fragment používá se vážený součet přes rarity tabulku
+			.scope.fragment
+				p Random encounter
+				ul
+					li.fragment populární mechanika RPG her
+					li.fragment hráč potká enemáka a hra se přepne do battle módu
+					li.fragment jakmile boj skončí, hráč dostane odměnu (zkušenosti, loot)
++frameInbox('Nahodilost ve hrách')
+	div
+		.scope.fragment
+			p Final Fantasy 1 (1987)
+			ul
+				li předgenerovaná čísla čtená sekvenčně (256 hodnot v ROM)
+				li objevovaly se stejné skupiny nepřátel - <span class="highlight-2">surprise determination</span>
+		.scope.fragment
+			p Super Mario 64 (1996)
+			ul
+				li používal LCRNG s 65114 možnými stavy
+				li nepoužíval spinning
+		.scope.fragment
+			p Pokémon (2002+)
+			ul
+				li od roku 2002 (Game Boy Advance) se spinningem
+		.scope.fragment
+			p Darkwing Duck
+			ul
+				li loot závisel na dělitelnosti čísla framu
+			.bottom-0.right-0
+				img.height-850(src=imgAssets+'dw_luck_manipulation.gif')
++frameInbox('Nahodilost ve hrách')
+	div.spacing-xs
+		.scope.fragment
+			p Pitfall! (1982)
+			ul
+				li používal posuvný registr
+				li každá obrazovka byla definována 1 bajtem - celkem 256
+				li např. pokud byl jistý bit 1, scéna obsahovala příkop
+			.top-0.right-0
+				img.height-400(src=imgAssets+'pitfall.gif')
+		.scope.fragment
+			p Doom (1993)
+			ul
+				li to nejhorší, co se nepovedlo - generátor náhodných čísel
+				li statická tabulka 256 čísel čtená sekvenčně
+		.scope.fragment
+			p XCOM: Enemy Unknown (2012)
+			ul
+				li bez spinningu - nebezpečné, když hráč udělal quick save v kritickém okamžiku
+		.scope.fragment
+			p No Man's Sky (2016+)
+			ul
+				li všechny objekty jsou vytvořeny deterministickými algoritmy na základě 64-bitového seedu
++frameInbox('Příklad: Doom (1993)')
+	.flex.flex-row
+		div.width-40p
+		.code.text-2xs
+			include ../../assets/space_randomness/snippets_generated/doom_random.html
+	.bottom-180.left-80.tip.fragment
+		img.height-350(src=globalAssets+'memes/older_code.gif')

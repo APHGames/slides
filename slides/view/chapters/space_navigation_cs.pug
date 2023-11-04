@@ -1,0 +1,179 @@
+include ../mixins/containers.pug
+include ../mixins/containers_aph.pug
+
+- var imgAssets = '../assets/space_navigation/';
+- var defaultBgr = 'backgrounds/maze.jpg';
+
++mchapter('Navigace', imgAssets+'chapter_navigation.svg')
++frameInbox('Navigace')
+	.important-green
+		ul
+			li.fragment(data-fragment-index='1') esenciální struktura pro mnoho her
+		.scope.mt-20.fragment(data-fragment-index='2')
+			p Typy
+			ul
+				li.fragment(data-fragment-index='3') lokální navigace na herní mapě (collision avoidance, ORCA)
+				li.fragment(data-fragment-index='4') globální navigace na herní mapě (pathfinding)
+				li.fragment(data-fragment-index='5') navigace v grafu (např. task-based planning)
+		.text-center.mt-20.fragment(data-fragment-index='1')
+			img.height-440(src=imgAssets+'navigation.gif')
++frameInbox('Navigační graf')
+	.important-green
+		ul
+			li.fragment abstrahovaná reprezentace všech lokací ve hře, po kterých se dá chodit
+			li.fragment obvykle obsahuje dodatečné atributy (snadnost chůze, priorita,...)
+			li.highlight-2.fragment waypoint-based, mesh-based, grid-based
+		ul.mt-10
+			li.fragment <span class="highlight">Uzel</span> - pozice klíčové oblasti ve hře
+			li.fragment <span class="highlight">Hrana</span> - spojení mezi těmito oblastmi
+		.text-center.fragment
+			img.height-450(src=imgAssets+'navigation_graph.svg')
++frameInbox('Navigační graf')
+	.important-green
+		.scope.fragment
+			p Waypoint-based
+			ul
+				li designér sám navrhne waypointy
+			.text-center.mt-20
+				img.height-220(src=imgAssets+'nav_waypoint.svg')
+		.scope.fragment
+			p Mesh-based (Navmesh)
+			ul
+				li vytváří se z polygonální reprezentace podlahy
+			.text-center
+				img.height-220(src=imgAssets+'nav_mesh.svg')
+		.bottom-40.right-30.fragment
+			img.height-370(src=imgAssets+'nav_mesh_2.svg')
++frameInbox('Příklad: Unity mesh editor')
+	.text-center
+		img.height-770(src=imgAssets+'unity_nav_mesh.jpg')
++frameInbox('Příklad: Counter-strike mesh editor')
+	div.center
+		.grid.grid-cols-2.grid-rows-2.gap-15
+			img.height-380(src=imgAssets+'cstrike_01.jpg')
+			img.height-380(src=imgAssets+'cstrike_02.jpg')
+			img.height-380(src=imgAssets+'cstrike_03.jpg')
+			img.height-380(src=imgAssets+'cstrike_04.jpg')
++frameInbox('Navigační graf')
+	.important-green.spacing-xs
+		.scope.fragment(data-fragment-index='1')
+			p Grid-based
+			ul
+				li.fragment(data-fragment-index='2') vytváří se převedením herního prostředí do mřížky
+				li.fragment(data-fragment-index='3') <span class="highlight-2">traversability flag</span> indikuje, zda je možno na buňku vkročit
+				li.fragment(data-fragment-index='4') geometrie sousednosti: <span class="highlight-2">tile, octile, hex</span>
+				li.fragment(data-fragment-index='5') pokud se např. změní průchodnost buňky, stačí překlopit traversability flag
+		.text-center.mt-30.fragment(data-fragment-index='4')
+			img.height-190(src=imgAssets+'nav_grid.svg')
+		.text-center.mt-10.fragment(data-fragment-index='3')
+			img.height-280(src=imgAssets+'nav_grid_2.svg')
++frameInbox('Příklad: Connection geometry')
+	.fill.center.flex-row.justify-evenly
+		figure
+			img.height-350(src=imgAssets+'cgeometry_pokemon.jpg')
+			p Pokémon pro GBA (Tile)
+		figure
+			img.height-350(src=imgAssets+'cgeometry_openttdmap.jpg')
+			p OpenTTD (Octile)
+		figure
+			img.height-350(src=imgAssets+'cgeometry_heroes3.jpg')
+			p Heroes of M&M 3 (Hex)
++frameInbox('Kombinovaná geometrie')
+	div
+		ul
+			li jednotky se pohybují libovolně, ale statické objekty se nachází na mřížce
+		.space-2xl
+		.fill.center.flex-row.justify-evenly
+			figure
+				img.height-450(src=imgAssets+'connection_geometry_sc.jpg')
+				p Starcraft II
+			figure
+				img.height-450(src=imgAssets+'connection_geometry_sw.jpg')
+				p Stardew Valley
++frameInbox('Pathfinding')
+	.important-green.spacing-3xs
+		.scope.fragment
+			p Aspekty
+			ul
+				li.fragment <span class="highlight-2">kompletnost</span> - zda je nalezeno řešení či nikoliv
+				li.fragment <span class="highlight-2">optimalita</span> - kvalita řešení
+				li.fragment <span class="highlight-2">hladkost</span> - zda se herní objekt může pohybovat podél cesty hladce
+		.scope.fragment
+			p Typ prostředí
+			ul
+				li.fragment <span class="highlight-2">statické</span> - mapa se během gameplaye nezmění
+				li.fragment <span class="highlight-2">dynamické</span> - můžou se např. přidávat nové překážky, zablokovat cesta, aj.
+		.scope.fragment
+			p NPC pohyb
+			ol
+				li.fragment nalezni uzel, který je nejblíž pozici NPCčka: A
+				li.fragment nalezni uzel, který je nejblíž cílové pozici NPCčka: B
+				li.fragment najdi cestu z A do B
+				li.fragment jdi do A
+				li.fragment jdi do B s využitím pathfindingu
+				li.fragment jdi z B do cílové pozice
+		.bottom-0.right-0
+			img.height-500(src=imgAssets+'pathfinding.gif')
++frameInbox('Pathfinding algoritmy')
+	.important-orange.spacing-4xs
+		.scope.fragment
+			p Uniformní vyhledávání
+			ul.leading-sm
+				li.fragment ignoruje cenu za překročení hrany
+				li.fragment <span class="highlight-2">DFS (depth-first search)</span>
+					ul.leading-md
+						li.fragment prohledávání do hloubky
+						li.fragment negarantuje nalezení nejlepší cesty
+				li.fragment <span class="highlight-2">BFS (breadth-first-search)</span>
+					ul.leading-md
+						li.fragment prohledávání do šířky, vždy najde nejlepší cestu
+		.scope.fragment
+			p Neuniformní vyhledávání
+			ul.leading-sm
+				li.fragment <span class="highlight-2">Dijkstrův algoritmus</span>
+					ul.leading-md
+						li.fragment prozkoumá všechny uzly a najde nejkratší cestu do všech ostatních uzlů
+						li.fragment používá metriku <span class="highlight-2">CSF (cost-so-far)</span>
+				li.fragment <span class="highlight-2">A*</span>
+					ul.leading-md
+						li.fragment rozšíření Dijkstrova algoritmu z roku 1968
+						li.fragment liší se především v zavedení <span class="highlight-2">heuristiky</span>
+		.top-50.right-50
+			img.height-470(src=imgAssets+'pathfinding.png')
++frameInbox('A*')
+	.important-orange.spacing-xs
+		ul
+			li.fragment používá <span class="highlight-2">odhad ceny</span> do cíle z daného uzlu
+			li.fragment Cena
+				include ../../assets/space_navigation/equations_generated/astar_01.svg
+				|, kde 
+				include ../../assets/space_navigation/equations_generated/astar_02.svg
+				|&nbsp;je cost-so-far a 
+				include ../../assets/space_navigation/equations_generated/astar_03.svg
+				|&nbsp;je heuristický odhad
+			li.fragment <span class="highlight-2">Heuristiky:</span> euklidovská, manhattanská, adaptivní, dynamická,...
+		.scope.mt-20.fragment
+			p Vylepšení
+			ul
+				li.fragment různé formy preprocessingu, tvorba univerzálních cest
+				li.fragment označení slepých uliček
+				li.fragment jiná granularita než u vizuální herní mapy
+		.text-center.mt-20.fragment
+			img.height-300(src=imgAssets+'astar.svg')
++frameInbox('Pathfinding algoritmy: porovnání')
+	.important-orange
+		ul
+			li.fragment BFS ignoruje cenu
+			li.fragment Dijkstra ignoruje topologii
+			li.fragment A* bere v potaz obojí
+		.text-center.mt-20
+			img.height-530(src=imgAssets+'pathfinding_comparison.svg')
++frameInbox('HPA*: Hierarchický Pathfinding A*')
+	.important-green
+		ul
+			li.fragment(data-fragment-index='1') používá clusterizaci (rozdělení problému na podproblémy)
+			li.fragment(data-fragment-index='2') rozdělí mapu na regiony, se kterými nakládá jako se samostatnými uzly
+			li.fragment(data-fragment-index='3') <span class="highlight">gate</span> - nejdelší hraniční segment bez překážek
+			li.highlight-2.fragment(data-fragment-index='4') vyhovující pro většinu her
+		.text-center.mt-20.fragment(data-fragment-index='1')
+			img.height-400(src=imgAssets+'hpa.svg')
