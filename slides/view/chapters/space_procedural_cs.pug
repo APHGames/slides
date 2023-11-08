@@ -28,6 +28,18 @@ include ../mixins/containers_aph.pug
 			img.width-500(src=imgAssets+'openttd_terrain.png')
 		.bottom-500.right-60.fragment(data-fragment-index='9')
 			img.width-500(src=imgAssets+'rogue.png')
++frameInbox('Generování pomocí AI')
+	.important.green
+		ul
+			li zatím spíše doménou generování statických assetů
+		.top-160.left-20.fragment
+			img.width-1000(src=imgAssets+'ai_valve.png')
+		.top-120.right-40.fragment
+			img.width-540(src=imgAssets+'ai_abermore.jpg')
+		.bottom-0.left-20.fragment
+			img.width-800(src=imgAssets+'ai_dungeon.png')
+		.bottom-0.right-20.fragment
+			img.width-730(src=imgAssets+'ai_ludo.png')
 +frameInbox('Procedurální generátory')
 	.important-green
 		.flex-cols-2.spacing-xs
@@ -131,7 +143,7 @@ include ../mixins/containers_aph.pug
 			li.fragment.fade-up <span class="highlight">Simplex</span> - vylepšený Perlinův šum s méně artefakty
 			li.fragment.fade-up oba šumy používají pseudonáhodnou mřížku a interpolaci
 			li.fragment.fade-up šum se konstruuje z oktáv (amplituda signálu v daném měřítku)
-			li.fragment.fade-up signál je interpolován pomocí funkce
+			li.fragment.fade-up signál je interpolován pomocí funkce 
 				include ../../assets/space_procedural/equations_generated/perlin_noise.svg
 		.code.text-2xs.mt-13.fragment.fade-up
 			include ../../assets/space_procedural/snippets_generated/perlin_noise.html
