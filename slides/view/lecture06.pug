@@ -3,7 +3,6 @@
 // NAME=Space
 // LOCALE=en 
 // ORDER=6
-// LOCKED=true
 doctype html
 include ./mixins/header.pug
 include ./mixins/containers.pug
@@ -21,7 +20,7 @@ html(lang='en')
 
 	.reveal
 		.slides
-			+titleLecture('Space', 'Lecture 7', globalAssets+'lectures/ic_lecture07.svg')
+			+titleLecture('Space', 'Lecture 6', globalAssets+'lectures/ic_lecture06.svg')
 			+frameInbox('Literature')
 				ul
 					li
@@ -37,8 +36,8 @@ html(lang='en')
 			include ./chapters/space_procedural.pug
 			include ./chapters/space_geometric_hashing.pug
 			include ./chapters/space_navigation.pug
-			+summary_lecture07()
+			+summary_lecture06()
 			+quote-mightmagic()
 
-	+footer('Adam Vesecký (FIT CTU)', 'Architecture of Computer Games, Lecture 7: Space')
+	+footer('Adam Vesecký (FIT CTU)', 'Architecture of Video Games, Lecture 6: Space')
 	script(src!='../../scripts/reveal-setup.js')

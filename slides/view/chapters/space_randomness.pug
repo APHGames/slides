@@ -91,9 +91,9 @@ include ../mixins/containers_aph.pug
 		.scope.fragment(data-fragment-index='4')
 			p Gaussian (normal) distribution
 			ul
-				li.fragment(data-fragment-index='5') more common in games - every characteristic has some kind of average, with individuals varying with a normal distribution
+				li.fragment(data-fragment-index='5') used for characteristics that have some kind of average, with individuals varying with a normal distribution
 				li.fragment(data-fragment-index='6') can be calculated from a uniform generator via transformation (Box-muller algorithm)
-				li.fragment(data-fragment-index='7') <span class="highlight-2">applications:</span> height of trees, aiming for projectiles, average speed, physical reaction time, reload rate
+				li.fragment(data-fragment-index='7') <span class="highlight-2">applications:</span> height of trees, aiming for projectiles, average speed, damage
 		.flex-cols-2
 			figure.fragment(data-fragment-index='1')
 				img.height-250(src=imgAssets+'distribution_uniform.svg')
@@ -112,7 +112,7 @@ include ../mixins/containers_aph.pug
 			.scope.fragment
 				p Loot
 				ul
-					li.fragment items obtained over the gameplay (money, spells, equipment, weapons,...)
+					li.fragment items obtained over the gameplay (money, equipment, potions,...)
 			.scope.fragment
 				p Spinning
 				ul
@@ -126,9 +126,9 @@ include ../mixins/containers_aph.pug
 			.scope.fragment
 				p Random encounter
 				ul
-					li.fragment popular mechanics of RPG games (Final Fantasy, Pokémon, Golden Sun)
+					li.fragment popular mechanics of RPG games
 					li.fragment the game suddenly shifts to battle mode, forcing the player to fight
-					li.fragment after winning the battle, the player receives a reward (skill upgrade, items, money)
+					li.fragment after winning the battle, the player receives a reward (skill upgrade, loot)
 +frameInbox('Randomness in games')
 	div
 		.scope.fragment
@@ -142,10 +142,9 @@ include ../mixins/containers_aph.pug
 				li used LCRNG with 65114 possible states
 				li no spinning, the algorithm cycles only during certain events
 		.scope.fragment
-			p Pokémon series for GBA (2002)
+			p Pokémon series (2002+)
 			ul
-				li in Ruby/Diamon/Emerald, the RNG is spun every frame
-				li Emerald sets the seed to zero on power-up
+				li since 2002 (Game Boy Advance), the RNG is spun every frame
 		.scope.fragment
 			p Darkwing Duck
 			ul
@@ -175,7 +174,7 @@ include ../mixins/containers_aph.pug
 			p No Man's Sky (2016+)
 			ul
 				li very little data is stored on the game's servers as all elements of the game are created through deterministic algorithms from a 64-bit seed
-+frameInbox('Example: Random Number Table in Doom')
++frameInbox('Example: Doom (1993)')
 	.flex.flex-row
 		div.width-40p
 		.code.text-2xs

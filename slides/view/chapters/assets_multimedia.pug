@@ -152,24 +152,24 @@ include ../mixins/containers_aph.pug
 				ul
 					li a texture attached to a dynamic object
 					li usually represented by animated 2D characters
-					li allows to create large scenes as you can manipulate each sprite separately
-				.top-0.right-40
+					li allows to create large scenes as you can manipulate<br> each sprite separately
+				.top-80.right-40
 					img.height-370(src=imgAssets+'braid.png' alt='Braid spritesheet')
 
-			.scope.fragment.fade-up
+			.scope.fragment
 				p Spritesheet
 				ul
 					li a set of corresponding sprites
-			.scope.fragment.fade-up
+			.scope.fragment
 				p Sprite atlas
 				ul
 					li a single texture image containing a list of spritesheets
-			.scope.fragment.fade-up
+			.scope.fragment
 				p Billboard
 				ul
 					li a texture that is always facing the camera
 					li unlike sprites, it can appear in 3D games too
-				.top-0.right-40
+				.bottom-0.right-40
 					img.height-310(src=imgAssets+'billboard.jpg' )
 +frameInbox('3D Objects')
 	.important-green.text-center

@@ -3,7 +3,6 @@
 // NAME=Herní prostor
 // LOCALE=cs 
 // ORDER=6
-// LOCKED=true
 doctype html
 include ./mixins/header.pug
 include ./mixins/containers.pug
@@ -16,13 +15,12 @@ include ./mixins/summary.pug
 - var globalAssets = '../assets/all/';
 - var defaultBgr = 'backgrounds/bgr_arcades2.jpg';
 
-html(lang='en')
-	+header('Space', 'Adam Vesecký', themePath + 'resources/favicon.png', themePath + 'theme_aph.scss')
-
+html(lang='cs')
+	+header('Herní prostor', 'Adam Vesecký', themePath + 'resources/favicon.png', themePath + 'theme_aph.scss')
 	.reveal
 		.slides
-			+titleLecture('Space', 'Lecture 7', globalAssets+'lectures/ic_lecture07.svg')
-			+frameInbox('Literature')
+			+titleLectureCs('Herní prostor', 'Přednáška 6', globalAssets+'lectures/ic_lecture06.svg')
+			+frameInbox('Literatura')
 				ul
 					li
 						a(href="https://www.amazon.com/Essential-Mathematics-Games-Interactive-Applications/dp/0123742978") Verth, Van. 2008. Essential Mathematics for Games and Interactive Applications
@@ -33,12 +31,12 @@ html(lang='en')
 						img.height-500(src=globalAssets+'book_math_for_games.jpg' alt='Verth, Van. Essential Mathematics for Games and Interactive Applications')
 					div.text-center
 						img.height-500(src=globalAssets+'book_procedural_generation.jpg' alt='Adams, Tarn & Short, Tanya X. Procedural Generation in Game Design')
-			include ./chapters/space_randomness.pug
-			include ./chapters/space_procedural.pug
-			include ./chapters/space_geometric_hashing.pug
-			include ./chapters/space_navigation.pug
-			+summary_lecture07()
+			include ./chapters/space_randomness_cs.pug
+			include ./chapters/space_procedural_cs.pug
+			include ./chapters/space_geometric_hashing_cs.pug
+			include ./chapters/space_navigation_cs.pug
+			+summary_lecture06cs()
 			+quote-mightmagic()
 
-	+footer('Adam Vesecký (FIT CTU)', 'Architecture of Computer Games, Lecture 7: Space')
+	+footer('Adam Vesecký (FIT ČVUT)', 'Architektura Počítačových Her, Přednáška 6: Herní prostor')
 	script(src!='../../scripts/reveal-setup.js')
