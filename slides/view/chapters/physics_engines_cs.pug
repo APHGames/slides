@@ -1,0 +1,280 @@
+include ../mixins/containers.pug
+include ../mixins/containers_aph.pug
+
+- var imgAssets = '../assets/physics_engines/';
+- var defaultBgr = 'backgrounds/physics.jpg';
+
++mchapter('Fyzikální engine', imgAssets+'chapter_physics.svg')
++frameInbox('Fyzikální engine')
+	.important-green
+		.bottom-0.right-0
+			img.height-400(src=imgAssets+'physics_01.png')
+		ul
+			li.fragment systém který <span class="highlight">aproximuje</span> fyzikální interakci v reálném čase
+			li.mt-40.upside.fragment má zásadní vliv na imerzi
+			li.downside.fragment může hru i snadno rozbít
+			li.fragment.highlight Flow
+				.bottom-40.left-220
+					img.height-500(src=imgAssets+'physics_flow.svg')
++frameInbox('Fyzikální enginy')
+	div.spacing-4xs
+		.scope.fragment
+			p N-Collide
+			ul
+				li.fragment 2D/3D knihovna psaná v Rustu
+		.scope.fragment
+			p Box2D
+			ul
+				li.fragment open-source C++ 2D engine
+				li.fragment podporuje CCD (Continuous Collision Detection)
+		.scope.fragment
+			p Bullet
+			ul
+				li.fragment open-source 3D engine
+				li.fragment podporuje CCD
+		.scope.fragment
+			p PhysX
+			ul
+				li.fragment NVidia GPU engine
+				li.fragment PhysX destruction, PhysX clothing, PhysX particles
+		.scope.fragment
+			p p2.js
+			ul
+				li.fragment JavaScript engine, podporuje CCD
+		.scope.fragment
+			p Havok
+			ul
+				li.fragment oblíbená komerční knihovna
+		.bottom-0.right-0
+			img.height-500(src=imgAssets+'physics_03.png')
++frameInbox('Fyzika a animace')
+	.important-green
+		ul
+			li.highlight.fragment(data-fragment-index='1') fyzika 
+				include ../../assets/physics_engines/equations_generated/animation.svg
+				|&nbsp;animace!
+			li.fragment(data-fragment-index='2') animace musí harmonizovat s fyzikálním enginem
+			li.fragment(data-fragment-index='3') cut-scény a statické animace nejsou součástí fyzikální interakce
+			li.fragment(data-fragment-index='5') téměř každá hra používá statické animace
+		.space-xl
+		.flex-cols-3.ml-100.fragment(data-fragment-index='1')
+			div.text-center
+				img.height-280(src=imgAssets+'animation.gif')
+			div.text-center
+				img.height-280(src=imgAssets+'animation02.gif')
+			div
+				img.height-280(src=imgAssets+'animation03.gif')
++frameInbox('Funkce fyzikálních enginů')
+	div
+		ul.spacing-3xs
+			li.fragment collision detection
+			li.fragment contact callbacks
+			li.fragment joints
+			li.fragment concave and convex hulls
+			li.fragment compound bodies
+			li.fragment sleeping objects
+			li.fragment raycasting, shapecasting
+			li.fragment deformable structures
+			li.fragment destructible structures
+			li.fragment trigger volumes
+			li.fragment complex machines
+			li.fragment drivable vehicles
+			li.fragment rag doll characters
+			li.fragment water surface, hair, cloth
+			li.fragment particles
+	.bottom-20.right-20
+		img.height-500(src=imgAssets+'skyrim.jpg')
++frameInbox('Fyzika ve hrách')
+	div
+		.scope.fragment(data-fragment-index='1')
+			p Pinbally (1980+)
+			ul
+				li netriviální OBB detekce
+		.scope.fragment(data-fragment-index='2')
+			p The Incredible Machine (1993)
+			ul
+				li pokročilá interakce
+		.scope.fragment(data-fragment-index='3')
+			p Worms (1995)
+			ul
+				li pixel-level environmentální interakce
+		.scope.fragment(data-fragment-index='4')
+			p Half-Life 2 (2004)
+			ul
+				li zničitelné prostředí, fluidní mechanika
+		.top-20.right-20.fragment(data-fragment-index='1')
+			img.height-300(src=imgAssets+'pinball.gif')
+		.top-170.right-430.fragment(data-fragment-index='2')
+			img.height-300(src=imgAssets+'incredible_machine.png')
+		.top-280.right-20.fragment(data-fragment-index='3')
+			img.height-350(src=imgAssets+'worms.png')
+		.bottom-0.right-370.fragment(data-fragment-index='4')
+			img.height-400(src=imgAssets+'half-life2.jpg')
++frameInbox('Fyzika ve hrách')
+	div.spacing-3xs
+		.scope.fragment(data-fragment-index='1')
+			p Angry Birds (2009)
+			ul
+				li fyzika jako hlavní mechanika
+		.scope.fragment(data-fragment-index='2')
+			p INSIDE (2016)
+			ul
+				li soft-bodies řízené impulzivní mřížkou
+		.scope.fragment(data-fragment-index='3')
+			p Half-Life Alyx (2020)
+			ul
+				li fyzikální interakce
+		.scope.fragment(data-fragment-index='4')
+			p Noita (2020)
+			ul
+				li pixel-level simulace
+		.top-20.right-20.fragment(data-fragment-index='1')
+			img.height-400(src=imgAssets+'angry_birds.png')
+		.top-170.right-370.fragment(data-fragment-index='2')
+			img.height-280(src=imgAssets+'inside.gif')
+		.top-340.right-20.fragment(data-fragment-index='3')
+			img.height-300(src=imgAssets+'half-life-alyx.jpg')
+		.bottom-0.right-370.fragment(data-fragment-index='4')
+			img.height-350(src=imgAssets+'noita.jpg')
++frameInbox('Typy objektů')
+	.important-orange.spacing-3xs
+		.scope.fragment
+			p Body
+			ul
+				li.fragment základní fyzikální objekt herní scény
+		.scope.fragment
+			p Rigid Body
+			ul
+				li.fragment tuhé těleso
+				li.fragment <span class="highlight-2">physics-driven bodies</span> - řízeny fyzikálním enginem
+				li.fragment <span class="highlight-2">game-driven bodies</span> - řízeny procedurálně (animace)
+				li.fragment <span class="highlight-2">fixed bodies</span> - kolizní neviditelná tělesa (triggery)
+		.scope.fragment
+			p Soft body
+			ul
+				li.fragment deformovatelné
+		.scope.fragment
+			p Shape
+			ul
+				li.fragment polygon či polyhedron
+		.scope.fragment
+			p Fixture
+			ul
+				li.fragment vlastnosti materiálu objektu
+		.right-50.top-250
+			img.height-350(src=imgAssets+'cube.png')
++frameInbox('Typy objektů')
+	.important-orange
+		.scope.fragment
+			p Constraint
+			ul
+				li.fragment spojuje objekty dohromady ke zjednodušení simulace (lana, kola, panty, písty)
+		.scope.fragment
+			p Sensor/Phantom/Trigger
+			ul
+				li.fragment objekt, který se podílí na detekci kolizí, ale není vidět
+		.scope.fragment
+			p Rag doll
+			ul
+				li.fragment humanoidní figurína
+		.scope.fragment
+			p Zničitelné objekty
+			ul
+				li.fragment obvykle vytvářené nahrazením tuhého tělesa sadou menších těles
++frameInbox('Constrainty')
+	.important-green
+		ul
+			li.fragment <span class="highlight">Revolute</span> - závěs nebo čep, okolo kterého těleso rotuje
+				ul
+					li.fragment kola, řetězy, dveře, páky
+			li.fragment <span class="highlight">Distance</span> - udržuje fixní vzdálenost mezi tělesy
+			li.fragment <span class="highlight">Rope</span> - udržuje maximální vzdálenost mezi tělesy, simuluje lano
+			li.fragment <span class="highlight">Prismatic</span> - omezení na jeden stupeň volnosti
+				ul
+					li.fragment výtahy a písty
+			li.fragment <span class="highlight">Weld</span> - udržuje fixní rotaci těles
+			li.fragment <span class="highlight">Cone-Twist</span> - ramenní kloub
+			li.fragment <span class="highlight">Gear</span> - propojení těles způsobem, kdy pohyb jednoho ovlivní pohyb druhého
+			li.fragment <span class="highlight">Motor</span> - přidává tělesu silové impulzy
+		.bottom-0.right-460
+			img.height-230(src=imgAssets+'car.svg')
++frameInbox('Constrainty')
+	.important-orange
+	.flex.flex-row.justify-evenly.center
+		figure.fragment
+			img.height-500(src=imgAssets+'constraint_rope.svg')
+			p rope
+		figure.fragment
+			img.height-500(src=imgAssets+'constraint_revolute.svg')
+			p revolute
+		figure.fragment
+			img.height-500(src=imgAssets+'constraint_prismatic.svg')
+			p prismatic
+		figure.fragment
+			img.height-500(src=imgAssets+'constraint_conetwist.svg')
+			p cone-twist
++frameInbox('Constrainty')
+	div
+		.top-170.left-350
+			img.height-680(src=imgAssets+'joints.jpg')
+		.top-130.left-10
+			img.height-580(src=imgAssets+'constraints.svg')
++frameInbox('Fracturing')
+	div
+		ul
+			li.fragment rozbití objektů na malé fragmenty
+			li.fragment v mnoha případech není dynamická (hojně se používají statické animace)
+			li.fragment techniky: manuální, Voronoi Shattering, voxely
+		.bottom-0.right-0.width-100p
+			img.width-100p.radius-3(src=imgAssets+'fracturing.png')
+		.bottom-150.flex.flex-row
+			figure.mx-10.fragment
+				img.height-310(src=imgAssets+'paratrooper.png')
+				p.bgr-rhino-100.p-5 Paratrooper (1982)
+			figure.mx-10.fragment
+				img.height-310(src=imgAssets+'fictorium.jpg')
+				p.bgr-rhino-100.p-5 Fictorium (2017)
+			figure.mx-10.fragment
+				img.height-310(src=imgAssets+'teardown.jpg')
+				p.bgr-rhino-100.p-5 Teardown (2020)
++frameInbox('Particle systémy')
+	.important-orange
+		ul
+			li.fragment bodová tělesa v prostoru
+			li.fragment mohou modelovat komplexní tvary
+			li.fragment hojně využívá Flyweight pattern
+		.scope.fragment.mt-30
+			p Aplikace
+			ul.leading-md
+				li.highlight-2.fragment fluidní mechanika
+				li.fragment vizuální efekty
+				li.fragment houfy
+				li.fragment vegetace
+				li.fragment soft bodies (oblečení, vlasy)
+		.right-20.bottom-150
+			img.height-400(src=imgAssets+'particles.gif')
+		.right-350.bottom-150
+			img.height-400(src=imgAssets+'flame.gif')
++frameInbox('Soft bodies a fluidní mechanika')
+	.important-green
+		ul
+			li.fragment obvykle implementovaná jako kombinace particle systémů a vizuálních efektů
+			li.fragment <span class="highlight">obvyklý model:</span>
+				ol
+					li.fragment aplikuje se detekce kolizí na particly
+					li.fragment aplikují se odpudivé síly
+					li.fragment aktualizují se pozice
+					li.highlight-2.fragment ošetří se interakce s ostatními objekty mimo particle system
+		.right-0.bottom-0
+			img.height-400(src=imgAssets+'softbody.gif')
+		.left-100.bottom-30
+			img.height-350(src=imgAssets+'liquid.jpg')
++frameInbox('Příklad: CryEngine Fluidní fyzika')
+	div
+		ul
+			li.fragment 5000+ řádků kódu jen pro RigidBody tělesa
+			li.fragment příšerná kvalita kódu
+				.code.text-xs.mt-20
+					include ../../assets/physics_engines/snippets_generated/cryengine.html
+		.bottom-20.right-20
+			img.height-770(src=imgAssets+'cryengine_physics.png')
