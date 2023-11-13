@@ -10,14 +10,11 @@ include ../mixins/containers_aph.pug
 		ul
 			li.fragment.fade-up <span class="highlight">Kinematika</span> - řídí pohyb objektů bez silového působení
 			li.fragment.fade-up <span class="highlight">Dynamika</span> - řídí pohyb objektů se silovým působením
-			li.fragment.fade-up <span class="highlight">Čas</span> - kontinuální sled událostí, měřený v sekundách
-			li.fragment.fade-up <span class="highlight">Hmotnost</span> - skalární jednotka měřená v kilogramech
-			li.fragment.fade-up <span class="highlight">Pozice</span> - bod v prostoru
 			li.fragment.fade-up <span class="highlight">Rychlost</span> - změna vzdálenosti v čase
 			li.fragment.fade-up <span class="highlight">Zrychlení</span> - změna rychlosti v čase
 			li.fragment.fade-up <span class="highlight">Síla</span> - veličina označující velikost vzájemného působení hmotných těles
 		.text-center.mt-20.fragment.fade-up
-			img.height-280(src=imgAssets+'dynamics_forces.svg')
+			img.height-280(src=imgAssets+'dynamics_forces_cs.svg')
 		+tipKeen2('Většina enginů používá MKS jednotky (metry, kilogramy, sekundy) a radiány pro úhly.').bottom-0.left-0
 +frameInbox('Dynamika')
 	.important-green.spacing-3xs
@@ -43,7 +40,7 @@ include ../mixins/containers_aph.pug
 					span.highlight-2 hybnost: 
 					include ../../assets/physics_dynamics/equations_generated/dynamics_06.svg
 		.scope.fragment
-			p Angular dynamics
+			p Úhlová dynamika
 			ul
 				li.fragment
 					span.highlight-2 úhlová rychlost: 
@@ -59,7 +56,7 @@ include ../mixins/containers_aph.pug
 				img.height-350(src=imgAssets+'angry_birds.gif')
 			.bottom-220.right-30
 				img.height-250(src=imgAssets+'dynamics_hammer.svg')
-			.bottom-30.right-30.fragment
+			.bottom-80.right-30.fragment
 				div.width-600.text-center.italic Jakákoliv fyzikální interakce objektu se dá rozložit na lineární pohyb těžiště a úhlový pohyb kolem něj
 +frameInbox('Pohyb')
 	.important-green
@@ -89,23 +86,10 @@ include ../mixins/containers_aph.pug
 +frameInbox('Pohybové rovnice')
 	div
 		ul.spacing-3xs
-			li.fragment nalezení 
-				include ../../assets/physics_dynamics/equations_generated/equations_of_motion_01.svg
-				|, přičemž víme 
-				include ../../assets/physics_dynamics/equations_generated/equations_of_motion_02.svg
-			li.fragment vertikální pohyb pod vlivem gravitace
-				ul
-					li.fragment
-						include ../../assets/physics_dynamics/equations_generated/equations_of_motion_03.svg
-					li.fragment
-						include ../../assets/physics_dynamics/equations_generated/equations_of_motion_04.svg
-					li.fragment
-						include ../../assets/physics_dynamics/equations_generated/equations_of_motion_05.svg
-					li.fragment příliš složité - při změně silového působení bychom museli modifikovat kód
-					li.highlight-2.fragment analytické řešení se v herní fyzice téměř nikdy nepoužívá
+			li.highlight-2.fragment analytické řešení se v herní fyzice téměř nikdy nepoužívá
 			li.fragment <span class="highlight">Numerická integrace</span>
 				.bottom-20.right-20
-					img.height-420(src=imgAssets+'numerical_integration.svg')
+					img.height-640(src=imgAssets+'numerical_integration.svg')
 				ul
 					li.fragment máme-li 
 						include ../../assets/physics_dynamics/equations_generated/numerical_integration_04.svg
@@ -116,8 +100,6 @@ include ../mixins/containers_aph.pug
 						|&nbsp;a krokujeme v čase podél<br> tangenty, dokud nevytvoříme aproximaci pro 
 						include ../../assets/physics_dynamics/equations_generated/numerical_integration_07.svg
 					li.fragment integrační metody nám umožní<br> aproximovat s narůstající přesností
-			.top-10.right-10
-				img.height-350(src=imgAssets+'besiege.gif')
 +frameInbox('Integrační metody')
 	.important-green.spacing-3xs
 		.scope.fragment

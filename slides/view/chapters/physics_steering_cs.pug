@@ -11,13 +11,8 @@ include ../mixins/containers_aph.pug
 			li.fragment sada algoritmů, která pomocí silového působení simuluje realistický pohyb herních objektů (agentů)
 			li.fragment vytvořeno <span class="highlight-2">Cragem Reynoldsem</span> na začátku 90. let
 			li.mt-20.fragment <span class="highlight">Agent</span> - systém nacházející se v prostředí, se schopností na prostředí reagovat
-			li.mt-20.fragment <span class="highlight">Jednotlivé vrstvy pohybu</span>
-				ul
-					li.fragment action selection - volba cílů
-					li.highlight-2.fragment steering - výpočet trajektorie
-					li.fragment locomotion - způsob pohybu a animace
-		.text-center.mt-30.fragment
-			img.height-300(src=imgAssets+'steering_agent.svg')
+		.text-center.mt-80.fragment
+			img.height-400(src=imgAssets+'steering_agent.svg')
 +frameInbox('Steering Behaviors')
 	.important-orange
 		.scope.fragment
@@ -27,7 +22,7 @@ include ../mixins/containers_aph.pug
 				li.fragment síla, která přitahuje agenta k cíli
 			.space-md
 			.text-center
-				img.height-500(src=imgAssets+'steering_seek.svg')
+				img.height-500(src=imgAssets+'steering_seek_cs.svg')
 +frameInbox('Steering Behaviors')
 	.important-orange
 		.scope.fragment(data-fragment-index='1')
@@ -40,7 +35,7 @@ include ../mixins/containers_aph.pug
 				li.fragment(data-fragment-index='4') seek + dojezd (zpomalení před cílem)
 			.space-md
 		.bottom-450.right-40.fragment(data-fragment-index='3')
-			img.height-300(src=imgAssets+'steering_arrive.svg')
+			img.height-300(src=imgAssets+'steering_arrive_cs.svg')
 		.scope.fragment(data-fragment-index='5')
 			p Pursuit
 			ul
@@ -64,7 +59,7 @@ include ../mixins/containers_aph.pug
 				li.fragment agent se pohybuje směrem k bodu na kružnici
 				li.fragment parametry: poloměr kružnice, vzdálenost od agenta a intenzita dislokace
 			.text-center.mt-20
-				img.height-420(src=imgAssets+'steering_wander.svg')
+				img.height-420(src=imgAssets+'steering_wander_cs.svg')
 +frameInbox('Steering Behaviors')
 	.important-orange
 		.scope.fragment
@@ -74,7 +69,7 @@ include ../mixins/containers_aph.pug
 				li.fragment poslední waypoint pro zastavení používá <span class="highlight-2">arrive</span> funkci, u ostatních stačí <span class="highlight-2">seek</span>
 				li.fragment hladkého pohybu můžeme dosáhnout <span class="highlight-2">tolerančním poloměrem</span> či aproximací Bézierovou křivkou
 			.text-center.mt-10.fragment
-				img.height-500(src=imgAssets+'steering_follow.svg')
+				img.height-500(src=imgAssets+'steering_follow_cs.svg')
 +frameInbox('Steering Behaviors')
 	.important-green
 		.scope.fragment

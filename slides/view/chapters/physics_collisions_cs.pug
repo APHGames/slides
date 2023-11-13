@@ -79,7 +79,7 @@ include ../mixins/containers_aph.pug
 +frameInbox('Porovnání')
 	.important-green
 		.text-center
-			img.height-760(src=imgAssets+'primitives_comparison.svg')
+			img.height-760(src=imgAssets+'primitives_comparison_cs.svg')
 		.top-310.left-60
 			img.width-1510(src=imgAssets+'primitives_comparison.png')
 +frameInbox('Kolize ve 2D hrách')
@@ -157,9 +157,9 @@ include ../mixins/containers_aph.pug
 		.scope.fragment
 			p SAT (separating axis theorem)
 			ul
-				li.fragment pokud můžeme mezi dva <br><span class="highlight-2">konvexní</span> tvary vložit přímku, pak se nepřekrývají
+				li.fragment pokud můžeme mezi dva polygony vložit přímku tak, že na jedné straně je jeden polygon a na druhé straně druhý, pak se nepřekrývají
 					.bottom-0.right-50
-						img.height-600(src=imgAssets+'sat.svg')
+						img.height-600(src=imgAssets+'sat_cs.svg')
 				li.fragment pro 2D: AABB 2 osy, OBB 4 osy
 				li.fragment pro 3D: AABB 3 osy, OBB 15 os
 				li.fragment AABB ve 2D: testujeme pouze 2 osy		
@@ -232,5 +232,5 @@ include ../mixins/containers_aph.pug
 							span.highlight-2 simulation islands
 							ul
 								li.fragment shlukování objektů které jsou v interakci
-		.top-120.right-20
-			img.height-180(src=imgAssets+'physics_02.png')
+		.top-400.right-50
+			img.height-200(src=imgAssets+'physics_02.png')
