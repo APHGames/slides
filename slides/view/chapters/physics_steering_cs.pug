@@ -1,0 +1,84 @@
+include ../mixins/containers.pug
+include ../mixins/containers_aph.pug
+
+- var imgAssets = '../assets/physics_steering/';
+- var defaultBgr = 'backgrounds/flocking.jpg';
+
++mchapter('Steering Behaviors', imgAssets+'chapter_steering.svg')
++frameInbox('Steering Behaviors')
+	.important-orange
+		ul
+			li.fragment sada algoritmů, která pomocí silového působení simuluje realistický pohyb herních objektů (agentů)
+			li.fragment vytvořeno <span class="highlight-2">Cragem Reynoldsem</span> na začátku 90. let
+			li.mt-20.fragment <span class="highlight">Agent</span> - systém nacházející se v prostředí, se schopností na prostředí reagovat
+		.text-center.mt-80.fragment
+			img.height-400(src=imgAssets+'steering_agent.svg')
++frameInbox('Steering Behaviors')
+	.important-orange
+		.scope.fragment
+			p Seek
+			ul
+				li.fragment nejjednodušší
+				li.fragment síla, která přitahuje agenta k cíli
+			.space-md
+			.text-center
+				img.height-500(src=imgAssets+'steering_seek_cs.svg')
++frameInbox('Steering Behaviors')
+	.important-orange
+		.scope.fragment(data-fragment-index='1')
+			p Flee
+			ul
+				li.fragment(data-fragment-index='2') opak funkce seek, odpudivá síla navádějící agenta pryč od cíle
+		.scope.fragment(data-fragment-index='3')
+			p Arrive
+			ul
+				li.fragment(data-fragment-index='4') seek + dojezd (zpomalení před cílem)
+			.space-md
+		.bottom-450.right-40.fragment(data-fragment-index='3')
+			img.height-300(src=imgAssets+'steering_arrive_cs.svg')
+		.scope.fragment(data-fragment-index='5')
+			p Pursuit
+			ul
+				li.fragment(data-fragment-index='6') pronásledování pohybujícího se cíle
+				li.fragment(data-fragment-index='7') může zahrnovat predikci pohybu cíle
+		.scope.fragment(data-fragment-index='9')
+			p Evade
+			ul
+				li.fragment(data-fragment-index='10') opak funkce pursuit
+				li.fragment(data-fragment-index='11') agent se snaží utéct od predikované budoucí pozice druhého agenta
+		.bottom-20.right-20.fragment(data-fragment-index='5')
+			img.height-300(src=imgAssets+'steering_evade.svg')
++frameInbox('Steering Behaviors')
+	.important-orange
+		.scope.fragment.spacing-xs
+			p Wander
+			ul
+				li.fragment náhodná procházka
+				li.fragment vektor pohybu je náhodně vychylován
+				li.fragment uvažujeme kružnici umístěnou před agentem
+				li.fragment agent se pohybuje směrem k bodu na kružnici
+				li.fragment parametry: poloměr kružnice, vzdálenost od agenta a intenzita dislokace
+			.text-center.mt-20
+				img.height-420(src=imgAssets+'steering_wander_cs.svg')
++frameInbox('Steering Behaviors')
+	.important-orange
+		.scope.fragment
+			p Path follow
+			ul
+				li.fragment posouvá agenta podél waypointů
+				li.fragment poslední waypoint pro zastavení používá <span class="highlight-2">arrive</span> funkci, u ostatních stačí <span class="highlight-2">seek</span>
+				li.fragment hladkého pohybu můžeme dosáhnout <span class="highlight-2">tolerančním poloměrem</span> či aproximací Bézierovou křivkou
+			.text-center.mt-10.fragment
+				img.height-500(src=imgAssets+'steering_follow_cs.svg')
++frameInbox('Steering Behaviors')
+	.important-green
+		.scope.fragment
+			p Flocking
+			ul
+				li.fragment kombinace tří aspektů:
+					ul
+						li.fragment <span class="highlight-2">separation</span> - navádí agenta pryč od sousedních agentů
+						li.fragment <span class="highlight-2">alignment</span> - zarovnává směr agenta se směrem sousedních agentů
+						li.fragment <span class="highlight-2">cohesion</span> - navádí agenta směrem k těžišti houfu sousedních agentů
+			.text-center.mt-20
+				img.height-450(src=imgAssets+'steering_flocking.svg')

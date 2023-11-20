@@ -1,0 +1,163 @@
+include ../mixins/containers.pug
+include ../mixins/containers_aph.pug
+
+- var imgAssets = '../assets/physics_dynamics/';
+- var defaultBgr = 'backgrounds/blur.jpg';
+
++mchapter('Dynamika', imgAssets+'chapter_dynamics.svg')
++frameInbox('Pojmy')
+	.important-green
+		ul
+			li.fragment.fade-up <span class="highlight">Kinematika</span> - řídí pohyb objektů bez silového působení
+			li.fragment.fade-up <span class="highlight">Dynamika</span> - řídí pohyb objektů se silovým působením
+			li.fragment.fade-up <span class="highlight">Rychlost</span> - změna vzdálenosti v čase
+			li.fragment.fade-up <span class="highlight">Zrychlení</span> - změna rychlosti v čase
+			li.fragment.fade-up <span class="highlight">Síla</span> - veličina označující velikost vzájemného působení hmotných těles
+		.text-center.mt-20.fragment.fade-up
+			img.height-280(src=imgAssets+'dynamics_forces_cs.svg')
+		+tipKeen2('Většina enginů používá MKS jednotky (metry, kilogramy, sekundy) a radiány pro úhly.').bottom-0.left-0
++frameInbox('Dynamika')
+	.important-green.spacing-3xs
+		.scope
+			p.fragment Lineární dynamika
+			ul
+				li.fragment ignorujeme rotaci
+				li.fragment pozice je definována pozičním vektorem: 
+					include ../../assets/physics_dynamics/equations_generated/dynamics_01.svg
+				li.fragment
+					span.highlight-2 rychlost: 
+					include ../../assets/physics_dynamics/equations_generated/dynamics_02.svg
+				li.fragment
+					span.highlight-2 zrychlení: 
+					include ../../assets/physics_dynamics/equations_generated/dynamics_03.svg
+				li.fragment
+					span.highlight-2 výslednice sil: 
+					include ../../assets/physics_dynamics/equations_generated/dynamics_04.svg
+				li.fragment
+					span.highlight-2 Newtonův druhý pohybový zákon: 
+					include ../../assets/physics_dynamics/equations_generated/dynamics_05.svg
+				li.fragment
+					span.highlight-2 hybnost: 
+					include ../../assets/physics_dynamics/equations_generated/dynamics_06.svg
+		.scope.fragment
+			p Úhlová dynamika
+			ul
+				li.fragment
+					span.highlight-2 úhlová rychlost: 
+					include ../../assets/physics_dynamics/equations_generated/dynamics_07.svg
+				li.fragment
+					span.highlight-2 úhlové zrychlení: 
+					include ../../assets/physics_dynamics/equations_generated/dynamics_08.svg
+				li.fragment
+					span.highlight-2 točivý moment: 
+					include ../../assets/physics_dynamics/equations_generated/dynamics_09.svg
+					|, způsoben silovým působením na bod vzdálený od osy otáčení
+			.top-30.right-30
+				img.height-350(src=imgAssets+'angry_birds.gif')
+			.bottom-220.right-30
+				img.height-250(src=imgAssets+'dynamics_hammer.svg')
+			.bottom-80.right-30.fragment
+				div.width-600.text-center.italic Jakákoliv fyzikální interakce objektu se dá rozložit na lineární pohyb těžiště a úhlový pohyb kolem něj
++frameInbox('Pohyb')
+	.important-green
+		.scope.fragment
+			p Pohyb projektilu
+			ul
+				li.fragment
+					include ../../assets/physics_dynamics/equations_generated/motion_01.svg
+				li.fragment
+					include ../../assets/physics_dynamics/equations_generated/motion_02.svg
+				li.fragment
+					include ../../assets/physics_dynamics/equations_generated/motion_03.svg
+			.top-30.right-150
+				img.width-700(src=imgAssets+'motion_projectile.svg')
+		.space-xl
+		.scope.fragment
+			p Pohyb po nakloněné rovině (bez tření)
+			ul
+				li.fragment
+					include ../../assets/physics_dynamics/equations_generated/motion_04.svg
+				li.fragment
+					include ../../assets/physics_dynamics/equations_generated/motion_05.svg
+				li.fragment
+					include ../../assets/physics_dynamics/equations_generated/motion_06.svg
+			.bottom-150.right-250
+				img.width-450(src=imgAssets+'motion_force.svg')
++frameInbox('Pohybové rovnice')
+	div
+		ul.spacing-3xs
+			li.highlight-2.fragment analytické řešení se v herní fyzice téměř nikdy nepoužívá
+			li.fragment <span class="highlight">Numerická integrace</span>
+				.bottom-20.right-20
+					img.height-640(src=imgAssets+'numerical_integration.svg')
+				ul
+					li.fragment máme-li 
+						include ../../assets/physics_dynamics/equations_generated/numerical_integration_04.svg
+						|, potřebujeme najít 
+						include ../../assets/physics_dynamics/equations_generated/numerical_integration_05.svg
+					li.fragment začneme u 
+						include ../../assets/physics_dynamics/equations_generated/numerical_integration_06.svg
+						|&nbsp;a krokujeme v čase podél<br> tangenty, dokud nevytvoříme aproximaci pro 
+						include ../../assets/physics_dynamics/equations_generated/numerical_integration_07.svg
+					li.fragment integrační metody nám umožní<br> aproximovat s narůstající přesností
++frameInbox('Integrační metody')
+	.important-green.spacing-3xs
+		.scope.fragment
+			p.color-tomato-light Implicitní metody
+			ul
+				li.fragment používají hodnoty z následující iterace
+				li.fragment odebírají energii ze systému
+		.scope.mt-10.fragment
+			p.color-lemon Explicitní metody
+			ul
+				li.fragment používají hodnoty ze současné iterace
+		.scope.mt-10.fragment
+			p.color-royal Semi-implicitní metody
+			ul
+				li.fragment kombinace explicitních a implicitních
+		.scope.mt-10.fragment
+			p.color-rhino-40 Runge-Kutta family
+			ul
+				li.fragment Eulerovy methody, metody středových bodů, RK4,...
+		.scope.mt-10.fragment
+			p.color-rhino-40 Verlet family
+			ul
+				li.fragment Regular Verlet
+				li.fragment Leapfrog Verlet
+				li.fragment Velocity Verlet
+		.bottom-0.right-0
+			img.height-400(src=imgAssets+'integration_euler.svg')
++frameInbox('Eulerova integrace')
+	.important-green
+		ul
+			li.fragment(data-fragment-index='1')
+				include ../../assets/physics_dynamics/equations_generated/euler_01.svg
+		.scope.fragment(data-fragment-index='2')
+			p Explicitní metoda
+			ul
+				li
+					include ../../assets/physics_dynamics/equations_generated/euler_02.svg
+		.scope.fragment(data-fragment-index='3')
+			p Vylepšená metoda
+			ul
+				li
+					include ../../assets/physics_dynamics/equations_generated/euler_03.svg
+		.scope.fragment(data-fragment-index='4')
+			p Implicitní metoda
+			ul
+				li
+					include ../../assets/physics_dynamics/equations_generated/euler_04.svg
+		.space-md
+		ul
+			li.upside.fragment(data-fragment-index='5') jednoduché na implementaci
+			li.downside.fragment(data-fragment-index='6') nízká stabilita, závislá přímo <br>na délce kroku
+		.top-60.right-30.fragment(data-fragment-index='1')
+			img.height-350(src=imgAssets+'euler_curve.svg')
+		.bottom-30.right-30.fragment(data-fragment-index='5')
+			img.height-350(src=imgAssets+'euler_comparison.svg')
+		.top-170.left-330.fragment(data-fragment-index='2')
+			img.width-50(src=imgAssets+'euler_explicit.svg')
+		.top-300.left-330.fragment(data-fragment-index='3')
+			img.width-50(src=imgAssets+'euler_improved.svg')
+		.top-440.left-330.fragment(data-fragment-index='4')
+			img.width-50(src=imgAssets+'euler_implicit.svg')

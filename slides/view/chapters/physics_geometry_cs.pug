@@ -1,0 +1,81 @@
+include ../mixins/containers.pug
+include ../mixins/containers_aph.pug
+
+- var imgAssets = '../assets/physics_geometry/';
+- var defaultBgr = 'backgrounds/geometry2.jpg';
+
++mchapter('Geometrie', imgAssets+'chapter_geometry.svg')
++frameInbox('Body a vektory')
+	.important-green
+		ul
+			li.fragment <span class="highlight">Kartézský systém souřadnic</span> - nejběžnější
+			li.fragment hry obvykle používají <span class="highlight">Euklidovský prostor</span>
+			li.fragment ve 2D hrách je osa Y často invertovaná
+		.flex-cols-2.mt-20
+			figure.fragment
+				img.height-500(src=imgAssets+'coord_2D.svg')
+				p 2D systém souřadnic
+			figure.fragment
+				img.height-500(src=imgAssets+'coord_3D.svg')
+				p 3D systém souřadnic
++frameInbox('Body a vektory')
+	.important-orange
+		ul
+			li.fragment <span class="highlight">Vektor</span> - veličina, která má svou velikost a směr
+			li.fragment vektory mohou reprezentovat body, pokud uvažujeme jejich počátek v počátku systému souřadnic
+		.space-lg
+		.scope.fragment
+			p Sčítání a odčítání
+			ul
+				li vektor + vektor = vektor
+				li vektor - vektor = vektor
+				li bod + vektor = bod
+				li bod - bod = vektor
+				li bod + bod = <span class="highlight">není definovaný</span>
+			.bottom-220.right-180
+				figure
+					img.height-250(src=imgAssets+'add_subtract.svg')
+					p Sčítání a odčítání
++frameInbox('Body a vektory')
+	.important-orange.spacing-4xs
+		.scope.fragment(data-fragment-index='1')
+			p Velikost vektoru
+			ul
+				li skalár reprezentující délku vektoru
+				li 
+					include ../../assets/physics_geometry/equations_generated/vectors_01.svg
+			.top-40.right-50
+				figure
+					img.height-270(src=imgAssets+'magnitude.svg')
+					p Velikost vektoru
+		.scope.fragment(data-fragment-index='2')
+			p Normalizace
+			ul
+				li jednotkový vektor je vektor s velikostí 1: 
+					include ../../assets/physics_geometry/equations_generated/vectors_02.svg
+		.scope.fragment(data-fragment-index='3')
+			p Normálový vektor
+			ul
+				li vektor je normálový k plošce, pokud je na ni kolmý
+		.scope.fragment(data-fragment-index='4')
+			p Skalární součin
+			ul
+				li
+					include ../../assets/physics_geometry/equations_generated/vectors_03.svg
+				li
+					include ../../assets/physics_geometry/equations_generated/vectors_04.svg
+		.scope.fragment(data-fragment-index='5')
+			p Vektorový součin
+			ul
+				li výsledkem je nový vektor, který je kolmý na první dva
+				li
+					include ../../assets/physics_geometry/equations_generated/vectors_05.svg
+		.bottom-260.right-20.fragment(data-fragment-index='6')
+			.scope
+				p Projekce
+				ul
+					li projekce vektoru na jiný vektor
+					li 
+						include ../../assets/physics_geometry/equations_generated/projection.svg
+		.bottom-20.right-20.fragment(data-fragment-index='6')
+			img.height-270(src=imgAssets+'projection.svg')

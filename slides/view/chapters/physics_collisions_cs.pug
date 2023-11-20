@@ -1,0 +1,236 @@
+include ../mixins/containers.pug
+include ../mixins/containers_aph.pug
+
+- var imgAssets = '../assets/physics_collisions/';
+- var defaultBgr = 'backgrounds/hellblade.jpg';
+
++mchapter('Detekce kolizí', imgAssets+'chapter_collisions.svg')
++frameInbox('Detekce kolizí')
+	.important-green.spacing-xs
+		.scope.fragment
+			p Kroky
+			ul
+				li.fragment pro daný frame se spočtou výsledné pozice
+				li.fragment spatial struktura nalezne kolizní kandidáty
+				li.fragment detekují se skutečné kolize
+				li.fragment kolize se vyřeší v <span class="highlight-2">collision resolveru</span> pomocí zpětných impulzů
+				li.fragment <span class="highlight-2">constraint resolver</span> vyřeší constrainty (omezení stupňů volnosti)
+		.scope.fragment
+			p Kolidující objekty
+			ul
+				li.fragment každý objekt musí mít nějakou fyzikální reprezentaci
+				li.fragment čím jednodušší tvar, tím rychlejší výpočet (např. člověk se může modelovat pomocí kapsule)
+				li.fragment komplexní tvary se používají jen pokud ty jednodušší nejsou v daném kontextu dostačující
+				li.mt-40.fragment pokud už u jednoduchých tvarů nedojde ke kolizi, nemůže k ní dojít ani u komplexnějších tvarů
+				li.fragment pokud dojde ke kolizi, nemusí to nutně znamenat, že jsou objekty ve skutečné kolizi
+		.tip.fragment.bottom-100.right-450
+			img.height-600(src=globalAssets+'memes/camera_hide.png')
++frameInbox('Bounding Boxy')
+	.important-orange.spacing-xs
+		.scope.fragment
+			p Koule
+			ul
+				li.fragment stačí nám střed a poloměr (4 čísla pro 3D)
+		.scope.fragment
+			p Kapsule
+			ul
+				li.fragment 2D: obdélník a dva kruhy
+				li.fragment 3D: válec a dvě polokoule
+				li.fragment reprezentace: dva body a poloměr
+			.text-center
+				img.height-120(src=imgAssets+'primitives_capsule.svg')
+		.scope.fragment
+			p AABB
+			ul
+				li.fragment axis-aligned bounding box (osově zarovnaný obalový tvar)
+				li.fragment kvádr, jehož stěny jsou rovnoběžné s osami systému souřadnic
+				li.upside.fragment velmi rychlé pro kolizní testování
+				li.downside.fragment musí se přepočítat při každé rotaci objektu
++frameInbox('Bounding Boxy')
+	.important-orange.spacing-xs
+		.scope.fragment
+			p OBB
+			ul
+				li.fragment oriented bounding box
+				li.fragment definovaný pozicí a rotací
+				li.fragment běžně se používá
+			.top-50.right-140
+				img.width-230(src=imgAssets+'primitives_obb.svg')
+		.scope.fragment
+			p k-DOP
+			ul
+				li.fragment discrete oriented polytope
+				li.fragment zobecněný případ AABB OBB
+				li.fragment více aproximuje tvar skutečného objektu
+			.top-380.right-140
+				img.width-230(src=imgAssets+'primitives_kdop.svg')
+		.scope.fragment
+			p Složené tvary
+			ul
+				li.fragment mohou obsahovat jakákoliv obalová primitiva
+			.top-520.right-30
+				img.height-150(src=imgAssets+'primitives_compound.svg')
+		.scope.fragment
+			p Konvexní obálka
+			ul
+				li.fragment konvexní tvar/objem, který obaluje celý objekt
+			.bottom-20.right-150
+				img.height-150(src=imgAssets+'primitives_convexhull.svg')
++frameInbox('Porovnání')
+	.important-green
+		.text-center
+			img.height-760(src=imgAssets+'primitives_comparison_cs.svg')
+		.top-310.left-60
+			img.width-1510(src=imgAssets+'primitives_comparison.png')
++frameInbox('Kolize ve 2D hrách')
+	.important-green
+		ul
+			li.fragment dokonce i side-scroller hry potřebují složené tvary
+			li.fragment jednoduchá AABB kolize nebude pro nepravidelné sprity fungovat
+		.space-xl
+		.text-center
+			img.height-450(src=imgAssets+'bad overlapping.png')
++frameInbox('Vyhledávání kolizních kandidátů')
+	.important-green.spacing-2xs
+		.scope.fragment
+			p Naivní řešení
+			ul
+				li.fragment každý s každým
+				li.fragment
+					include ../../assets/physics_collisions/equations_generated/collision_detection_01.svg
+					|&nbsp;-> 10 objektů vyjde na 100 kontrol, 100 na 10 000 atd.
+		.scope.fragment
+			p Quad-tree
+			ul
+				li.fragment složitost je 
+					include ../../assets/physics_collisions/equations_generated/collision_detection_02.svg
+					|, neb index vyžaduje cca 
+					include ../../assets/physics_collisions/equations_generated/collision_detection_03.svg
+					|&nbsp;porovnání při průchodu stromem
+				li.fragment vhodné pro malé objekty
+				li.fragment nejhorší případ: 
+					include ../../assets/physics_collisions/equations_generated/collision_detection_04.svg
+		.scope.fragment
+			p Sweep and Prune
+			ul
+				li.fragment seřadí hrany podle jednotlivých os (např. levý kraj a horní kraj)
+		.scope.fragment
+			p BSP
+			ul
+				li.fragment binary space partitioning, používá se pro komplexní statické objekty (budovy)
+		.scope.fragment
+			p Grid, Oct-tree, R-tree, R+tree, R*tree, X-tree, M-tree,...
++frameInbox('Testování kolizí')
+	.important-green
+		.scope.fragment
+			p Koule-koule
+			ul
+				li.fragment
+					include ../../assets/physics_collisions/equations_generated/resolving_candidates_01.svg
+					|, kde 
+					include ../../assets/physics_collisions/equations_generated/resolving_candidates_02.svg
+					|&nbsp;je střed
+		.scope.fragment
+			p Koule-paprsek
+			ul
+				li.fragment stačí otestovat nejmenší vzdálenost mezi středem koule a paprskem
+		.scope.fragment
+			p AABB-AABB
+			ul
+				li.fragment otestují se kraje
+		.scope.fragment
+			p AABB-paprsek
+			ul
+				li.fragment intervaly 
+					include ../../assets/physics_collisions/equations_generated/resolving_candidates_03.svg
+					|&nbsp;a 
+					include ../../assets/physics_collisions/equations_generated/resolving_candidates_04.svg
+					|&nbsp;se nesmí překrývat
+			.bottom-120.right-140
+				img.height-340(src=imgAssets+'aabb_ray.svg')
+		.scope.fragment
+			p OBB-OBB
+			ul
+				li.fragment Gottschalkův axis-separating theorem
++frameInbox('SAT')
+	.important-orange
+		.scope.fragment
+			p SAT (separating axis theorem)
+			ul
+				li.fragment pokud můžeme mezi dva polygony vložit přímku tak, že na jedné straně je jeden polygon a na druhé straně druhý, pak se nepřekrývají
+					.bottom-0.right-50
+						img.height-600(src=imgAssets+'sat_cs.svg')
+				li.fragment pro 2D: AABB 2 osy, OBB 4 osy
+				li.fragment pro 3D: AABB 3 osy, OBB 15 os
+				li.fragment AABB ve 2D: testujeme pouze 2 osy		
+					.bottom-20.left-40
+						img.height-450(src=imgAssets+'sat_aabb.svg')
++frameInbox('Tunneling problem')
+	.important-orange.spacing-2xs
+		.scope.fragment
+			p Substeps
+			ul
+				li.fragment fyzikální engine provede v rámci jednoho framu vícero iterací dle dané situace
+				li.fragment čas kolize se vypočte binárním vyhledáváním, kdy s objektem hýbáme vpřed a zpět o 1/N kroku
+			.text-center
+				img.height-200(src=imgAssets+'stepped_world.svg')
+		.scope.fragment
+			p Continuous Collision Detection (CCD)
+			ul
+				li.fragment používá <span class="highlight-2">Raycasting</span> či techniku zvanou <span class="highlight-2">Swept Shapes</span>
+				li.fragment Raycasting - objekt vyšle paprsek a ten se dále testuje
+				li.fragment Swept Shapes - pohyb objektu dá vzniknout siluetě nového kolizního objektu, který se dále testuje
+			.text-center.mt-10
+				img.height-130(src=imgAssets+'ccd.svg')
++frameInbox('Collision response')
+	.important-green.spacing-3xs
+		p.highlight-2.fragment Jak reagovat na kolizi?
+		.scope.fragment
+			p Exploze
+			ul
+				li.fragment přidáváme energii
+		.scope.fragment
+			p Fracturing
+			ul
+				li.fragment objekty rozdrolíme na několik částí
+		.scope.fragment
+			p Odraz
+			ul
+				li.fragment když se dva objekty srazí, odrazí se pod stejným úhlem a ztratí část energie
+		.scope.fragment
+			p Tření
+			ul
+				li.fragment síla která vzniká mezi tělesy, které jsou v těsném kontaktu, omezujíc jejich pohyb
+				li.fragment odebírá energii ze systému
+				li.fragment statická, dynamická, valivý odpor
+		.scope.fragment
+			p Constraint
+			ul
+				li.fragment omezení stupňů volnosti (např. dveře mohou rotovat jen kolem pantů)
+		.top-40.right-40
+			img.height-400(src=imgAssets+'tree.jpg')
++frameInbox('Collision Resolver')
+	.important-green.spacing-3xs
+		.scope.fragment
+			p Relaxace
+			ul
+				li.highlight-2.fragment LCP - Problém lineární komplementarity
+				li.fragment pokud se jeden objekt pohne, musí se pohnout i druhý, třetí, čtvrtý,...
+				li.fragment velmi komplexní numerické metody
+				li.fragment PGS, Dantzig solver, Lemkeho methoda, Jacobiho methoda
+		.scope.fragment
+			p Klidový stav
+			ul
+				li.fragment energie systému postupně konverguje k nule
+				li.fragment může dojít k numerické nestabilitě (čísla blízko nuly)
+					ul
+						li.fragment
+							span.highlight-2 sleep criteria
+							ul
+								li.fragment jakmile energie klesne pod určitý práh
+						li.fragment
+							span.highlight-2 simulation islands
+							ul
+								li.fragment shlukování objektů které jsou v interakci
+		.top-400.right-50
+			img.height-200(src=imgAssets+'physics_02.png')
