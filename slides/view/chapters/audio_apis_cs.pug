@@ -1,0 +1,46 @@
+include ../mixins/containers.pug
+include ../mixins/containers_aph.pug
+
+- var imgAssets = '../assets/audio_apis/';
+- var defaultBgr = 'backgrounds/audiochip.jpg';
+
++mchapter('Audio API', imgAssets+'chapter_audio_tech.svg')
++frameInbox('Audio AP')
+	.important-green
+		ul.sspacing-xs
+			li.fragment audio smyčka se řídí sample ratem a velikostí bufferu
+			li.fragment audio enginy používají <span class="highlight">double buffer</span> - z jednoho hrajeme a do druhého dáváme data
+			li.fragment <span class="highlight">callback API</span> - OS-level thread cally při dostupnosti bufferu (např. CoreAudio pro MacOS)
+			li.fragment <span class="highlight">polling API</span> - je potřeba se periodicky dotazovat na dostupnost bufferu (např. Windows WASAPI)
+		figure.mt-20.fragment
+			img.height-480(src=imgAssets+'audio_engine.svg' alt='Audio engine diagram')
+			p Audio Engine
++frameInbox('Příklad: Godot audio loop')
+	div
+		.code.text-2xs
+			include ../../assets/audio_apis/snippets_generated/godot_audio_loop.html
++frameInbox('Audio Enginy')
+	div
+		ul
+			li.fragment <span class="highlight">FMOD Engine</span> - integrován do Unity (skrze plugin) a Unreal
+			li.fragment <span class="highlight">WebAudio API</span> - API pro zpracování zvuku v prohlížečích
+			li.fragment <span class="highlight">RealSpace 3D Audio</span> - 3D audio engine, podporovaný v Unrealu
+			li.fragment <span class="highlight">VRWorks</span> - raytraced sound rendering od NVidia
+			li.fragment <span class="highlight">Audiokinetic Wwise</span> - jeden z dalších 3D audio enginů
+			li.fragment <span class="highlight">Windows Sonic</span> - HRTF engine pro Windows a HoloLens
+			li.fragment <span class="highlight">Project Acoustics</span> - kombinuje HRTF s enginem Project Triton
+		figure.mt-40.fragment
+			img.height-240(src=imgAssets+'audio_engine_pipeline.svg' alt='Audio engine pipeline')
+			p Pipeline audio enginu
++frameInbox('WebAudio API')
+	.important-green.spacing-xs
+		ul
+			li.fragment JavaScript API pro zpracování zvuku
+			li.fragment <span class="highlight">funkce:</span> modular routing, spatialized audio, convolution engine, biquad filtrování,...
+			li.fragment spatialized audio (distance attenuation, sound cones, obstruction, panning models)
+			li.fragment convolution engine (řeší šíření zvuku dle velikosti místnosti)
+			li.fragment používá audio <span class="highlight">uzly</span>, které se propojují dohromady
+		figure.mt-40.fragment
+			img.height-430(src=imgAssets+'webaudioapi.svg' alt='WebaudioApi diagram')
+			p Příklad uzlů
+

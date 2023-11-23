@@ -1,0 +1,190 @@
+include ../mixins/containers.pug
+include ../mixins/containers_aph.pug
+
+- var imgAssets = '../assets/audio_music/';
+- var defaultBgr = 'backgrounds/music.jpg';
+
+
++mchapter('Hudba ve hrách', imgAssets+'chapter_audio_gamemusic.svg')
++frameInbox('Hudba ve hrách')
+	.important-green.spacing-xs
+		.scope.fragment
+			p Žánry
+			ul
+				li.fragment chiptune (pixel-art)
+				li.fragment elektronická hudba (arkádovky, shoot-em-upy)
+				li.fragment instrumentální hudba (story-based hry)
+		.scope.fragment
+			p Způsoby prezentace
+			ul
+				li.fragment <span class="highlight-2">character-based</span> - zaměřuje se na postavy
+				li.fragment <span class="highlight-2">environment-based</span> - zaměřuje se na prostředí
+				li.fragment <span class="highlight-2">emotional-based</span> - zaměřuje se na atmosféru
+		.scope.fragment
+			p Použití
+			ul
+				li.fragment reflektuje stav hry
+				li.fragment reflektuje prostředí, ve kterém se hráč nachází
+				li.fragment reflektuje příběhovou linku
+				li.fragment upozorňuje hráče na události ve hře
+		.bottom-300.right-200
+			img.height-300(src=imgAssets+'key.svg' alt='Music key')
++frameInbox('Hudba ve hrách')
+	.important-green.spacing-xs
+		.scope.fragment
+			p Monkey Island 2: LeChuck's Revenge (1991)
+			ul
+				li iMUSE engine pro přechod mezi lokacemi
+		.scope.fragment
+			p The Legend of Zelda: Ocarina of Time (1998)
+			ul
+				li každá postava měla vlastní téma (např. Saria's Theme) 
+		.scope.fragment
+			p F.E.A.R (2005)
+			ul
+				li reaktivní hudba řízená událostmi
+		.scope.fragment
+			p League of Legends (2009)
+			ul
+				li looping hudba, in-game alerty
+		.scope.fragment
+			p Mass Effect 3 (2012)
+			ul
+				li komplexní instrumentální hudba
+		.scope.fragment
+			p Hellblade: Senua's Sacrifice (2017)
+			ul
+				li binaural audio pro zvýšení imerze 
++frameInbox('Hudba jako hlavní mechanika')
+	.fill.center.flex-row.justify-evenly
+		figure
+			img.height-380(src=imgAssets+'tileshop.jpg' alt='Tileshop')
+			p Tiles Hop
+		figure
+			img.height-380(src=imgAssets+'guitar_hero.jpg' alt='Guitar Hero')
+			p Guitar Hero
+		figure
+			img.height-380(src=imgAssets+'ddr.jpg' alt='Dance Dance Revolution')
+			p Dance Dance Revolution
+		.tip.bottom-200.right-550.fragment
+			img.height-500(src=globalAssets+'memes/stealth.jpg')
++frameInbox('Hudba ve hrách')
+	.important-green.spacing-4xs
+		.scope.fragment
+			p Kategorie assetů
+			ul
+				li.fragment <span class="highlight-2">diegetické zvuky</span> - provázány s viditelnými objekty (hlas postav, kroky)
+				li.fragment <span class="highlight-2">nediegetické zvuky</span> - nemají vazbu na objekty ve hře (sountrack, vypravěč)
+				li.fragment <span class="highlight-2">hudba na pozadí</span> - ambientní hudba
+				li.fragment <span class="highlight-2">score</span> - soundtrack
+				li.fragment <span class="highlight-2">interface zvuky</span> - např. stisk tlačítka
+				li.fragment <span class="highlight-2">ostatní</span> např. GTA radio
+				li.fragment <span class="highlight-2">alerty</span> -upozornění pro hráče
+		.scope.fragment
+			p Dynamika
+			ul
+				li.fragment <span class="highlight-2">lineární hudba</span> - reflektuje pouze hlavní předěly (dokončený level)
+				li.fragment <span class="highlight-2">dynamická hudba</span> - reaguje na změnu gameplaye či prostředí
+				li.fragment <span class="highlight-2">adaptivní hudba</span> - adaptuje se na herní prostředí a hráče
++frameInbox('Příklad: lineární hudba')
+	div
+		.top-100.left-50.fragment(data-fragment-index='0')
+			figure.mt-40
+				img.width-750(src=imgAssets+'music_doom.svg' alt='Doom music diagram')
+				p Doom 2
+		.bottom-50.right-100.fragment(data-fragment-index='1')
+			figure
+				img.width-750(src=imgAssets+'music_pop.svg' alt='Prince of persia music diagram')
+				p Prince of Persia 2: Shadow and the flame
+		.right-100.top-100.fragment(data-fragment-index='0')
+			img.height-300(src=imgAssets+'doom2.jpg' alt='Doom2')
+		.left-200.bottom-50.fragment(data-fragment-index='1')
+			img.height-350(src=imgAssets+'pop2.jpg' alt='Prince of Persia 2')
++frameInbox('Dynamická hudba')
+	.important-orange
+		.scope.fragment
+			p Funkce
+			ul
+				li.fragment <span class="highlight">looping</span> - smyčka
+					div
+						img.mt-40.width-800(src=imgAssets+'features_looping.svg' alt='Music features - looping')
+				li.fragment <span class="highlight">branching</span> - větvící se hudba
+					div
+						img.mt-40.width-600(src=imgAssets+'features_branching.svg' alt='Music features - branching')
+				li.fragment <span class="highlight">layering</span> - některé části je možno utlumit
+					div
+						img.mt-40.width-900(src=imgAssets+'features_layering.svg' alt='Music features - layering')
+				li.fragment <span class="highlight">transitions</span> - přechod mezi dvěma tracky
+					div
+						img.mt-40.width-800(src=imgAssets+'features_transitions.svg' alt='Music features - transitions')
++frameInbox('Přechody')
+	.important-green
+		ul
+			li.fragment přechod z jednoho tracku do druhého
+			li.color-tomato-light.fragment nikdy nesmíme hudbu náhle utnout
+		img.top-350.right-100.height-50.fragment(src=imgAssets+'transition_crossfade.svg' alt='Crossfade transition')
+		.scope.fragment
+			p Cross-fade
+			ul
+				li.fragment jednoduché řešení - první track se utlumí, druhý zesílí 
+				li.downside.fragment není vhodné pro instrumentální hudbu
+		img.top-500.right-100.height-50.fragment(src=imgAssets+'transition_cue.svg' alt='Transition cue')
+		.scope.mt-40.fragment
+			p Přechodový klip
+			ul
+				li.fragment každý song má svůj vlastní klip, který je použit na přechod   
+		img.top-700.right-100.height-100.fragment(src=imgAssets+'transition_points.svg' alt='Transition points')
+		.scope.mt-40.fragment
+			p Přechodové body
+			ul
+				li.fragment každý song má několik bodů, kde může dojít k přechodu
+				li.downside.fragment složité na implementaci
++frameInbox('iMUSE')
+	.important-green
+		ul
+			li.fragment dynamická hudba pro SCUMM engine
+			li.fragment vyvinuto firmou LucasArts v 1991
+			li.fragment databáze sekvencí obsahovala <span class="highlight-2">rozhodovací body</span> uvnitř tracků
+			li.fragment segmenty bylo možno měnit, vypínat, loopovat, obsahovaly různé skoky atd.
+		.flex.flex-row.justify-evenly.mt-50.fragment
+			div.text-center
+				img.height-400(src=imgAssets+'monkey_island.svg' alt='Monkey Island music transition')
+			figure.mt-40
+				img.height-300(src=imgAssets+'monkey_island.jpg' alt='Monkey Island')
+				p Monkey Island 2
++frameInbox('Rušivá hudba')
+	div
+		ul
+			li.fragment(data-fragment-index='0') nesouvisející hudba
+			li.fragment(data-fragment-index='1') špatný looping
+			li.fragment(data-fragment-index='2') špatné přechody
+			li.fragment(data-fragment-index='3') špatné mixování (např. zvuk který přehluší dialog)
+			li.fragment(data-fragment-index='4') repetitivní NPC 
+			li.fragment(data-fragment-index='5') nízká úroveń variace (ta samá hudba pro vícero levelů, ten samý zvuk pro kroky)
+			li.fragment(data-fragment-index='6') falešný poplach
+			li.fragment(data-fragment-index='8') příliš mnoho zvuků hrajících současně
+		.top-0.right-0.fragment(data-fragment-index='4')
+			img.height-350(src=globalAssets+'memes/adventurer.jpg' alt='I used to be an adventurer like you meme')
+		.bottom-0.right-0.fragment(data-fragment-index='6')
+			img.height-350(src=globalAssets+'memes/battle_music.jpg' alt='Battle music when no enemies are around meme')
+		.bottom-0.left-90.fragment(data-fragment-index='8')
+			img.height-300(src=imgAssets+'justcause.jpg' alt='Just Cause')
++frameInbox('Adaptivní hudba')
+	.important-green
+		ul
+			li.fragment <span class="highlight-2">dynamická hudba</span> reflektuje změny v gameplayi
+			li.fragment <span class="highlight-2">adaptivní hudba</span> více diverzitní, podporuje emergentní gameplay
+		.scope.mt-80.fragment
+			p Variabilita
+			ul
+				li.fragment variabilní tempo
+				li.fragment variabilní výšky
+				li.fragment variabilní rytmus
+				li.fragment variabilní hlasitost
+				li.fragment variabilní DSP
+				li.fragment variabilní melodie
+				li.fragment variabilní harmoničnost
+		.right-100.bottom-150.fragment
+			figure
+				img.height-400(src=imgAssets+'apeout.jpg' alt='Apeout')
+				p Ape Out (2019) - reaktivní hudební systém
