@@ -11,11 +11,6 @@ include ../mixins/containers_aph.pug
 			li.fragment a set of algorithms that help autonomous agents move in a realistic manner by using simple forces
 			li.fragment designed by <span class="highlight-2">Crag Reynolds</span> in the early 90's
 			li.mt-20.fragment <span class="highlight">Agent</span> - a system situated within an environment, with the ability to sense that environment
-			li.mt-20.fragment <span class="highlight">Motion layers</span>
-				ul
-					li.fragment action selection - choosing goals, strategy
-					li.highlight-2.fragment steering - trajectory calculation
-					li.fragment locomotion - way of moving, animation, articulation
 		.text-center.mt-30.fragment
 			img.height-300(src=imgAssets+'steering_agent.svg')
 +frameInbox('Steering Behaviors')
@@ -46,7 +41,6 @@ include ../mixins/containers_aph.pug
 			ul
 				li.fragment(data-fragment-index='6') agent intercepts a moving target
 				li.fragment(data-fragment-index='7') predicts where the target is going to be in the future
-				li.fragment(data-fragment-index='7') calls for a good prediction function
 		.scope.fragment(data-fragment-index='9')
 			p Evade
 			ul
@@ -74,7 +68,6 @@ include ../mixins/containers_aph.pug
 				li.fragment moves a vehicle along a set of waypoints
 				li.fragment the last waypoint can be reached using <span class="highlight-2">arrive</span>, the others via <span class="highlight-2">seek</span>
 				li.fragment smooth movement can be achieved using a <span class="highlight-2">tolerance radius</span> or Bézier curve approximation
-				li.fragment very sensitive to configuration (max force, max velocity, radius,...)
 			.text-center.mt-10.fragment
 				img.height-500(src=imgAssets+'steering_follow.svg')
 +frameInbox('Steering Behaviors')

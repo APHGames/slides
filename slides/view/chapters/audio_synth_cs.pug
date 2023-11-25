@@ -1,0 +1,61 @@
+include ../mixins/containers.pug
+include ../mixins/containers_aph.pug
+
+- var imgAssets = '../assets/audio_synth/';
+- var defaultBgr = 'backgrounds/sound_synth.jpg';
+
++mchapter('Syntéza a skládání hudby', imgAssets+'chapter_synth.svg')
++frameInbox('Generátory zvuku')
+	.important-orange
+		ul
+			li.fragment <span class="highlight">generátor</span> - oscilátor, který dokáže vygenerovat tón
+				ul
+					li.fragment syntetická hudba kombinuje generované tóny, efekty, filtry, a nahrané samply
+			li.fragment <span class="highlight">hlavní typy syntézy</span>: aditivní, subtraktivní, frekvenční modulace, přes wavetably
+		.text-center.mt-20.fragment
+			img.height-600(src=imgAssets+'waves.svg' alt='Sound Waves')
++frameInbox('ADSR Envelope')
+	.important-green
+		ul
+			li.fragment(data-fragment-index='0') obálka popisuje změnu zvuku v čase
+			li.fragment(data-fragment-index='2') <span class="highlight">attack</span> - čas, za který se zvuk přesune z nuly na nejvyšší hlasitost (fade in)
+			li.fragment(data-fragment-index='3') <span class="highlight">decay</span> - za jak dlouho se zvuk z peaku dostane do ustáleného stavu
+			li.fragment(data-fragment-index='4') <span class="highlight">sustain</span> - maximální intenzita ustáleného stavu
+			li.fragment(data-fragment-index='5') <span class="highlight">release</span> - návrat do ticha (fade out)
+		.text-center.mt-20.fragment(data-fragment-index='0')
+			img.height-450(src=imgAssets+'adsr.svg' alt='Sound ADSR Envelope diagram')
++frameInbox('Efekty')
+	.important-green
+		ul
+			li.fragment <span class="highlight">Echo</span> - signály zpožděné o 50 a více ms
+			li.fragment <span class="highlight">Reverberation (Reverb/Dozvuk)</span> - odraz zvuku od povrchu, používaný pro indoor prostředí
+			li.fragment <span class="highlight">Chorus</span> - zpožděné zvuky přidané k originálu, přidávají hloubku
+			li.fragment <span class="highlight">Time stretching</span> - změna rychlosti bez změny výšky tónu
+			li.fragment <span class="highlight">Compressor</span> - redukuje dynamický rozsah zvuku (hlasité zvuky jsou tišší a tiché hlasitější)
+			li.fragment <span class="highlight">Equalization</span> - změna hlasitosti v různých frekvenčních intervalech
+			li.fragment <span class="highlight">Filtering</span> - aplikace filtrů
+			li.fragment <span class="highlight">Lowpass/highpass</span> - filter který usekne vysoké či nízké frekvence
+			li.fragment <span class="highlight">Portamento</span> - postupné zvýšení intenzity
+			li.fragment <span class="highlight">Vibrato</span> - pulzující změna intenzity
+			li.fragment <span class="highlight">Tremolo</span> - pulzující změna hlasitosti
+			li.fragment <span class="highlight">Panning</span> - změna hlasitosti pro různé kanály
++frameInbox('VST pluginy')
+	.important-green
+		ul
+			li.fragment.highlight Visual Studio Technology
+			li.fragment interface pro zpracování digitálního zvuku
+			li.fragment dají se integrovat do každého DAW (digital audio workstation)
+			li.fragment používají se pro efekty, konvertory, filtry, virtuální nástroje
+		.text-center.mt-40.fragment
+			img.height-500(src=imgAssets+'vst.jpg' alt='VST plugins')
++frameInbox('Nahrávání zvuku')
+	div
+		ul
+			li.fragment(data-fragment-index='0') <span class="highlight">ambientní zvuky</span> - nahrávání přímo v cílovém prostředí
+			li.fragment(data-fragment-index='1') <span class="highlight">syntetické efekty</span> - DAW software (FLStudio, Audacity,...) a sada VST pluginů
+			li.fragment(data-fragment-index='2') <span class="highlight">skutečné efekty</span> - vytvářené foley artisty
+		.flex-cols-2.text-center.mt-80
+			div.fragment(data-fragment-index='0')
+				img.height-400(src=imgAssets+'sound_rec.jpg' alt='Sound Recording process')
+			div.fragment(data-fragment-index='2')
+				img.height-400(src=imgAssets+'foley_stage.jpg' alt='Foley stage')

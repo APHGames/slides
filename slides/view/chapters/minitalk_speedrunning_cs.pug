@@ -1,0 +1,90 @@
+include ../mixins/containers.pug
+include ../mixins/containers_aph.pug
+
+- var imgAssets = '../assets/minitalk_speedrunning/';
+- var defaultBgr = 'backgrounds/marioworld.jpg';
+
+// ===================================================== SLIDES =====================================================
++mchapter('Speedrunning', imgAssets+'chapter_speedrunning.svg')
++frameInbox('Speedrunning')
+	div
+		ul
+			li.fragment hlavní cíl: dohrát hru co nejrychleji
+			li.fragment trénová		ní dohrání her k regulérnímu konci tak rychle, jak je to možné
+			li.fragment speedrunneři ke hrám přistupují odlišně narozdíl od tradičních hráčů
+		.scope.fragment
+			p Kategorie
+			ul
+				li.fragment <span class="highlight-2">any%</span> - pouze hru dohrát
+				li.fragment <span class="highlight-2">100%</span> - sebrat klíče, upgrady, najít tajné místnosti,...
+				li.fragment <span class="highlight-2">low%</span> - obdržet co nejmenší počet upgradů
+				li.fragment <span class="highlight-2">IL</span> - speedrunning individuálních levelů
+				li.fragment <span class="highlight-2">blind run</span> - speedrunning na první pokus
+				li.fragment <span class="highlight-2">TAS</span> - tool-assisted speedrun
+				li.fragment <span class="highlight-2">no-hit</span> - hráč nesmí dostat zásah
+				li.fragment <span class="highlight-2">pacifist</span> - hráč nesmí nikoho zasáhnout
+	.bottom-20.right-20.fragment
+		img.height-350(src=imgAssets+'speedrunning.jpg' alt='Speedrunning')
++frameInbox('Speedrunning')
+	div
+		.scope.fragment
+			p Důležité milníky
+			ul.spacing-xs
+				li.fragment 1986 - vydán <span class="highlight-2">Metroid</span>, který odměňoval hráče za rychlost hraní
+				li.fragment 1993 - vydán <span class="highlight-2">Doom</span>, který umožňoval ukládat replay
+				li.fragment 1994 - vznikla COMPET-N databáze pro speedrunning Dooma
+				li.fragment 1997 - vzniklo video <span class="highlight-2">Quake done Quick</span>, které speedrunning dostalo do mainstreamu
+				li.fragment 1998 - vydána <span class="highlight-2">Zelda: Ocarina of Time</span>, na kterou vznikl katalog glitchů pro speedrunning
+				li.fragment 2005 - spuštěn Youtube
+				li.fragment 2009 - spouštěn SpeedRunsLive.com
+				li.fragment 2010 - první event <span class="highlight-2">Games Done Quick</span>, charitativní maraton
+				li.fragment 2011 - spuštěn Twitch
+				li.fragment 2014 - spuštěn Speedrun.com
+				li.fragment 2019 - no-hit Souls run
+				li.fragment 2020 - první no-hit run hry Ninja Gaiden
+	.bottom-20.right-20
+		img.height-300(src=imgAssets+'GDQ_2017.jpg' alt='GDQ 2017')
++frameInbox('Speedruning')
+	div
+		.scope.fragment
+			p Výrazy
+			ul
+				li.fragment <span class="highlight-2">Clipping</span> - procházení zdmi díky bugu ve hře
+				li.fragment <span class="highlight-2">Cutscene skip</span> - přeskočení neskipnutelné cutscény
+				li.fragment <span class="highlight-2">Damage boost</span> - záměrné zasažení pro zvýšení rychlosti
+				li.fragment <span class="highlight-2">Warp</span> - teleportace mezi oblastmi s využitím glitchů ve hře
+				li.fragment <span class="highlight-2">Death warp</span> - warpování s využitím smrti
+				li.fragment <span class="highlight-2">Sequence breaking</span> - progrese ve hře, která obchází některé části
+				li.fragment <span class="highlight-2">0-cycle</span> - poražení bosse tak, aby nespustil žádnou fight animaci
+				li.fragment <span class="highlight-2">Zip</span> - rychlejší pohyb ve hře s využitím chyb fyzikálního enginu
+		.scope.fragment
+			p Oblíbené hry pro speedrunning
+			ul
+				li.fragment Super Metroid, Super Mario, The Legend of Zelda
+				li.fragment Doom, Dark Souls, Cuphead
+	.top-20.right-20
+		figure.fragment
+			img.width-400(src=imgAssets+'arbitrary_code.jpg' alt='Super Mario Glitch')
+			p Super Mario glitch
+		figure.mt-20.fragment
+			img.width-400(src=imgAssets+'hfglitch.jpg' alt='Half-Life Glitch')
+			p Half-Life mimo mapu
++frameInbox('TAS')
+	div
+		ul
+			li.fragment tool-assissted speedrun
+			li.fragment speedrunning emulované hry pro průzkum teoreticky možných strategií
+			li.fragment slouží spíše pro pobavení
+			li.fragment silně postaven na manipulaci s nahodilostí
+				.bottom-40.right-40
+					figure
+						img.height-430(src=imgAssets+'doom_ios.jpg')
+						p Doom 2 Level 30
+		.scope.fragment.mt-40
+			p Populární hry pro TAS
+			ul
+				li.fragment NES/SNES hry
+				li.fragment Doom
+				li.fragment Pokémon Series
+				li.fragment Super Mario 64
+				li.fragment Trackmania

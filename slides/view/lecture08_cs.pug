@@ -3,7 +3,6 @@
 // NAME=Hudba a zvuky
 // LOCALE=cs 
 // ORDER=8
-// LOCKED=true
 doctype html
 include ./mixins/header.pug
 include ./mixins/containers.pug
@@ -16,25 +15,25 @@ include ./mixins/summary.pug
 - var globalAssets = '../assets/all/';
 - var defaultBgr = 'backgrounds/bgr_arcades2.jpg';
 
-html(lang='en')
+html(lang='cs')
 	+header('Audio', 'Adam Vesecký', themePath + 'resources/favicon.png', themePath + 'theme_aph.scss')
 	.reveal
 		.slides
-			+titleLectureCs('Audio', 'Lecture 6', globalAssets+'lectures/ic_lecture06.svg')
-			+frameInbox('Literature')
+			+titleLectureCs('Hudba a zvuky', 'Přednáška 8', globalAssets+'lectures/ic_lecture08.svg')
+			+frameInbox('Literatura')
 				ul
 					li
 						a(href="https://www.amazon.com/Game-Sound-Introduction-History-Practice/dp/026203378X") Collins, Karen. 2008. Game Sound: An Introduction to the History, Theory, and Practice of Video Game Music and Sound Design
 				div.text-center
 					img.height-500(src=globalAssets+'book_audio.jpg' alt='Collins, Karen. Game Sound: An Introduction to the History, Theory, and Practice of Video Game Music and Sound Design')
-			include ./chapters/audio_digital_sound.pug
-			include ./chapters/audio_synth.pug
-			include ./chapters/audio_music.pug
-			include ./chapters/audio_sounds.pug
-			include ./chapters/audio_apis.pug
+			include ./chapters/audio_digital_sound_cs.pug
+			include ./chapters/audio_synth_cs.pug
+			include ./chapters/audio_music_cs.pug
+			include ./chapters/audio_sounds_cs.pug
+			include ./chapters/audio_apis_cs.pug
 			- var defaultBgr = 'backgrounds/bgr_arcades2.jpg';
-			+summary_lecture06()
-			+quote-gta()
+			+summary_lecture08cs()
+			+quote-savloware()
 
-	+footer('Adam Vesecký (FIT CTU)', 'Architecture of Video Games, Lecture 6: Audio')
+	+footer('Adam Vesecký (FIT ČVUT)', 'Architektura Počítačových Her, Přednáška 8: Hudba a zvuky')
 	script(src!='../../scripts/reveal-setup.js')

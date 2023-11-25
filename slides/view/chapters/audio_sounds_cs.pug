@@ -1,0 +1,69 @@
+include ../mixins/containers.pug
+include ../mixins/containers_aph.pug
+
+- var imgAssets = '../assets/audio_sounds/';
+- var defaultBgr = 'backgrounds/mixdesk.jpg';
+
++mchapter('Zvuky ve hrách', imgAssets+'chapter_audio_gamesound.svg')
++frameInbox('Zvukové efekty')
+	.important-green
+		ul
+			li.fragment iluze imerze ve 3D hrách je značně posílena zvuky
+			li.fragment 2D hry - hlavní fokus je hudba, jednoduché zvuky jsou dostačující
+			li.fragment 3D hry - komplexní poziční zvuky
+		.scope.mt-80.fragment
+			p Typy
+			ul
+				li.fragment <span class="highlight-2">one-shot</span> - tzv. štěky, vždy stejné
+					.bottom-50.right-50
+						img.height-600(src=imgAssets+'angrybirds.png')
+				li.fragment <span class="highlight-2">buzzery</span> - např. zvuk zářivek
+				li.fragment <span class="highlight-2">pohybující se objekty</span> - např. Dopplerův efekt u aut
+				li.fragment <span class="highlight-2">náhodné</span> - např. zvuky explozí
+				li.fragment <span class="highlight-2">periodické</span> - např. vodopád
+				li.fragment <span class="highlight-2">dynamické</span> - např. různé zvuky pro kroky
++frameInbox('3D zvuky')
+	.important-orange
+		.scope.fragment
+			p Útlum (attenuation)
+			ul
+				li čím dále je zdroj, tím tišeji zní
+			.right-50.top-100
+				img.height-260(src=imgAssets+'3dsound_attenuation.svg' alt='Attenuation in 3D sound')
+		.space-md
+		.scope.mt-100.fragment
+			p Pohlcení
+			ul
+				li pokud je před zdrojem bariéra, dojde ke ztrátě vyšších frekvencí
+			.right-50.top-370
+				img.height-260(src=imgAssets+'3dsound_occlusion.svg' alt='Occlusion in 3D sound')
+		.space-m
+		.scope.mt-100.fragment
+			p Překážky
+			ul
+				li pokud cesta od zdroje není přímá
+				li způsobuje zpoždění a změnu hlasitosti v různých směrech
+			.right-50.top-640
+				img.height-260(src=imgAssets+'3dsound_obstruction.svg' alt='Obstruction in 3D sound')
++frameInbox('3D zvuk')
+	.important-green
+		.scope.fragment
+			p Panning
+			ul
+				li.fragment změna hlasitosti podle toho, kde je zdroj
+		.scope.fragment
+			p HRTF
+			ul
+				li.fragment přenosová funkce modelující vnímání zvuku ušima
+				li.fragment popisuje, jak je zvuk filtrován difrakcí lidské hlavy
+				li.fragment používá se pro generování <span class="highlight-2">binaurálních zvuků</span>
+		.scope.fragment
+			p Ambisonics
+			ul
+				li.fragment zvukový formát, který pokrývá zdroje <br> nad a pod posluchačem
+		.scope.fragment
+			p Raytracing
+			ul
+				li fyzicky přesné renderování zvuku, používá VRWorks
+			.bottom-0.right-30
+				img.height-450(src=imgAssets+'3dsound_raytracing.svg' alt='Raytracing in 3D sound')

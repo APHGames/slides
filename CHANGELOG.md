@@ -6,6 +6,11 @@ Versioning info:
 - second number indicates a week (1 for the first week)
 - third number indicates minor changes, such as hotfixes and updates
 
+## [6.10] - 2023-11-25
+### Added
+Lecture 7 fix EN slides
+Lecture 8 slides
+
 ## [6.9] - 2023-11-9
 ### Added
 Lecture 7 new CS slides
