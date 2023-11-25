@@ -70,27 +70,22 @@ include ../mixins/containers_aph.pug
 			img.height-500(src=globalAssets+'memes/stealth.jpg')
 +frameInbox('Music in games')
 	.important-orange.spacing-4xs
-			.scope.fragment
-				p Assets
-				ul
-					li.fragment <span class="highlight-2">sound cues</span> - collection of audio clips with metadata
-					li.fragment <span class="highlight-2">sound banks</span> - package of sound clips and cues (e.g. all voices of one person)
-			.scope.fragment
-				p Asset categories
-				ul
-					li.fragment <span class="highlight-2">diegetic</span> - visible (character voices, sounds of objects, footsteps)
-					li.fragment <span class="highlight-2">non-diegetic sound</span> - invisible (sountrack, narrator)
-					li.fragment <span class="highlight-2">background music</span> - ambient music (e.g. river)
-					li.fragment <span class="highlight-2">score</span> - soundtrack, is clearly recognizable
-					li.fragment <span class="highlight-2">interface music</span> - button press
-					li.fragment <span class="highlight-2">custom music</span> (e.g. GTA radio)
-					li.fragment <span class="highlight-2">alert</span> - music triggered by an event
-			.scope.fragment
-				p Dynamics
-				ul
-					li.fragment <span class="highlight-2">linear audio</span> - only reflects major changes (e.g. finished level)
-					li.fragment <span class="highlight-2">dynamic audio</span> - changes in response to changes in the environment or gameplay
-					li.fragment <span class="highlight-2">adaptive audio</span> - responses to the gameplay, adapts itself based on game attributes
+		.scope.fragment
+			p Asset categories
+			ul
+				li.fragment <span class="highlight-2">diegetic</span> - visible (character voices, sounds of objects, footsteps)
+				li.fragment <span class="highlight-2">non-diegetic sound</span> - invisible (sountrack, narrator)
+				li.fragment <span class="highlight-2">background music</span> - ambient music (e.g. river)
+				li.fragment <span class="highlight-2">score</span> - soundtrack, is clearly recognizable
+				li.fragment <span class="highlight-2">interface music</span> - button press
+				li.fragment <span class="highlight-2">custom music</span> (e.g. GTA radio)
+				li.fragment <span class="highlight-2">alert</span> - music triggered by an event
+		.scope.fragment
+			p Dynamics
+			ul
+				li.fragment <span class="highlight-2">linear audio</span> - only reflects major changes (e.g. finished level)
+				li.fragment <span class="highlight-2">dynamic audio</span> - changes in response to changes in the environment or gameplay
+				li.fragment <span class="highlight-2">adaptive audio</span> - responses to the gameplay, adapts itself based on game attributes
 +frameInbox('Example: Linear audio')
 	div
 		.top-100.left-50.fragment(data-fragment-index='0')
@@ -122,56 +117,6 @@ include ../mixins/containers_aph.pug
 				li.fragment <span class="highlight">transitions</span> - moving smoothly from one cue to another
 					div
 						img.mt-40.width-800(src=imgAssets+'features_transitions.svg' alt='Music features - transitions')
-+frameInbox('Looping')
-	.important-green
-		ul.spacing-xl
-			li.color-tomato-light.fragment.fade-up experienced players will detect the looping point!
-			li.fragment.fade-up we need to find out how much time the player spends during each session - <span class="highlight">gameplay time</span>
-			li.fragment.fade-up the length of the music should extend the gameplay time to avoid repetition
-			li.fragment.fade-up you don't know how long the player will stay there
-			li.fragment.fade-up you don't know if the player moves fast or slow
-			li.fragment.fade-up 2 repetitions are acceptable, 5 and more are annoying
-+frameInbox('Looping solutions')
-	.important-green
-		.scope.fragment
-			p Looped composition
-			ul
-				li.fragment beginning and end are seamlessly connected
-				li.fragment challenge - making the loop pleasing to the ear for longer periods
-					div
-						img.height-50.mt-20(src=imgAssets+'looping_loopedcomp.svg' alt='Looped composition')
-		.scope.mt-40.fragment
-			p Switching keys
-			ul
-				li.fragment we may play the melody in a different key
-				li.upside.fragment enhances the familiarity without repeating it exactly as before
-		.scope.mt-40.fragment
-			p Divided song
-			ul
-				li.fragment divide the song into parts, loop only certain parts, don't start at the beginning
-				li.upside.fragment lower feeling of repetition
-					div
-						img.height-50.mt-20(src=imgAssets+'looping_invert.svg' alt='Divided song')
-+frameInbox('Looping solutions')
-	.important-green.spacing-2xs
-		.scope.fragment
-			p Mute the melody
-			ul
-				li.upside.fragment you can increase the number of loops while muting the melody
-				li.downside.fragment the music can lose impact
-		.scope.fragment
-			p Silence
-			ul
-				li.upside.fragment no undesirable effects
-				li.downside.fragment reintroduction of the music may become annoying
-		.scope.fragment
-			p Layered patterns
-			ul
-				li.fragment divide the song into layers and introduce looping separately for each
-				li.upside.fragment greater diversity
-				li.downside.fragment may result in undesirable melodies
-					div
-						img.height-180.mt-20(src=imgAssets+'looping_layers.svg' alt='Looping layers')
 +frameInbox('Transitions')
 	.important-green
 		ul

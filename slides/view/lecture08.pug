@@ -1,9 +1,8 @@
 // GROUP=Lectures
 // COURSE=APH
-// NAME=Audio
+// NAME=Music and Sounds
 // LOCALE=en 
 // ORDER=8
-// LOCKED=true
 doctype html
 include ./mixins/header.pug
 include ./mixins/containers.pug
@@ -20,7 +19,7 @@ html(lang='en')
 	+header('Audio', 'Adam Vesecký', themePath + 'resources/favicon.png', themePath + 'theme_aph.scss')
 	.reveal
 		.slides
-			+titleLecture('Audio', 'Lecture 6', globalAssets+'lectures/ic_lecture06.svg')
+			+titleLecture('Music and Sounds', 'Lecture 8', globalAssets+'lectures/ic_lecture06.svg')
 			+frameInbox('Literature')
 				ul
 					li
@@ -36,5 +35,5 @@ html(lang='en')
 			+summary_lecture06()
 			+quote-gta()
 
-	+footer('Adam Vesecký (FIT CTU)', 'Architecture of Video Games, Lecture 6: Audio')
+	+footer('Adam Vesecký (FIT CTU)', 'Architecture of Video Games, Lecture 8: Music and Sounds')
 	script(src!='../../scripts/reveal-setup.js')
