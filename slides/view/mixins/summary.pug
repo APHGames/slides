@@ -182,13 +182,21 @@ mixin summary_lecture08cs()
 mixin summary_lecture09()
 	+summary()
 		ul.leading-xl
-			li.fragment I know the difference between Euler angles and Quaternions
 			li.fragment I know the difference between model space, world space, view space, clip space and screen space
-			li.fragment I know what view volume and field of view are
+			li.fragment I know the difference between Euler angles and quaternions
 			li.fragment I know what interpolation is
-			li.fragment I know terms like Vertex, Fragment, Texture, Occlusion, and Culling
-			li.fragment I know the purpose of vertex and fragment shaders
-			li.fragment I know what LOD, texture mapping, texture filtering, and baking is 
+			li.fragment I know the purpose of vertex and fragment shaders, baking and texture filtering
+			li.fragment I know something about rendering techniques like raycasting, rasterization and raytracing
+
+mixin summary_lecture09cs()
+	+summarycs()
+		ul.leading-xl
+			li.fragment Rozdíl mezi prostory model/view/world/clip/screen
+			li.fragment V čem se liší eulerovy úhly a kvaterniony
+			li.fragment Co je to interpolace
+			li.fragment K čemu se používají shadery, baking a filtrování textur
+			li.fragment Něco o renderovacích technikách jako raycasting, rasterizace a raytracing
+
 
 mixin summary_lecture10()
 	+summary()

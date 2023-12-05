@@ -22,10 +22,9 @@ include ../mixins/containers_aph.pug
 			ul
 				li.fragment(data-fragment-index='8') object has a skeleton (rigging) bound to its mesh by assigning weights (skinning)				
 		.scope.fragment(data-fragment-index='9')
-			p Warped animations
+			p Combined animations
 			ul
-				li.fragment(data-fragment-index='10') a simple trick for 2D animations that combines fragmented sprites and grid-based distortion				
-
+				li.fragment(data-fragment-index='10') transformation of the sprite parts, texture distortion,...				
 		.flex-cols-4.mt-10
 			figure.fragment(data-fragment-index='1')
 				img.height-210(src=imgAssets+'anim_sprite.gif')
@@ -42,7 +41,7 @@ include ../mixins/containers_aph.pug
 		.top-200.right-120
 			figure.fragment(data-fragment-index='9')
 				img.height-250(src=imgAssets+'anim_warped.gif')
-				p Warped
+				p Combined
 +frameInbox('Interpolation')
 	.important-orange.spacing-2xs
 		ul
@@ -53,7 +52,7 @@ include ../mixins/containers_aph.pug
 				li.fragment graphics - image resizing
 				li.fragment animations - transformation morphing
 				li.fragment multiplayer - game state morphing
-				li.fragment audio/video - sample/keyframe interpolation
+				li.fragment video - keyframe interpolation
 			.bottom-40.right-40
 				img.height-450(src=imgAssets+'interpolation_1D.svg')
 		.scope.fragment
@@ -66,15 +65,6 @@ include ../mixins/containers_aph.pug
 				li.fragment Bézier interpolation
 				li.fragment Hermite interpolation
 				li.fragment SLERP (spherical linear interpolation)
-			+tipKeen1('SLERP is widely used in animation blending').bottom-0.right-350
-+frameInbox('Bezier Curve')
-	.important-green
-		ul
-			li.fragment(data-fragment-index='1') parametric curve defined by a set of control points
-			li.fragment(data-fragment-index='2') most common - <span class="highlight">cubic curve</span>, 4 points, 2 points provide directional information
-		.space-lg
-		.text-center.fragment(data-fragment-index='2')
-			img.height-550(src=imgAssets+'bezier.svg')
 +frameInbox('Linear Interpolation')
 	.important-green
 		.scope.fragment(data-fragment-index='1')
@@ -82,7 +72,7 @@ include ../mixins/containers_aph.pug
 			ul
 				li.fragment(data-fragment-index='2')
 					include ../../assets/graphics_animations/equations_generated/linear_interpolation.svg
-				li.fragment(data-fragment-index='3') for 1D values (time, sound)
+				li.fragment(data-fragment-index='3') for 1D values (dynamics)
 		.scope.mt-80.fragment(data-fragment-index='4')
 			p Bilinear interpolation
 			ul

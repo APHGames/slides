@@ -89,6 +89,13 @@ mixin quote-savloware()
 		+frameShard().top-25p.left-12p.width-80p
 			+quote('Já si to koupil jako šavloware... to jsou takový ty hry, co najdeš ve slevovym koši v Penny Marketu!', 'Jakub Olejník')(class="font-dos not-italic")
 
+mixin quote-polda()
+	+mcontainer('Hláška na závěr')(bgr='backgrounds/polda.jpg')
+		+frameShard().top-15p.left-12p.width-80p.fragment
+			+quote('Sám dobře víte, že pan náčelník Ištok leží doma s ošklivou tuberou...')(class="font-dos not-italic")
+		+frameShard().top-25p.left-12p.width-80p.fragment
+			+quote('To se nestydíte takhle mluvit o jeho choti?', 'Polda 1')(class="font-dos not-italic")
+
 mixin quote-mightmagic()
 	+mcontainer('Goodbye Quote')(bgr='backgrounds/mm6.jpg')
 		+frameShard().top-10p.width-100p

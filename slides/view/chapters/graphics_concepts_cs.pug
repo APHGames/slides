@@ -4,8 +4,8 @@ include ../mixins/containers_aph.pug
 - var imgAssets = '../assets/graphics_concepts/';
 - var defaultBgr = 'backgrounds/raytracing.jpg';
 
-+mchapter('Rendering concepts', imgAssets+'chapter_graphics.svg')
-+frameInbox('Rendering techniques')
++mchapter('Rendering', imgAssets+'chapter_graphics.svg')
++frameInbox('Renderovací techniky')
 	.important-orange
 	figure.fragment.fade-up.top-20.left-0
 		img.height-320(src=imgAssets+'conc_placement.jpg')
@@ -15,16 +15,16 @@ include ../mixins/containers_aph.pug
 		p Raycasting
 	figure.fragment.fade-up.top-300.left-740
 		img.height-320(src=imgAssets+'conc_rasterization.jpg')
-		p Rasterization
+		p Rasterizace
 	figure.fragment.fade-up.top-400.right-0
 		img.height-320(src=imgAssets+'conc_raytracing.jpg')
 		p Raytracing
 +frameInbox('Raycasting')
 	.important-orange
 		ul
-			li.fragment(data-fragment-index='1') used as a variation of raster effects to circumvent hardware limits in early-gaming era
-			li.fragment(data-fragment-index='2') we cast a ray, obtain an object it hits and render its trapezoid
-			li.fragment(data-fragment-index='3') horizontal raycasting (racing games, fighting games), vertical raycasting (FPS) 
+			li.fragment(data-fragment-index='1') používal se v době, kdy hardwarové limity neumožňovaly 3D rendering
+			li.fragment(data-fragment-index='2') vyšleme paprsek a vykreslíme čtyřúhelník, který protne
+			li.fragment(data-fragment-index='3') rozlišujeme raycasting horizontální (závodní a bojové hry) a vertikální (FPS) 
 		.text-center.mt-100.fragment(data-fragment-index='1')
 			img.height-350(src=imgAssets+'rendering_raycasting.svg')
 		.bottom-100.left-40.fragment(data-fragment-index='3')
@@ -35,7 +35,7 @@ include ../mixins/containers_aph.pug
 			figure
 				img.height-300(src=imgAssets+'raycasting_wolf3d.gif')
 				p 1992: Wolfenstein 3D
-+frameInbox('Top-notch Raycasting games')
++frameInbox('Vrchol raycastingové éry')
 	.center.fill
 		.grid.grid-cols-3.grid-rows-1.gap-40.width-100p.mt
 			+floppyAppBig(imgAssets+'raycasting_darkforces.jpg', 'SW: Dark Forces', '1995').fragment
@@ -44,41 +44,41 @@ include ../mixins/containers_aph.pug
 +frameInbox('Raycasting')
 	.important-orange
 		ol
-			li.fragment(data-fragment-index='1') send out a ray that starts at the player's location
-			li.fragment(data-fragment-index='2') move this ray forward with the direction of the player
-			li.fragment(data-fragment-index='3') if the ray hits an object, process it
+			li.fragment(data-fragment-index='1') vyšleme paprsek směrem od hráče
+			li.fragment(data-fragment-index='2') paprsek krokujeme ve stejném směru
+			li.fragment(data-fragment-index='3') pokud paprsek narazí do objektu, zpracujeme jej
 		.space-lg
 		.flex-cols-3
 			figure.fragment(data-fragment-index='1')
 				img.height-400(src=imgAssets+'raycasting_rays.svg')
-				p Principle
+				p Princip
 			figure.fragment(data-fragment-index='2')
 				img.height-400(src=imgAssets+'raycasting_sampling_borders.svg')
-				p Precise sampling
+				p Přesné samplování
 			figure.fragment(data-fragment-index='3')
 				img.height-400(src=imgAssets+'raycasting_sampling_fixed.svg')
-				p Fixed sampling
-+frameInbox('Rasterization')
+				p Fixní samplování
++frameInbox('Rasterizace')
 	.important-orange
 		ul
-			li.fragment(data-fragment-index='1') converts each triangle into pixels on a 2D screen
-			li.fragment(data-fragment-index='2') shadows are either <span class="highlight">baked</span>, or calculated via <span class="highlight">shadow maps</span> or <span class="highlight">shadow volumes</span>
-			li.fragment(data-fragment-index='3') light color is calculated in shaders
+			li.fragment(data-fragment-index='1') zkonvertuje každý trojúhelník do pixelů na 2D obrazovce
+			li.fragment(data-fragment-index='2') stíny jsou <span class="highlight">zapečené</span>, nebo dopočítané přes <span class="highlight">shadow mapy</span> nebo <span class="highlight">shadow volumes</span>
+			li.fragment(data-fragment-index='3') světlo se počítá v shaderech
 		.bottom-150.left-600.fragment(data-fragment-index='1')
 			img.height-400(src=imgAssets+'rendering_rasterization.svg')
 		.bottom-150.left-40.fragment(data-fragment-index='3')
 			figure
 				img.height-180(src=imgAssets+'lighting_vertex.png')
-				p Vertex lighting
+				p Vertex sh.
 		.bottom-150.left-280.fragment(data-fragment-index='3')
 			figure
 				img.height-180(src=imgAssets+'lighting_fragment.png')
-				p Fragment lighting
+				p Fragment sh.
 		.bottom-150.right-20.fragment(data-fragment-index='2')
 			figure
 				img.height-300(src=imgAssets+'shadow_maps.svg')
 				p Shadow mapping
-+frameInbox('Top-notch Rasterization games')
++frameInbox('Hry využívající rasterizaci')
 	.center.fill
 		.grid.grid-cols-3.grid-rows-1.gap-40.width-100p.mt
 			+dsGameBig(imgAssets+'raster_gta5.jpg', 'Grand Theft Auto 5 (2013)').fragment
@@ -87,42 +87,42 @@ include ../mixins/containers_aph.pug
 +frameInbox('Raytracing')
 	.important-orange
 		ul
-			li.fragment.fade-up(data-fragment-index='1') provides realistic lighting by simulating the physical behavior of light
-			li.fragment.fade-up(data-fragment-index='2') several phases: ray-triangle tests, BVH traversal, denoising
-			li.fragment.fade-up(data-fragment-index='3') <span class="highlight">use-cases</span>: reflections, shadows, global illumination, caustics
-			li.fragment.fade-up(data-fragment-index='4') the light traverses the scene, reflecting from objects, being blocked (shadows), passing through transparent objects (refractions), producing the final color
-			li.fragment.fade-up(data-fragment-index='5') APIs: OptiX, DXR
+			li.fragment.fade-up(data-fragment-index='1') simuluje fyzikální vlastnosti světla
+			li.fragment.fade-up(data-fragment-index='2') několik fází: ray-triangle test, BVH traversal, denoising
+			li.fragment.fade-up(data-fragment-index='3') <span class="highlight">použití</span>: odlesky, stíny, globální osvětlovací model, "prasátka" (caustics)
+			li.fragment.fade-up(data-fragment-index='4') světlo prochází scénou, odráží se od objektů, případně vniká do průhledných objektů (refrakce)
+			li.fragment.fade-up(data-fragment-index='5') API: OptiX, DXR
 		.text-center.fragment(data-fragment-index='1')
 			img.height-400(src=imgAssets+'rendering_raytracing.svg')
 		.bottom-50.left-40.fragment(data-fragment-index='3')
 			img.height-230(src=imgAssets+'rtxon.jpg')
 		.bottom-50.right-40.fragment(data-fragment-index='3')
 			img.height-230(src=imgAssets+'rtxon1.jpg')
-+frameInbox('Top-notch Raytracing games')
++frameInbox('Příklady raytracing her')
 	.center.fill
 		.grid.grid-cols-3.grid-rows-1.gap-40.width-100p.mt
 			+dsGameBig(imgAssets+'raytracing_minecraft.jpg', 'Minecraft (2011)').fragment
 			+dsGameBig(imgAssets+'raytracing_metro.jpg', 'Metro Exodus (2019)').fragment
 			+dsGameBig(imgAssets+'raytracing_cyberpunk.jpg', 'Cyberpunk 2077 (2020)').fragment
-+frameInbox('Other techniques')
++frameInbox('Pomocné techniky')
 	.important-orange.spacing-2xs
 		.scope.fragment(data-fragment-index='1')
 			p LOD
 			ul
-				li.fragment(data-fragment-index='2') level of detail, boosts draw distance
-				li.fragment(data-fragment-index='3') pioneered with Spyro the Dragon Series
+				li.fragment(data-fragment-index='2') level of detail, urychluje vykreslení vzdálených objektů
+				li.fragment(data-fragment-index='3') průkopnická hra - Spyro the Dragon na PSX
 		.scope.fragment(data-fragment-index='4')
 			p Texture mapping
 			ul
-				li.fragment(data-fragment-index='5') mapping of 2D surface (texture map) onto a 3D object
-				li.fragment(data-fragment-index='6') early games have issues with perspective correctness
-				li.fragment(data-fragment-index='7') common use - UV mapping
+				li.fragment(data-fragment-index='5') mapování 2D textury na 3D objekt
+				li.fragment(data-fragment-index='6') hry z 90. let měly problémy s perspektivní korektností
+				li.fragment(data-fragment-index='7') používá se tzv. UV mapování
 		.scope.fragment(data-fragment-index='8')
 			p Baking
 			ul
-				li.fragment(data-fragment-index='9') a.k.a rendering to texture
-				li.fragment(data-fragment-index='10') generating texture maps that describe different properties of the surface of a 3D model
-				li.fragment(data-fragment-index='11') effects are pre-calculated in order to save computational time and circumvent hardware limits
+				li.fragment(data-fragment-index='9') vykreslování do textury
+				li.fragment(data-fragment-index='10') vygenerujeme texturu, která obsahuje i fyzikální vlastnosti objektu
+				li.fragment(data-fragment-index='11') šetří výpočetní čas
 		.top-50.right-40.fragment(data-fragment-index='1')
 			img.height-300(src=imgAssets+'lod.png')
 		.top-300.right-40.fragment(data-fragment-index='7')
@@ -134,46 +134,46 @@ include ../mixins/containers_aph.pug
 +frameInbox('Light baking')
 	.important-orange
 		ul
-			li.fragment(data-fragment-index='1') common technique to create pre-rendered static lights
-			li.fragment(data-fragment-index='2') is usually combined with dynamic lighting - when a scene has many lights, most of them can be baked
-			li.fragment(data-fragment-index='3') only works for static scenes
+			li.fragment(data-fragment-index='1') technika na vytváření před-renderovaných statických světel
+			li.fragment(data-fragment-index='2') používá se, když scéna obsahuje příliš mnoho světel
+			li.fragment(data-fragment-index='3') funguje pouze pro statické scény
 		.flex-cols-3.mt-100
 			figure.fragment(data-fragment-index='1')
 				img.height-400(src=imgAssets+'baking_tex.png')
-				p Textured scene
+				p Texturovaná scéna
 			figure.fragment(data-fragment-index='2')
 				img.height-400(src=imgAssets+'baking_light.png')
-				p Baked lights
+				p Zapečená světla
 			figure.fragment(data-fragment-index='3')
 				img.height-400(src=imgAssets+'baking_result.png')
-				p Result
-+frameInbox('Texture filtering')
+				p Výsledek
++frameInbox('Filtrování textur')
 	.important-green.spacing-3xs
 		ul
-			li.fragment there is not a clean one-to-one mapping between texels and pixels
-			li.fragment GPU has to sample more than one texel and blend the resulting colors
+			li.fragment je potřeba mapovat texely a pixely (skoro nikdy to není 1:1)
+			li.fragment GPU sampluje několik texelů a složí výslednou barvu pro pixel
 			.scope.fragment.mt-20
 				p Mipmapping
 				ul
-					li.fragment for each texture, we create a sequence of lower-resolution bitmaps
-					li.fragment objects further from the camera will use low-res textures
+					li.fragment pro každou texturu vytvoříme sekvenci bitmap s nižším rozlišením
+					li.fragment objekty dále od kamery použijí textury s nižším rozlišením
 				.top-180.right-20
 					img.width-400(src=imgAssets+'mipmaps.svg')
 				.bottom-0.right-20
 					img.width-400(src=imgAssets+'giggly_effect.gif')
 			.scope.fragment
-				p Nearest neighbor
+				p Nejbližší soused
 				ul
-					li.fragment the closest texel to the pixel center is selected
+					li.fragment zvolí se nejbližší texel ke středu pixelu
 			.scope.fragment
-				p Bilinear filtering
+				p Bilineární filtrování
 				ul
-					li.fragment the four texels surrounding the pixel center are sampled, and the resulting color is a weighted average of their colors
+					li.fragment nasamplují se 4 texely okolo středu pixelu a výsledná barva bude váženým součtem jejich barev
 			.scope.fragment
-				p Trilinear filtering
+				p Trilineární filtrování
 				ul
-					li.fragment bilinear filtering is used on each of the two nearest mipmap levels
+					li.fragment použije se bilineární filtrování přes mipmap úrovně
 			.scope.fragment
-				p Anisotropic filtering
+				p Anisotropické filtrování
 				ul
-					li.fragment samples texels within a region corresponding to the view angle
+					li.fragment bere v potaz natočení kamery

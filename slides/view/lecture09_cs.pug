@@ -3,7 +3,6 @@
 // NAME=Grafika
 // LOCALE=cs
 // ORDER=9 
-// LOCKED=true
 doctype html
 include ./mixins/header.pug
 include ./mixins/containers.pug
@@ -16,24 +15,24 @@ include ./mixins/summary.pug
 - var globalAssets = '../assets/all/';
 - var defaultBgr = 'backgrounds/bgr_arcades2.jpg';
 
-html(lang='en')
-    +header('Graphics', 'Adam Vesecký', themePath + 'resources/favicon.png', themePath + 'theme_aph.scss')
+html(lang='cs')
+	+header('Grafika', 'Adam Vesecký', themePath + 'resources/favicon.png', themePath + 'theme_aph.scss')
 
-    .reveal
-        .slides
-            +titleLectureCs('Graphics', 'Lecture 9', globalAssets+'lectures/ic_lecture09.svg')
-            +frameInbox('Literature')
-                ul
-                    li
-                        a(href="https://gabrielgambetta.com/computer-graphics-from-scratch//") Gambetta, Gabriel. Computer Graphics From Scratch (Free)
-                div.text-center
-                    img.height-500(src=globalAssets+'book_graphics.jpg' alt='Gambetta, Gabriel. Computer Graphics From Scratch (Free)')
-            include ./chapters/graphics_space.pug
-            include ./chapters/graphics_animations.pug
-            include ./chapters/graphics_processing.pug
-            include ./chapters/graphics_concepts.pug
-            +summary_lecture09()
-            +quote-gow()
+	.reveal
+		.slides
+			+titleLectureCs('Grafika', 'Přednáška 9', globalAssets+'lectures/ic_lecture09.svg')
+			+frameInbox('Literatura')
+				ul
+					li
+						a(href="https://gabrielgambetta.com/computer-graphics-from-scratch/") Gambetta, Gabriel. Computer Graphics From Scratch (Free)
+				div.text-center
+					img.height-500(src=globalAssets+'book_graphics.jpg' alt='Gambetta, Gabriel. Computer Graphics From Scratch (Free)')
+			include ./chapters/graphics_space_cs.pug
+			include ./chapters/graphics_animations_cs.pug
+			include ./chapters/graphics_processing_cs.pug
+			include ./chapters/graphics_concepts_cs.pug
+			+summary_lecture09cs()
+			+quote-polda()
 
-    +footer('Adam Vesecký (FIT CTU)', 'Architecture of Video Games, Lecture 9: Graphics')
-    script(src!='../../scripts/reveal-setup.js')
+	+footer('Adam Vesecký (FIT ČVUT)', 'Architektura Počítačových Her, Přednáška 9: Grafika')
+	script(src!='../../scripts/reveal-setup.js')

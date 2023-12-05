@@ -1,0 +1,110 @@
+include ../mixins/containers.pug
+include ../mixins/containers_aph.pug
+
+- var imgAssets = '../assets/graphics_animations/';
+- var defaultBgr = 'backgrounds/movement.jpg';
+
++mchapter('Animace', imgAssets+'chapter_animations.svg')
++frameInbox('Animace')
+	.important-green.spacing-4xs
+		.scope.fragment(data-fragment-index='1')
+			p Rotoskopingová animace
+			ul
+				li.fragment(data-fragment-index='2') předdefinované sprity
+				li.fragment(data-fragment-index='3') jednoduché ale statické (při změně rychlosti je potřeba přidat/ubrat sprity)
+		.scope.fragment(data-fragment-index='4')
+			p Keyframy
+			ul
+				li.fragment(data-fragment-index='5') keyframy (klíčové snímky) obsahují hodnoty (pozice, barva) v daném čase
+				li.fragment(data-fragment-index='6') mezisnímky jsou <span class="highlight-2">interpolované</span>
+		.scope.fragment(data-fragment-index='7')
+			p Skeletální animace
+			ul
+				li.fragment(data-fragment-index='8') objekt má kostru (rigging) připojenou k meshi pomocí vah (skinning)				
+		.scope.fragment(data-fragment-index='9')
+			p Kombinované animace
+			ul
+				li.fragment(data-fragment-index='10') transformace částí spritů, zkreslení textur,...
+		.flex-cols-4.mt-10
+			figure.fragment(data-fragment-index='1')
+				img.height-210(src=imgAssets+'anim_sprite.gif')
+				p Rotoskopie
+			figure.fragment(data-fragment-index='4')
+				img.height-210(src=imgAssets+'anim_vertex.gif')
+				p Klíčové snímky
+			figure.fragment(data-fragment-index='7')
+				img.height-210(src=imgAssets+'anim_spine.gif')
+				p Skeletální 2D
+			figure.fragment(data-fragment-index='7')
+				img.height-210(src=imgAssets+'anim_skeletal.gif')
+				p Skeletální 3D
+		.top-200.right-120
+			figure.fragment(data-fragment-index='9')
+				img.height-250(src=imgAssets+'anim_warped.gif')
+				p Kombinovaná
++frameInbox('Interpolace')
+	.important-orange.spacing-2xs
+		ul
+			li.fragment metoda, která spočte mezibody uvnitř intervalu dvou bodů
+		.scope.fragment
+			p Aplikace
+			ul
+				li.fragment grafika - změna velikosti obrázku
+				li.fragment animace - transformace
+				li.fragment multiplayer - interpolace dynamiky
+				li.fragment video - interpolace klíčových snímků
+			.bottom-40.right-40
+				img.height-450(src=imgAssets+'interpolation_1D.svg')
+		.scope.fragment
+			p Typy interpolací
+			ul
+				li.fragment Konstantní interpolace (none/hold)
+				li.fragment Lineární interpolace
+				li.fragment Cosinová interpolace
+				li.fragment Kubická interpolace
+				li.fragment Bézierova interpolace
+				li.fragment Hermitovská interpolace
+				li.fragment SLERP (spherical linear interpolation)
++frameInbox('Lineární interpolace')
+	.important-green
+		.scope.fragment(data-fragment-index='1')
+			p Lineární interpolace
+			ul
+				li.fragment(data-fragment-index='2')
+					include ../../assets/graphics_animations/equations_generated/linear_interpolation.svg
+				li.fragment(data-fragment-index='3') pro 1D hodnoty (dynamika)
+		.scope.mt-80.fragment(data-fragment-index='4')
+			p Bilineární interpolace
+			ul
+				li.fragment(data-fragment-index='5') na obdélníkovém prostoru
+				li.fragment(data-fragment-index='6') pro 2D hodnoty (pixely)
+				li.fragment(data-fragment-index='7') Q - známé body (nejbližší pixely)
+				li.fragment(data-fragment-index='8') P - neznámý bod
+		.scope.mt-60.fragment(data-fragment-index='9')
+			p Trilineární interpolace
+			ul
+				li.fragment(data-fragment-index='10') na 3D prostoru
+				li.fragment(data-fragment-index='11') pro 3D hodnoty (mipmapy)
+		.top-20.right-20.fragment(data-fragment-index='1')
+			img.height-400(src=imgAssets+'interp_linear.svg')
+		.top-300.right-500.fragment(data-fragment-index='4')
+			img.height-400(src=imgAssets+'interp_bilinear.svg')
+		.bottom-20.right-20.fragment(data-fragment-index='9')
+			img.height-400(src=imgAssets+'interp_trilinear.svg')
++frameInbox('Příklad: 2D interpolace')
+	div
+		.text-center.fragment
+			img.height-200(src=imgAssets+'scale_original.png')
+		.flex-cols-4
+			figure.fragment
+				img.height-400(src=imgAssets+'scale_nosamp.png')
+				p Žádná interpolace
+			figure.fragment
+				img.height-400(src=imgAssets+'scale_constant.png')
+				p Konstantní (nejbližší soused)
+			figure.fragment
+				img.height-400(src=imgAssets+'scale_bilinear.png')
+				p Bilineární
+			figure.fragment
+				img.height-400(src=imgAssets+'scale_cubic.png')
+				p Kubická

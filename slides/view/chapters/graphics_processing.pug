@@ -37,6 +37,8 @@ include ../mixins/containers_aph.pug
 			img.height-250(src=imgAssets+'history_glquake.jpg')
 		.top-650.right-40.fragment(data-fragment-index='11')
 			img.height-250(src=imgAssets+'history_turing.jpg')
+		.tip.fragment.bottom-140.right-300(data-fragment-index='12')
+			img.height-550(src=imgAssets+'meme_4090.png')
 +frameInbox('Graphics API')
 	div.spacing-3xs
 		.scope.fragment
@@ -62,58 +64,8 @@ include ../mixins/containers_aph.pug
 				li.fragment since 2015
 				li.fragment referred as the next generation of OpenGL
 				li.fragment lower overhead, more direct control over the GPU than OpenGL
-				li.fragment unified management of compute kernels and shaders
 			.top-760.right-60
 				img.width-300(src=imgAssets+'logo_vulkan.png')
-+frameInbox('Triangle meshes')
-	.important-green
-		ul
-			li.fragment the simplest type of polygons, always planar
-			li.fragment all GPUs are designed around triangle rasterization
-		.scope.fragment
-			p Constructing a triangle mesh
-			ul
-				li.fragment a) winding order (clockwise or counter-cw)
-				li.fragment b) triangle lists, strips and fans
-				li.fragment c) mesh instancing - shared data
-		.text-center.mt-40
-			img.height-400(src=imgAssets+'triangles.svg')
-+frameInbox('Terms')
-	.important-orange
-		.spacing-4xs
-			.scope.fragment
-				p Vertex
-				ul
-					li.fragment primarily a point in 3D space with x, y, z coordinates
-					li.fragment attributes: position vector, normal, color, uv coordinates, skinning weights,...
-			.scope.fragment
-				p Fragment
-				ul
-					li.fragment a sample-sized segment of a rasterized primitive
-					li.fragment its size depends on sampling method
-			.scope.fragment
-				p Texture
-				ul
-					li.fragment a piece of bitmap that is applied to a model
-			.scope.fragment
-				p Occlusion
-				ul
-					li.fragment rendering two triangles that overlap each other
-					li.fragment Z-fighting issue
-						.right-60.top-500
-							figure
-								img.height-250(src=imgAssets+'zfighting.png')
-								p Z-Fighting
-					li.fragment solution: more precise depth buffer
-			.scope.fragment
-				p Culling
-				ul
-					li.fragment process of removing triangles that aren't facing the camera
-					li.fragment frustum culling, portals, anti-portals,...
-+frameInbox('NVidia Amper Architecture')
-	div
-		.center
-			img.height-760(src=imgAssets+'gpu_architecture.svg')
 +frameInbox('Rendering pipeline')
 	.important-green
 		ul.fragment.spacing-xs
@@ -127,53 +79,6 @@ include ../mixins/containers_aph.pug
 			li.fragment ROP performs depth-testing, blending, antialiasing etc.
 			.text-center.mt-20
 				img.height-320(src=imgAssets+'gpu_process.svg')
-+frameInbox('Rendering pipeline')
-	.important-green
-		.spacing-3xs
-			.scope.fragment
-				p Vertex shader phase
-				ul
-					li.fragment handles transformation from model space to view space
-					li.fragment full access to texture data (height maps)
-			.scope.fragment
-				p Tessellation shader phase (optional)
-				ul
-					li.fragment subdivides geometry (e.g. for brick walls)
-					li.fragment <span class="highlight-2">Tessellation Control Shader</span> - determines the amount of tessellation
-					li.fragment <span class="highlight-2">Tessellation Evaluation Shader</span> - applies the interpolation
-			.scope.fragment
-				p Geometry shader phase (optional)
-				ul
-					li.fragment operates on entire primitives in homogeneous clip space
-			.scope.fragment
-				p Rasterization phase
-				ul
-					li.fragment <span class="highlight-2">Assembly</span> - converts a vertex stream into a sequence of base primitives
-					li.fragment <span class="highlight-2">Clipping</span> - transformation of clip space to window-space, discarding triangles that are outside
-					li.fragment <span class="highlight-2">Culling</span> - discards triangles facing away from the viewer
-					li.fragment <span class="highlight-2">Rasterization</span> - generates a sequence of fragments (window-space)
-+frameInbox('Rendering pipeline')
-	.important-green.spacing-2xs
-		.scope.fragment
-			p Fragment shader phase
-			ul
-				li.fragment input: fragment, output: color, depth value, stencil value
-				li.fragment can address texture maps and run per-pixel calculations
-		.scope.fragment
-			p Final phase
-			ul
-				li.fragment <span class="highlight">Additional culling tests</span>
-					ul
-						li.fragment <span class="highlight-2">pixel ownership</span> - fails if the pixel is not owned by the API
-						li.fragment <span class="highlight-2">scissor test</span> - fails if the pixel lies outside of a screen rectangle
-						li.fragment <span class="highlight-2">stencil test</span> - comparing against stencil buffer
-						li.fragment <span class="highlight-2">depth test</span> - comparing against depth buffer
-				li.fragment <span class="highlight">Color blending</span>
-					ul
-						li.fragment combines colors from fragment shader with colors in the color buffers
-						li.fragment fragments can override each other or be mixed together
-				li.fragment writes data to framebuffer
-				li.fragment swaps buffers
 +frameInbox('Rendering pipeline')
 	.center.fill
 		img.height-250(src=imgAssets+'pipeline_example.svg')
@@ -238,7 +143,6 @@ include ../mixins/containers_aph.pug
 				li.fragment bump mapping
 				li.fragment particle systems
 				li.fragment visual effects
-				li.fragment PBR (physically-based rendering)
 			.bottom-0.right-40
 				figure
 					img.height-250(src=imgAssets+'screen_shader.gif')
