@@ -1,0 +1,272 @@
+include ../mixins/containers.pug
+include ../mixins/containers_aph.pug
+
+- var imgAssets = '../assets/gameai_mobs/';
+- var defaultBgr = 'backgrounds/ai_mobs.jpg';
+
++mchapter('AI pro moby', imgAssets+'chapter_mobs.svg')
++frameInbox('Skriptování')
+	.important-orange
+		ul
+			li.fragment(data-fragment-index='1') <span class="highlight">IF-THIS-THEN-THAT</span>
+			li.fragment(data-fragment-index='2') Vše je hardkódované
+			li.upside.fragment(data-fragment-index='3') jednoduché, dobře se ladí a rozšiřuje
+			li.downside.fragment(data-fragment-index='4') hráč se musí chovat tak, jak designéři předpokládají
+			li.downside.fragment(data-fragment-index='5') je potřeba pokrýt velké množství situací
+		.code.text-2xs.mt-10.fragment(data-fragment-index='6')
+			include ../../assets/gameai_mobs/snippets_generated/doom_chase.html
+		.right-0.bottom-0.fragment(data-fragment-index='7')
+			img.height-500(src=imgAssets+'doom_chase.png' alt='Doom scripting')
++frameInbox('Konečný stavový automat')
+	.important-orange
+		ul
+			li.fragment nejstarší a nejběžnější model pro herní AI
+			li.fragment vhodný pro entity s malým množstvím disjunktních stavů
+				.bottom-300.right-20
+					img.height-320(src=imgAssets+'dungeon.jpg' alt='Dungeon FSM')
+			li.fragment každá entita může být v daném čase <span class="highlight-2">v právě jednom</span> stavu
+			li.mt-20.fragment <span class="highlight font-bold">Definice</span>
+				ul
+					li.fragment čtveřice: 
+						include ../../assets/gameai_mobs/equations_generated/fsm_01.svg
+					li.fragment 
+						include ../../assets/gameai_mobs/equations_generated/fsm_02.svg
+						|&nbsp;je konečná, neprázdná množina stavů
+					li.fragment
+						include ../../assets/gameai_mobs/equations_generated/fsm_03.svg
+						|&nbsp;je konečná množina vstupů
+					li.fragment
+						include ../../assets/gameai_mobs/equations_generated/fsm_04.svg
+						|&nbsp;je přechodová funkce
+					li.fragment
+						include ../../assets/gameai_mobs/equations_generated/fsm_05.svg
+						|&nbsp;je počáteční stav, 
+						include ../../assets/gameai_mobs/equations_generated/fsm_06.svg
+			li.mt-20.fragment dá se implementovat polymorfismem nebo přechodovou tabulkou
+			li.downside.fragment není vhodné pro komplexní systémy (nebezpečí kombinatorické exploze)
++frameInbox('Příklad: Pacman FSM')
+	.important-green
+		.text-center
+			img.height-700(src=imgAssets+'fsm_pacman.svg' alt='FSM pacman')
+		.top-90.right-250
+			img.height-100(src=imgAssets+'fsm_pacman.png' alt='pacman')
++frameInbox('Příklad: Pacman - přechodová tabulka')
+	div.center
+		.space-xl
+		.space-md
+		table
+			tr
+				th Stav
+				th Přechod
+				th Podmínka
+			tr
+				td Procházej bludištěm
+				td Pronásleduj Pacmana
+				td Pacman zahlédnut
+			tr
+				td Procházej bludištěm
+				td Utíkej od Pacman
+				td Pacman snědl Power Pellet
+			tr
+				td Pronásleduj Pacmana
+				td Procházej bludištěm
+				td Pacman ztracen z dohledu
+			tr
+				td Pronásleduj Pacmana
+				td Utíkej od Pacmana
+				td Pacman snědl Power Pellet
+			tr
+				td Utíkej od Pacmana
+				td Vrať se do domečku
+				td Kolize s Pacmanem
+			tr
+				td Utíkej od Pacmana
+				td Procházej bludištěm
+				td PowerPellet expiroval
+			tr
+				td Vrať se do domečku
+				td Procházej bludištěm
+				td Doběhnuto do domečku
++frameInbox('Příklad: Doomguard')
+	div
+		.text-center
+			img.height-700(src=imgAssets+'fsm_doomguard.svg' alt='FSM doomguard')
+		.bottom-40.right-20
+			img.height-400(src=imgAssets+'fsm_doomguard.png' alt='doomguard')
++frameInbox('Příklad: Doomguard')
+	div
+		ul
+			li přidejme funkci "uspat"
+	.bottom-40.right-20
+		img.height-400(src=imgAssets+'fsm_doomguard.png' alt='doomguard')
+	.bottom-0.right-240
+		img.height-700(src=imgAssets+'fsm_doomguard_2.svg' alt='FSM doomguard extended')
++frameInbox('Hierarchický stavový automat')
+	.important-orange
+		ul
+			li.fragment další název - <span class="highlight">statechart</span>
+			li.fragment každý stav může mít superstav a množinu podstavů
+			li.fragment skupiny stavů sdílí přechody
+			li.fragment dá se implementovat zásobníkem
+				ul
+					li.fragment vlož stav nižší úrovně při přechodu
+					li.fragment vytáhni další stav při návratu a přesuň se do něj
+		.text-center.fragment
+			img.height-440(src=imgAssets+'hfsm_doomguard.svg' alt='HFSM doomguard')
+			.bottom-40.right-20
+				img.height-400(src=imgAssets+'fsm_doomguard.png' alt='doomguard')
++frameInbox('Fuzzy logika')
+	.important-green
+		ul
+			li.fragment(data-fragment-index='1') komplementární struktura pro stavové automaty a skriptování
+			li.fragment(data-fragment-index='2') místo prahování můžeme rozmazávat přechody mezi stavy
+			li.fragment(data-fragment-index='3') použito ve hře Halo 3 pro řízení jednotek a vyhodnocování hrozeb
+			li.fragment(data-fragment-index='4') další aplikace: proximity, mood management
+		.text-center.mt-60.fragment(data-fragment-index='1')
+			img.height-500(src=imgAssets+'fuzzy.svg' alt='fuzzy logic diagram')
++frameInbox('Behaviorální stromy')
+	.important-orange.spacing-2xs
+		ul
+			li.fragment stromy uzlů, které řídí rozhodovací procesy
+			li.fragment původně pro hru Halo 2 (2004)
+			li.fragment kombinuje elementy ze skriptování a HFSM
+			li.fragment neexistuje formální definice
+			li.fragment depth-first průchod
+			li.fragment každý uzel vrací status
+				ul
+					li.highlight.code SUCCESS, FAILURE, RUNNING, (SUSPENDED)
+		.text-center.mt-20.fragment
+			img.height-400(src=imgAssets+'btree.jpg' alt='behavior tree example')
++frameInbox('Behaviorální strom')
+	.important-orange
+		.text-center.fragment
+			img.height-300(src=imgAssets+'btree.svg' alt='behavior tree')
+		.space-md
+		.center.text-center
+			table.fragment
+				tr
+					th Typ uzlu
+					th Success
+					th Failure
+					th Running
+				tr
+					td.color-lemon Selector
+					td Pokud jeden potomek uspěje
+					td Pokud všichni potomci failnou
+					td Pokud jeden potomek běží
+				tr
+					td.color-lemon Sequence
+					td Pokud všichni potomci uspějí
+					td Pokud jeden potomek failne
+					td Pokud jeden potomek běží
+				tr
+					td.color-lemon Decorator
+					td To záleží
+					td To záleží
+					td To záleží
+				tr
+					td.color-lemon Parallel
+					td Poku N potomků uspěje
+					td Poku M-N potomků uspěje
+					td Pokud všichni potomci běží
+				tr
+					td.color-lemon Action
+					td Při dokončení
+					td Při chybě
+					td Během dokončení
+				tr
+					td.color-lemon Condition
+					td Pokud true
+					td Pokud false
+					td Nikdy
++frameInbox('Příklad: Unreal Engine BT Editor')
+	.text-center
+		img.height-760(src=imgAssets+'bt_unreal.jpg' alt='behavior tree in unrel engine')
++frameInbox('Příklad: Doomguard')
+	.text-center
+		img.height-770(src=imgAssets+'bt_doomguard.svg' alt='behavior tree with doomguard')
++frameInbox('Možná vylepšení')
+	.important-green
+		ul
+			li můžeme definovat podmínkový selector pro zjednodušení diagramu
+		.text-center.mt-10
+			img.height-180(src=imgAssets+'bt_optimization.svg' alt="behavior tree optimization")
+			img.height-550.mt-10(src=imgAssets+'bt_doomguard_2.svg' alt='behavior tree optimization')
++frameInbox('Příklad: Zamčené dveře')
+	div
+		.bottom-0.right-0
+			img.height-350(src=imgAssets+'door_open.gif' alt='doom door opening')
+		.top-170.left-260
+			img.height-500(src=imgAssets+'bt_door.svg' alt='behavior tree door')
++frameInbox('BDI Systémy')
+	.important-green
+		ul.spacing-xs
+			li.fragment Belief-Desire-Intention model
+			li.fragment <span class="highlight-2">Belief</span> - zjednodušený stav herního světa (nemusí se zakládat na pravdě)
+			li.fragment <span class="highlight-2">Desire</span> - motivace, touhy
+			li.fragment <span class="highlight-2">Intention</span> - volby, cíle
+			li.fragment <span class="highlight">Vlastnosti</span>
+				ul
+					li.fragment Deliberativní - vytváří symbolickou reprezentaci herního světa
+					li.fragment Logické - volby se řídí výrokovou logikou a ne heuristikou
+					li.fragment Racionální - volby jsou prováděny v nejlepším zájmu agenta
+					li.fragment Goal-oriented
+			li.fragment <span class="highlight">Implementace</span>
+				ul
+					li.fragment PRS (Procedural Reasoning System)
+					li.fragment GOAP (Goal-oriented action planning)
+
++frameInbox('Goal-Oriented Action Planning')
+	.important-green
+		ul.spacing-xs
+			li.fragment(data-fragment-index='1') považuje cíle za žádané stavy -> vyber si cíl a zkus se k němu dostat
+			li.fragment(data-fragment-index='2') každá akce obsahuje podmínky, které je nutno splnit
+			li.fragment(data-fragment-index='3') implementováno ve hře <span class="highlight">F.E.A.R (2005)</span> a <span class="highlight">Tomb Raider (2013)</span>
+		.text-center.mt-20.fragment(data-fragment-index='3')
+			img.height-550(src=imgAssets+'goap.svg' alt='goal-oriented action planning diagram')
++frameInbox('Příklad: F.E.A.R')
+	.important-green
+		ul
+			li.fragment každý mob má nějaké cíle o různých prioritách
+			li.fragment používá se plánovač k tomu, aby byl uspokojen ten s nejvyšší prioritou
+			li.fragment AI se rozhoduje na základě aktuální herní situace
+		div.fragment
+			table.center.mt-100
+				tr
+					th Soldier
+					th Assassin
+					th Rat
+				tr
+					td Attack
+					td Attack
+					td Animate
+				tr
+					td AttackCrouch
+					td InspectDisturbance
+					td Idle
+				tr
+					td SuppressionFire
+					td LookAtDisturbance
+					td GotoNode
+				tr
+					td FlushOutWithGrenade
+					td AttackMeleeUncloaked
+					td
+				tr
+					td AttackFromCover
+					td TraverseBlockedDoor
+					td
+				tr
+					td BlindFireFromCover
+					td AttackFromAmbush
+					td 
+				tr
+					td ReloadCovered
+					td AttackLungeUncloaked
+					td
+			.top-290.left-450
+				img.height-150(src=imgAssets+'fear_soldier.png' alt='FEAR soldier')
+			.top-290.left-750
+				img.height-150(src=imgAssets+'fear_assassin.png' alt='FEAR assassin')
+			.top-350.left-970
+				img.height-70(src=imgAssets+'fear_rat.png' alt='FEAR rat')

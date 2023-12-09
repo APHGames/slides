@@ -3,7 +3,6 @@
 // NAME=Game AI
 // LOCALE=en 
 // ORDER=10
-// LOCKED=true
 doctype html
 include ./mixins/header.pug
 include ./mixins/containers.pug
@@ -36,10 +35,9 @@ html(lang='en')
 			include ./chapters/gameai_introduction.pug
 			include ./chapters/gameai_mobs.pug
 			include ./chapters/gameai_navigation.pug
-			include ./chapters/gameai_real.pug
 			include ./chapters/gameai_strategies.pug
 			+summary_lecture10()
-			+quote-zelda()
+			+quote-gta()
 
 	+footer('Adam Vesecký (FIT CTU)', 'Architecture of Video Games, Lecture 10: Game AI')
 	script(src!='../../scripts/reveal-setup.js')

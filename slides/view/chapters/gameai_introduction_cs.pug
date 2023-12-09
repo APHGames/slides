@@ -1,0 +1,142 @@
+include ../mixins/containers.pug
+include ../mixins/containers_aph.pug
+
+- var imgAssets = '../assets/gameai_introduction/';
+- var defaultBgr = 'backgrounds/ai_circuit.jpg';
+
++mchapter('AI úvod', imgAssets+'chapter_gameai.svg')
++mcontainer('Game AI')
+	+frameShard.height-33p.top-100.center.z-index-100.fragment
+		+quote('Klasické herní AI je hlavně o skriptování a stavových automatech.')
+	+frameShard.height-33p.top-150.center.z-index-100.fragment
+		+quote('Není to o tom, že by nám machine learning neposkytovalo zajímavé výstupy. Je to o tom, že ty výstupy nemusí nutně dodávat tu game experience, kterou hledáme.', 'Jacob Schrum')
++frameInbox('Umělá inteligence ve hrách')
+	.important-green
+		ul
+			li.fragment(data-fragment-index='1') Sada pravidel generující chování, které hráči poskytuje <span class="highlight">iluzi inteligence</span>
+			li.fragment(data-fragment-index='2') Měly by být dostatečně sofistikované, aby si hráči mysleli, že interagují s něčím inteligentním
+			li.fragment(data-fragment-index='3') Realistické AI nutně neznamená zábavný gameplay
+		.flex-cols-3.mt-80
+			div.text-center.fragment(data-fragment-index='1')
+				img.height-430(src=imgAssets+'ai_in_games_1.jpg' alt='AI in games')
+			div.text-center.fragment(data-fragment-index='2')
+				img.height-430(src=imgAssets+'ai_in_games_2.jpg' alt='AI in games')
+			div.text-center.fragment(data-fragment-index='3')
+				img.height-430(src=imgAssets+'ai_in_games_3.jpg' alt='AI in games')
++frameInbox('AI Techniky')
+	div.text-center
+		img.height-760(src=imgAssets+'ai_techniques.svg' alt='AI techniques')
++frameInbox('AI ve hrách')
+	div.spacing-3xs
+		.scope.fragment
+			p Doom 1 (1993)
+			ul
+				li infighting - monstra bojují proti sobě
+				li stavové automaty a atribut SPECIAL přímo v mapě
+		.scope.fragment
+			p Age of Empires (1997)
+			ul
+				li AI je dostatečně inteligentní na nalezení frakcí na mapě, ale velmi slabé v obraně
+		.scope.fragment
+			p Half-life (1998)
+			ul
+				li monstra mohou hráče vystopovat, případně utéct, když jim ubývá HPčko
+				li vojáci měli "automated announcement system", uměli se krýt
+		.scope.fragment
+			p Starcraft (1998)
+			ul
+				li particle model pro odhad pozic jednotek, které AI nevidí
+		.scope.fragment
+			p Unreal Tournament (1999)
+			ul
+				li Bayesovské sítě
+		.scope.fragment
+			p Quake III (1999)
+			ul
+				li HFSM pro rozhodování, AAS (Area Awareness System) pro kolize a pathfinding
+		.bottom-0.right-40
+			img.height-600(src=imgAssets+'freeman.png' alt='Gordon Freeman')
++frameInbox('AI techniky ve hrách')
+	div.spacing-4xs
+		.scope.mt-10.fragment
+			p Black and White (2001)
+			ul
+				li Belief-Desire-Intention model
+		.scope.mt-10.fragment
+			p Halo 2 (2004)
+			ul
+				li behaviorální stromy a fuzzy logika
+		.scope.mt-10.fragment
+			p F.E.A.R. (2005)
+			ul
+				li GOAP pro taktické plánování vojáků, krycí palba
+		.scope.mt-10.fragment
+			p XCOM: Enemy Unknown (2012)
+			ul
+				li utility-based system, kalkulace užitečnosti každé akce
+		.scope.mt-10.fragment
+			p ARMA 3 (2013)
+			ul
+				li issue ordering, situation-based decision, stáhnutí se z boje
+				li HTN (Hierarchical task network) pro generátor misí
+		.scope.mt-10.fragment
+			p DOTA 2 (2013) a podobné hry
+			ul
+				li OpenAI boti
+		.scope.mt-10.fragment
+			p Starcraft II (2013)
+			ul
+				li AlphaStar deep neural network (2019)
+		.bottom-0.right-0
+			img.height-600(src=imgAssets+'starcraft.png' alt='Starcraft')
++frameInbox('Výzvy pro herní AI')
+	.important-orange.spacing-xs
+		.scope.fragment.fade-up
+			p S čím vlastně počítáme
+			ul
+				li.fragment.fade-up real-time
+				li.fragment.fade-up omezené zdroje
+				li.fragment.fade-up nekompletní znalost
+				li.fragment.fade-up plánování
+				li.fragment.fade-up učení
+				li.fragment.fade-up akcelerační model
+		.scope.fragment.fade-up
+			p Vlastnosti
+			ul
+				li.fragment.fade-up předvídatelnost (prvky překvapení)
+				li.fragment.fade-up komunikace mezi hráčem a AIčkem
+				li.fragment.fade-up překvapení - léčky, překvapivé útoky, týmová podpora
+				li.highlight-2.fragment.fade-up "winning well and losing well"
+				li.fragment.fade-up podvádění - akceptovatlené, pokud si toho hráč nevšimne
+		.top-20.right-20
+			img.height-400(src=imgAssets+'ai_challenges.png' alt='AI challenges')
+		+tipKeen1('AIčko musí hráči nabízet "fun prvek". Každý dokáže udělat AI, které vždy vyhraje.').bottom-0.left-0
++frameInbox('Pravidla pro dobré AI')
+	.important-green
+		ul
+			li.fragment
+				span.highlight Dobré AIčko hráči poskytuje jisté výhody
+				ul
+					li.fragment např. bojový systém ve hře Doom (2016) - pouze část monster hráče pronásleduje
+			li.fragment
+				span.highlight Dobré AIčko řekne hráči, co si myslí
+				ul
+					li.fragment např. hlídka řekne do vysílačky "Někdo tu je!"
+			li.fragment
+				span.highlight Dobré AI je dostatečně předvídatelné
+				ul
+					li.fragment hráč se může naučit taktizovat
+			li.fragment
+				span.highlight Dobré AI dokáže interagovat s herním systémem
+				ul
+					li.fragment sbírání zbraní, otevírání dveří
+			li.fragment
+				span.highlight Dobré AI má vlastní cíle
+				ul
+					li.fragment nejedná se jen o náhodně spawnutého enemáka
+			li.fragment
+				span.highlight Dobré AI není jen o nepřátelích
+				ul
+					li.fragment i NPCčka poskytují "fun" prvek
+		.bottom-0.right-0
+			img.height-350(src=imgAssets+'ghosts.png')

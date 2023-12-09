@@ -1,0 +1,48 @@
+include ../mixins/containers.pug
+include ../mixins/containers_aph.pug
+
+- var imgAssets = '../assets/gameai_navigation/';
+- var defaultBgr = 'backgrounds/gridmap.png';
+
++mchapter('AI pro navigaci', imgAssets+'chapter_maps.svg')
++frameInbox('Predikce oponentů')
+	.important-green
+		ul.spacing-3xs
+			li.fragment boti by neměli vědět, kde hráč je = <span class="highlight">partial observation</span>
+				.bottom-0.right-0
+					img.width-650(src=imgAssets+'predicting_opponents.jpg' alt='predicting opponents')
+				.bottom-370.right-0
+					img.width-650(src=imgAssets+'visioncone.png')
+			li.fragment <span class="highlight-2">Obecné metody:</span>
+				ul
+					li.fragment Skrytý semi-markovský model
+					li.fragment Particle filtry
+			li.fragment <span class="highlight-2">Metody pro FPSka:</span>
+				ul
+					li.fragment Occupancy map
+					li.fragment SOAR cognitive architecture (použito ve hře Quake II)
+					li.fragment Vision Cone (ve hře Bioshock)
+					li.fragment Influence Sphere (dle vzdálenosti od hráče)
+			li.fragment <span class="highlight-2">Metody pro strategie:</span>
+				ul
+					li.fragment Threat map
+					li.fragment Influence map
+					li.fragment Bayesovské sítě
+					li.fragment Delaunayova triangulace
+					li.fragment K-průměrování
++frameInbox('Occupancy map')
+	.important-green
+		ul
+			li.fragment(data-fragment-index='1') pravidelná mřížka přes herní mapu
+			li.fragment(data-fragment-index='2') udržuje pravděpodobnost pozice hráče pro každou buňku
+			li.fragment(data-fragment-index='4') jakmile se hráč ztratí z dohledu, dojde k propagaci do sousedních buněk
+		.text-center.fragment(data-fragment-index='1')
+			img.height-500(src=imgAssets+'occupancy_map.gif' alt='occupancy map animation')
++frameInbox('Threat map')
+	.important-green
+		ul
+			li.fragment(data-fragment-index='1') uchovává pro každou buňku potenciální damage, který hráč může dostat
+			li.fragment(data-fragment-index='2') lehce se integruje do pathfindingu
+			li.mt-30.fragment(data-fragment-index='3') využití např. pro vyhnutí se předsunuté základně
+		.text-center.mt-80.fragment(data-fragment-index='1')
+			img.height-400(src=imgAssets+'threat_map.svg' alt='threat map diagram')

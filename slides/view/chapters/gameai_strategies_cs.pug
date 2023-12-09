@@ -4,30 +4,30 @@ include ../mixins/containers_aph.pug
 - var imgAssets = '../assets/gameai_strategies/';
 - var defaultBgr = 'backgrounds/ai_rts.jpg';
 
-+mchapter('AI in strategies', imgAssets+'chapter_rts.svg')
-+frameInbox('Real-time strategy')
++mchapter('AI ve strategiích', imgAssets+'chapter_rts.svg')
++frameInbox('RTS')
 	.important-orange.spacing-2xs
 		ul
-			li.italic.highlight-2.fragment Real-time strategy is a Bayesian, zero-sum game (Rubinstein, 1994)
+			li.italic.highlight-2.fragment Real-time strategie je bayesovská hra s nulovým součtem (Rubinstein, 1994)
 				.bottom-0.right-0
 					img.height-500(src=imgAssets+'totalwar.jpg' alt='Total War')
-			li.fragment a game where the player is in control of certain, usually military, assets, with which the player can manipulate in order to achieve victory
-			li.fragment goal: build up a base, gather resources, produce army, destroy the enemy
-			li.fragment <span class="highlight-2">methods:</span> layer-based AI, rule-based AI
+			li.fragment hra, kde hráč kontroluje obvykle vojenské jednotky s cílem porazit ostatní frakce
+			li.fragment cíle: postavit základnu, získat zdroje, vybudovat armádu, porazit nepřítele
+			li.fragment <span class="highlight-2">metody:</span> layer-based AI, rule-based AI
 		.scope.fragment
-			p Main elements
+			p Herní prvky
 			ul
-				li.fragment map, mini-map
-				li.fragment resources
-				li.fragment units and their attributes
-				li.fragment buildings
+				li.fragment mapa, minimapa
+				li.fragment zdroje
+				li.fragment jednotky a jejich staty
+				li.fragment budovy
 		.scope.fragment
-			p Other features
+			p Další prvky
 			ul
-				li.fragment real-time aspect (no turns)
+				li.fragment obvykle real-time gameplay
 				li.fragment fog of war
 				li.fragment tech tree
-+frameInbox('RTS games')
++frameInbox('RTS hry')
 	.center.fill
 		.grid.grid-cols-3.grid-rows-2.gap-40.width-80p
 			+floppyApp(imgAssets+'rts_dune2.jpg', 'Dune II', '1992').fragment
@@ -36,82 +36,82 @@ include ../mixins/containers_aph.pug
 			+floppyApp(imgAssets+'rts_warcraft3.jpg', 'Warcraft 3: Reign of Chaos', '2002').fragment
 			+floppyApp(imgAssets+'rts_starcraft2.jpg', 'Starcraft II', '2010').fragment
 			+floppyApp(imgAssets+'rts_ashes.jpg', 'Ashes of the Singularity', '2016').fragment
-+frameInbox('RTS Features')
++frameInbox('RTS Featury')
 	.important-orange
 		.spacing-4xs
 			.scope.fragment
 				p Resource Control
 				ul
-					li.fragment controlling more resources increases the players' constsruction capabilities
+					li.fragment čím více zdrojů má hráč pod kontrolou, tím rychleji buduje
 			.scope.fragment
 				p Tech tree
 				ul
-					li.fragment a directed acyclic graph that contains the whole technological development of a faction
+					li.fragment přímý graf obsahující technologická vylepšení frakce
 			.scope.fragment
-				p Build order (opening)
+				p Build order (otevření)
 				ul
-					li.fragment the timing at which the first buildings are constructed
+					li.fragment prvních pár minut hraní, kdy hráč postaví klíčové budovy
 				.bottom-0.right-0
 					img.height-500(src=imgAssets+'rts.png' alt='RTS build order')
 			.scope.fragment
 				p Fog of war
 				ul
-					li.fragment fog that covers the parts of the map the player has not yet explored
-					li.fragment requires to scout unexplored areas to find enemy sources
+					li.fragment mlha, která zakrývá neprozkoumaná místa na mapě
+					li.fragment vyžaduje posílání průzkumných jednotek
 			.scope.fragment
 				p Micromanagement
 				ul
-					li.fragment way of controlling units in detail while they are in combat
-+frameInbox('Example: Starcraft 2 Tech-tree')
+					li.fragment ovládání jednotek v boji
++frameInbox('Příklad: Starcraft 2 Tech-tree')
 	div
 		.text-center
 			img.height-760(src=imgAssets+'techtree_sc2.png' alt='Starcraft II Tech-tree')
-+frameInbox('RTS AI Layers')
++frameInbox('RTS vrstvy pro AIčko')
 	.important-green
 		ul
 			li.fragment micromanagement
-			li.fragment tactics (army positions)
+			li.fragment tactics (budování armády)
 			li.fragment strategy (tech tree)
 		.text-center
 			img.height-500(src=imgAssets+'rts_layers.svg' alt='RTS AI layers')
 +frameInbox('Layer-based AI')
 	.important-green
 		ul
-			li.fragment(data-fragment-index='1') each layer handles specific task
-			li.fragment(data-fragment-index='2') decision components consider available information, retrieved by lower components, to make decisions; executors are triggered afterwards
-			li.mt-50.fragment(data-fragment-index='3') <span class="highlight-2">Sensor</span> - reads the game state
-			li.fragment(data-fragment-index='4') <span class="highlight-2">Analyzer</span> - combines sensing data to form a coherent picture
-			li.fragment(data-fragment-index='5') <span class="highlight-2">Memorizer</span> - stores various types of data (terrain analysis, past decisions,...) 
-			li.fragment(data-fragment-index='6') <span class="highlight-2">Decider</span> - a strategic decider, determines goals
-			li.fragment(data-fragment-index='7') <span class="highlight-2">Executor</span> - translates goals into actions
-			li.fragment(data-fragment-index='8') <span class="highlight-2">Coordinator</span> - synchronizes groups of units
-			li.fragment(data-fragment-index='9') <span class="highlight-2">Actuator</span> - executes actions by modifying the game state
+			li.fragment(data-fragment-index='1') každá vrstva řeší určitý problém
+			li.fragment(data-fragment-index='2') rozhodovací komponenty vyhodnocují dostupné informace a exekutoři vykonávají doporučené akce
+			li.mt-50.fragment(data-fragment-index='3') <span class="highlight-2">Sensor</span> - čte herní stav
+			li.fragment(data-fragment-index='4') <span class="highlight-2">Analyzer</span> - dává dohromady koherentní obraz situace ve hře
+			li.fragment(data-fragment-index='5') <span class="highlight-2">Memorizer</span> - ukládá data jako analýza terénu, historie rozhodování,... 
+			li.fragment(data-fragment-index='6') <span class="highlight-2">Decider</span> - stanovuje cíle
+			li.fragment(data-fragment-index='7') <span class="highlight-2">Executor</span> - překládá cíle na akce
+			li.fragment(data-fragment-index='8') <span class="highlight-2">Coordinator</span> - synchronizuje skupiny jednotek
+			li.fragment(data-fragment-index='9') <span class="highlight-2">Actuator</span> - provádí přímou akci
 		.text-center.mt-20.fragment(data-fragment-index='1')
 			img.height-120(src=imgAssets+'rts_event_flow.svg' alt='Layer-based AI in games')
-+frameInbox('Example: Layer-based AI')
++frameInbox('Příklad: Layer-based AI')
 	.top-20.left-20
 		img.height-700(src=imgAssets+'rts_layer_based_example.svg' alt='Layer Based AI diagram')
 	.top-20.right-0
 		img.height-480(src=imgAssets+'layer_based_ai_cossacks.jpg' alt='Cossacks 3')
-+frameInbox('Example: Megaglest')
++frameInbox('Příklad: Megaglest')
 	.important-green
 		ul
-			li.fragment Open-source 3D RTS (<a href="https://megaglest.org/download">LINK</a>)
-			li.fragment seven factions: tech, magic, egypt, indians, norsemen, persian, romans
+			li.fragment Open-source 3D RTS (<a href="https://megaglest.org/download">ODKAZ</a>)
+			li.fragment sedm frakcí: technická, magická, indiáni, egypt,...
 			li.fragment rule-based AI
 		.text-center.mt-40
 			img.height-550(src=imgAssets+'rule_based_megaglest.jpg' alt='Megaglest')
-+frameInbox('Megaglest architecture')
++frameInbox('Megaglest architektura')
 	div.text-center
 		img.height-780(src=imgAssets+'megaglest_arch.svg' alt='Megaglest architecture')
-+frameInbox('Megaglest rules')
++frameInbox('Megaglest pravidla')
 	div
 		table.center
 			tr
-				th Rule
-				th Condition
-				th Command
-				th Freq [ms]
+				th Pravidlo
+				th Podmínka
+				th Příkaz
+				th Frekvence [ms]
 			tr
 				td AiRuleWorkerHarvest
 				td Worker stopped
