@@ -1,0 +1,135 @@
+include ../mixins/containers.pug
+include ../mixins/containers_aph.pug
+
+- var imgAssets = '../assets/minitalk_accessibility/';
+- var defaultBgr = 'backgrounds/accessibility.jpg';
+
+// ===================================================== SLIDES =====================================================
++mchapter('Accessibility', imgAssets+'chapter_accessibility.svg')
++frameInbox('Accessibility')
+    ul.spacing-lg.top-0
+        li.fragment <span class="highlight-2">gaming accessibility</span> - a usability concept that involves playing games by people with special needs
+        li.fragment <span class="highlight">Common categories</span>
+            ul
+                li.fragment accessibility for visually impaired people
+                li.fragment accessibility for hearing impaired people
+                li.fragment accessibility for motor impaired people
+        li.fragment 16% of the population has some kind of disability
+    .bottom-40.right-40
+        img.height-450(src=imgAssets+'accessibility_gamers.png')
++frameInbox('Game accessibility history')
+    div
+        ul
+            li.fragment <span class="highlight-2">1988</span> - NES Hands-Free
+                .bottom-250.right-40
+                    img.height-270(src=imgAssets+'handsfree.jpg')
+            li.fragment <span class="highlight-2">2012</span> - DAGERS portal (Disabled Accessibility for Gaming Entertainment Rating System)
+            li.fragment <span class="highlight-2">2015</span> - Colorblind mode in World of Warcraft
+                .bottom-20.left-40
+                    img.height-350(src=imgAssets+'colorblind_wow.png')
+            li.fragment <span class="highlight-2">2016</span> - Uncharted 4: A Thief’s End established the base for accessibility in AAA titles
+            li.fragment <span class="highlight-2">2018</span> - Xbox Adaptive Controller
+                .bottom-20.left-620
+                    img.height-350(src=imgAssets+'adaptive_ctrl.png')
+            li.fragment <span class="highlight-2">2020</span> - big changes in Indie scene during COVID-19 pandemic
+            li.fragment <span class="highlight-2">2020</span> - The Last of Us - Part II, one of the most accessible AAA games
++frameInbox('Accessible AAA games')
+    .center
+        .space-xl
+        table
+            tr
+                th Game
+                th Color settings
+                th Font scalig
+                th HUD scaling
+                th Contrast
+            tr
+                td The Last of Us Part II
+                td.text-center
+                    div.bgr-emerald.radius-50.size-20.inline-block
+                td.text-center
+                    div.bgr-emerald.radius-50.size-20.inline-block
+                td.text-center
+                    div.bgr-emerald.radius-50.size-20.inline-block
+                td.text-center
+                    div.bgr-emerald.radius-50.size-20.inline-block
+            tr
+                td World of Warcraft
+                td.text-center
+                    div.bgr-emerald.radius-50.size-20.inline-block
+                td.text-center
+                    div.bgr-emerald.radius-50.size-20.inline-block
+                td.text-center
+                    div.bgr-emerald.radius-50.size-20.inline-block
+                td.text-center
+                    div.bgr-tomato.radius-50.size-20.inline-block
+                    
+            tr
+                td Into the Breach
+                td.text-center
+                    div.bgr-emerald.radius-50.size-20.inline-block
+                td.text-center
+                    div.bgr-emerald.radius-50.size-20.inline-block
+                td.text-center
+                    div.bgr-emerald.radius-50.size-20.inline-block
+                td.text-center
+                    div.bgr-tomato.radius-50.size-20.inline-block
+            tr
+                td Microsoft Flight Simulator 2020
+                td.text-center
+                    div.bgr-emerald.radius-50.size-20.inline-block
+                td.text-center
+                    div.bgr-emerald.radius-50.size-20.inline-block
+                td.text-center
+                    div.bgr-emerald.radius-50.size-20.inline-block
+                td.text-center
+                    div.bgr-tomato.radius-50.size-20.inline-block
+            tr
+                td Dota 2
+                td.text-center
+                    div.bgr-emerald.radius-50.size-20.inline-block
+                td.text-center
+                    div.bgr-tomato.radius-50.size-20.inline-block
+                td.text-center
+                    div.bgr-tomato.radius-50.size-20.inline-block
+                td.text-center
+                    div.bgr-tomato.radius-50.size-20.inline-block
+            tr
+                td Read Dead Redemption 2
+                td.text-center
+                    div.bgr-emerald.radius-50.size-20.inline-block
+                td.text-center
+                    div.bgr-tomato.radius-50.size-20.inline-block
+                td.text-center
+                    div.bgr-tomato.radius-50.size-20.inline-block
+                td.text-center
+                    div.bgr-tomato.radius-50.size-20.inline-block
+            tr
+                td Forza Horizon 4
+                td.text-center
+                    div.bgr-emerald.radius-50.size-20.inline-block
+                td.text-center
+                    div.bgr-tomato.radius-50.size-20.inline-block
+                td.text-center
+                    div.bgr-emerald.radius-50.size-20.inline-block
+                td.text-center
+                    div.bgr-tomato.radius-50.size-20.inline-block
++frameInbox('Controllers for motor impared people')
+    div
+        ul.spacing-4xl
+            li.fragment Leonardo for PS5
+                .right-20.top-150
+                    img.height-350(src=imgAssets+'leonardo.png')
+            li.fragment XBox Adaptive Controller
+                .right-300.top-350
+                    img.height-350(src=imgAssets+'adaptive_ctrl.png')
+            li.fragment Hori Flex for Nintendo Switch
+                .right-20.bottom-20
+                    img.height-350(src=imgAssets+'horiflex.png')
++frameInbox('The Last of Us - Part II')
+    div
+        ul
+            li.fragment 3 presets, 60 toggles
+            li.fragment text-to-speech, pick-up notifications, dodge prompts, vibration cues, auto pick up, camera assist
+                .bottom-20.left-260
+                    img.height-650(src=imgAssets+'lastofus.jpg')

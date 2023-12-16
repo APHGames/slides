@@ -6,6 +6,11 @@ Versioning info:
 - second number indicates a week (1 for the first week)
 - third number indicates minor changes, such as hotfixes and updates
 
+## [6.13] - 2023-12-16
+### Added
+Lecture 11 CZ slides
+Accessibility minitalk
+
 ## [6.12] - 2023-12-09
 ### Added
 Lecture 10 slides

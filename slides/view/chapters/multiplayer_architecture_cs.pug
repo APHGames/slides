@@ -1,0 +1,173 @@
+include ../mixins/containers.pug
+include ../mixins/containers_aph.pug
+
+- var imgAssets = '../assets/multiplayer_architecture/';
+- var defaultBgr = 'backgrounds/bgr_particles.jpg';
+
++mchapter('Architektura Multiplayeru', imgAssets+'chapter_architecture.svg')
++mcontainer('Multiplayer')
+	+frameShard.height-33p.top-100.center.z-index-100.fragment
+		+quote('Umožňuje vícero hráčům interagovat ve stejném herním světě a ve stejném čase.')
+	+frameShard.height-33p.top-150.center.z-index-100.fragment
+		+quote('Velmi komplexní záležitost, která má zásadní dopad na celou architekturu hry.')
++frameInbox('Kategorie multiplayeru')
+	div
+		ul.spacing-2xl
+			li.fragment single-screen multiplayer
+				.top-20.right-20
+					img.width-500(src=imgAssets+'types_single.jpg')
+			li.fragment split-screen multiplayer
+				.top-150.right-400
+					img.width-500(src=imgAssets+'types_split.jpg')
+			li.fragment network multiplayer
+				.top-300.right-20
+					img.width-500(src=imgAssets+'types_multi.jpg')
+			li.fragment MMOG
+				.top-480.right-400
+					img.width-500(src=imgAssets+'types_mmo.jpg')
+			li.fragment Cloud Gaming
+				.top-580.right-20
+					img.width-500(src=globalAssets+'memes/lowq_video.jpg')
++frameInbox('Historie multiplayeru')
+	div.spacing-4xs
+		.scope.fragment
+			p Lokální multiplayer
+			ul
+				li.fragment Spacewar! (1962)
+					.top-20.right-450
+						img.width-380(src=imgAssets+'history_spacewar.jpg')
+		.scope.fragment
+			p Síťový multiplayer
+			ul
+				li.fragment Empire (1973)
+					.top-20.right-20
+						img.width-400(src=imgAssets+'history_empire.jpg')
+		.scope.fragment
+			p Lokální síťový multiplayer
+			ul
+				li.fragment Doom (1993)
+					.top-300.right-450
+						img.width-380(src=imgAssets+'history_doom.jpg')
+		.scope.fragment
+			p Online multiplayer
+			ul
+				li.fragment Quake (1996)
+					.top-300.right-20
+						img.width-400(src=imgAssets+'history_quake.jpg')
+				li.fragment Unreal (1998)
+		.scope.fragment
+			p Online-only multiplayer
+			ul
+				li.fragment World of Tanks (2010)
+					.top-570.right-20
+						img.width-400(src=imgAssets+'history_wot.jpg')
+				li.fragment Diablo 3 (2012)
+		.scope.fragment
+			p MMO
+			ul
+				li.fragment Ultima Online (1997)
+					.top-600.right-450
+						img.width-380(src=imgAssets+'history_ultima.jpg')
+				li.fragment World of Warcraft (2004)
++frameInbox('Dříve a dnes')
+	div
+		.flex.flex-cols-2.mt-80
+			figure.fragment
+				img.height-540(src=imgAssets+'multiplayer_then.jpg')
+				p Multiplayer v roce 1977
+			figure.fragment
+				img.height-540(src=imgAssets+'lanka.jpg')
+				p Multiplayer v roce 2004
++frameInbox('Dříve a dnes')
+	div
+		.flex.center.mt-40
+			figure
+				img.height-640(src=imgAssets+'multiplayer_now.jpg')
+				p Multiplayer v roce 2023
++frameInbox('O co se jedná')
+	.important-green
+		ul
+			li.fragment hlavní cíl - synchronizovat několik univerz
+			li.fragment všichni klienti musí dosáhnout <span class="highlight-2">jistého</span> stavu synchronicity
+			li.fragment atributy ovlivňující kvalitu gameplaye: <span class="highlight-2">rychlost, latence, stabilita, ztrátovost paketů</span> 
+			li.fragment neexistuje žádný reálný předobraz pro tento typ problému
+			li.fragment multi-player hru do single-playeru zkonvertujeme snadno
+			li.fragment opačně to jde dost těžko
+		.scope.fragment
+			p Metody
+			ul
+				li.fragment přenos kompletního herního stavu všem klientům - pro jednoduché hry
+				li.fragment přenos podmnožiny herního stavu, ze kterého lze zkonstruovat zbytek
+		.scope.fragment
+			p Topologie
+			ul
+				li.fragment peer-to-peer (už se nepoužívá)
+				li.fragment client-server
+		.bottom-30.right-30
+			img.height-400(src=imgAssets+'lag.gif')
++frameInbox('Peer-to-peer architektura')
+	.important-orange
+		ul
+			li.fragment(data-fragment-index='1') zařízení si vzájemně vyměňují data v úplném grafu
+			li.fragment(data-fragment-index='2') použito ve hře <span class="highlight">Doom</span>, prvních <span class="highlight">Command & Conquer</span> hrách, <span class="highlight">Age of Empires</span>, <span class="highlight">Starcraft</span>
+			li.fragment(data-fragment-index='3') máme-li 
+				include ../../assets/multiplayer_architecture/equations_generated/peer_to_peer_01.svg
+				|&nbsp;peerů, každý musí mít 
+				include ../../assets/multiplayer_architecture/equations_generated/peer_to_peer_02.svg
+				|&nbsp;spojení -> 
+				include ../../assets/multiplayer_architecture/equations_generated/peer_to_peer_03.svg
+				|&nbsp;celkem
+			li.fragment(data-fragment-index='4') metody: single master, partial authority, full replication
+		.space-xl
+		.text-center.fragment(data-fragment-index='1')
+			img.height-300(src=imgAssets+'arch_peer_to_peer.svg')
++frameInbox('Peer-to-peer hry')
+	.important-green
+		.scope.fragment
+			p Doom (1993)
+			ul
+				li.fragment 14.4 kbps PPP nebo 28.8 kbps SLIP
+				li.fragment v každém cyklu si zařízení vymění vstupy od hráčů
+				li.fragment je potřeba čekat na vstup od hráče s nejvyšším lagem
+				li.fragment každých 30ms se vstup od hráče sampluje do příkazu <span class="highlight-2">tic</span>
+				li.fragment jakmile se získá tic command od všech hráčů, hra aktualizuje svůj stav
+		.scope.fragment
+			p Age of Empires (1997)
+			ul
+				li.fragment pro bitvu 8 hráčů umožňuje až 400 jednotek
+				li.fragment používal <span class="highlight-2">Turn Timer</span> - fronta pro příkazy
+				li.fragment AoE synchronizuje příkazy od každého hráče
+				li.fragment všechny příkazy za 200ms se uloží do bufferu
+				li.fragment jakmile uplyne 200ms, všechny příkazy pro hráčův tah se odešlou ostatním
++frameInbox('Client-Server architektura')
+	.important-orange
+		ul
+			li.fragment(data-fragment-index='1')
+				include ../../assets/multiplayer_architecture/equations_generated/client_server_01.svg
+				|&nbsp;zařízení, 
+				include ../../assets/multiplayer_architecture/equations_generated/client_server_02.svg
+				|&nbsp;spojení
+			li.fragment(data-fragment-index='2') server musí zpracovat 
+				include ../../assets/multiplayer_architecture/equations_generated/client_server_03.svg
+				|&nbsp;více zpráv za sekundu
+			li.fragment(data-fragment-index='3') server se rychle stane bottleneckem
+			li.fragment(data-fragment-index='5') <span class="highlight">Dedikovaný server</span> - nic nerenderuje, pouze komunikuje a běží na něm hra
+			li.fragment(data-fragment-index='6') <span class="highlight">Listen server</span> - server je aktivní účastník hry
+		.text-center.mt-60.fragment(data-fragment-index='1')
+			img.height-400(src=imgAssets+'arch_client_server.svg')
++frameInbox('Příklad: Quake')
+	.important-green.spacing-xs
+		ul
+			li.fragment první hra, která použila mechanismus <span class="highlight-2">částečné spolehlivosti</span>
+			li.fragment výstupy jsou zachyceny <span class="highlight-2">prediktivní vrstvou</span>
+			li.fragment server běží na <span class="highlight-2">20 FPS</span>, a klient na <span class="highlight-2">60 FPS</span>
+		.scope.fragment
+			p Command
+			ul
+				li.fragment základní jednotka komunikace
+				li.fragment používán pro aktualizaci pozice hráče, směru, HP,...
+				li.highlight-2.fragment důležité příkazy (s dopadem na herní stav) se potvrzovaly
+		.text-center.mt-10.fragment
+			figure
+				img.height-260(src=imgAssets+'quake_netchannel.svg')
+				p NetChannel header

@@ -1,0 +1,135 @@
+include ../mixins/containers.pug
+include ../mixins/containers_aph.pug
+
+- var imgAssets = '../assets/minitalk_accessibility/';
+- var defaultBgr = 'backgrounds/accessibility.jpg';
+
+// ===================================================== SLIDES =====================================================
++mchapter('Accessibility', imgAssets+'chapter_accessibility.svg')
++frameInbox('Accessibility')
+    ul.spacing-lg.top-0
+        li.fragment <span class="highlight-2">gaming accessibility</span> - koncept použitelnosti videoher pro osoby se zvláštními potřebami
+        li.fragment <span class="highlight">Nejběžnější kategorie</span>
+            ul
+                li.fragment přístupnost pro osoby se zrakovým postižením
+                li.fragment přístupnost pro osoby se sluchovým postižením
+                li.fragment přístupnost pro osoby s motorickým postižením
+        li.fragment 16% populace má nějakou formu postižení
+    .bottom-40.right-40
+        img.height-450(src=imgAssets+'accessibility_gamers.png')
++frameInbox('Historie přístupnosti ve hrách')
+    div
+        ul
+            li.fragment <span class="highlight-2">1988</span> - NES Hands-Free
+                .bottom-250.right-40
+                    img.height-300(src=imgAssets+'handsfree.jpg')
+            li.fragment <span class="highlight-2">2012</span> - webová stránka DAGERS (Disabled Accessibility for Gaming Entertainment Rating System)
+            li.fragment <span class="highlight-2">2015</span> - Mód pro barvoslepé ve hře World of Warcraft
+                .bottom-20.left-40
+                    img.height-350(src=imgAssets+'colorblind_wow.png')
+            li.fragment <span class="highlight-2">2016</span> - Hra Uncharted 4: A Thief’s End položila základy přístupnosti v AAA titulech
+            li.fragment <span class="highlight-2">2018</span> - Xbox Adaptive Controller
+                .bottom-20.left-620
+                    img.height-350(src=imgAssets+'adaptive_ctrl.png')
+            li.fragment <span class="highlight-2">2020</span> - masivní změny v indie hrách během COVID-19 pandemie
+            li.fragment <span class="highlight-2">2020</span> - The Last of Us - Part II, jedna z nejpřístupnějších AAA her
++frameInbox('AAA hry s accessibilitou')
+    .center
+        .space-xl
+        table
+            tr
+                th Hra
+                th Úprava barev
+                th Úprava fontů
+                th HUD scaling
+                th Kontrast
+            tr
+                td The Last of Us Part II
+                td.text-center
+                    div.bgr-emerald.radius-50.size-20.inline-block
+                td.text-center
+                    div.bgr-emerald.radius-50.size-20.inline-block
+                td.text-center
+                    div.bgr-emerald.radius-50.size-20.inline-block
+                td.text-center
+                    div.bgr-emerald.radius-50.size-20.inline-block
+            tr
+                td World of Warcraft
+                td.text-center
+                    div.bgr-emerald.radius-50.size-20.inline-block
+                td.text-center
+                    div.bgr-emerald.radius-50.size-20.inline-block
+                td.text-center
+                    div.bgr-emerald.radius-50.size-20.inline-block
+                td.text-center
+                    div.bgr-tomato.radius-50.size-20.inline-block
+                    
+            tr
+                td Into the Breach
+                td.text-center
+                    div.bgr-emerald.radius-50.size-20.inline-block
+                td.text-center
+                    div.bgr-emerald.radius-50.size-20.inline-block
+                td.text-center
+                    div.bgr-emerald.radius-50.size-20.inline-block
+                td.text-center
+                    div.bgr-tomato.radius-50.size-20.inline-block
+            tr
+                td Microsoft Flight Simulator 2020
+                td.text-center
+                    div.bgr-emerald.radius-50.size-20.inline-block
+                td.text-center
+                    div.bgr-emerald.radius-50.size-20.inline-block
+                td.text-center
+                    div.bgr-emerald.radius-50.size-20.inline-block
+                td.text-center
+                    div.bgr-tomato.radius-50.size-20.inline-block
+            tr
+                td Dota 2
+                td.text-center
+                    div.bgr-emerald.radius-50.size-20.inline-block
+                td.text-center
+                    div.bgr-tomato.radius-50.size-20.inline-block
+                td.text-center
+                    div.bgr-tomato.radius-50.size-20.inline-block
+                td.text-center
+                    div.bgr-tomato.radius-50.size-20.inline-block
+            tr
+                td Read Dead Redemption 2
+                td.text-center
+                    div.bgr-emerald.radius-50.size-20.inline-block
+                td.text-center
+                    div.bgr-tomato.radius-50.size-20.inline-block
+                td.text-center
+                    div.bgr-tomato.radius-50.size-20.inline-block
+                td.text-center
+                    div.bgr-tomato.radius-50.size-20.inline-block
+            tr
+                td Forza Horizon 4
+                td.text-center
+                    div.bgr-emerald.radius-50.size-20.inline-block
+                td.text-center
+                    div.bgr-tomato.radius-50.size-20.inline-block
+                td.text-center
+                    div.bgr-emerald.radius-50.size-20.inline-block
+                td.text-center
+                    div.bgr-tomato.radius-50.size-20.inline-block
++frameInbox('Ovladače pro lidi s motorickým postižením')
+    div
+        ul.spacing-4xl
+            li.fragment Leonardo pro PS5
+                .right-20.top-150
+                    img.height-350(src=imgAssets+'leonardo.png')
+            li.fragment XBox Adaptive Controller
+                .right-300.top-350
+                    img.height-350(src=imgAssets+'adaptive_ctrl.png')
+            li.fragment Hori Flex pro Nintendo Switch
+                .right-20.bottom-20
+                    img.height-350(src=imgAssets+'horiflex.png')
++frameInbox('The Last of Us - Part II')
+    div
+        ul
+            li.fragment 3 presets, 60 různých nastavení
+            li.fragment text-to-speech, pick-up notifications, dodge prompts, vibration cues, auto pick up, camera assist
+                .bottom-20.left-260
+                    img.height-650(src=imgAssets+'lastofus.jpg')

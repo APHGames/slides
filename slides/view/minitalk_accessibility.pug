@@ -1,0 +1,19 @@
+// GROUP=Minitalks
+// NAME=Accessibility
+// LOCALE=en
+// ORDER=3
+doctype html
+include ./mixins/header.pug
+include ./mixins/containers.pug
+include ./mixins/containers_aph.pug
+
+- var themePath = '../themes/aph/';
+- var globalAssets = '../assets/all/';
+
+html(lang='en')
+	+header('Minitalk: Accessibility', 'Adam Vesecký', themePath + 'resources/favicon.png', themePath + 'theme_aph.scss')
+	.reveal
+		.slides
+			include ./chapters/minitalk_accessibility.pug
+	+footer('Adam Vesecký (FIT CTU)', 'Architecture of Video Games, Minitalk: Accessibility')
+	script(src!='../../scripts/reveal-setup.js')
