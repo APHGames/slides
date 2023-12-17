@@ -2,7 +2,7 @@ include ../mixins/containers.pug
 include ../mixins/containers_aph.pug
 
 - var imgAssets = '../assets/minitalk_tutorials/';
-- var defaultBgr = 'backgrounds/bgr_assassins.jpg';
+- var defaultBgr = 'backgrounds/bgr_limbo.jpg';
 
 // ===================================================== SLIDES =====================================================
 +mchapter('Manuály a tutoriály', imgAssets+'chapter_tutorials.svg')
@@ -19,15 +19,12 @@ include ../mixins/containers_aph.pug
                         li.fragment first-play tutoriály
                         li.fragment tréninkové levely
                         li.fragment hinty a tipy
-                        li.fragment wiki
                         li.fragment skryté tutoriály
         div.text-center.fragment
             div
-                img.width-350.ml-20(src=globalAssets+'memes/tutorials.jpg' alt='Jumping into game without playing a tutorial')
-            div
-                img.width-420.mt-10(src=imgAssets+'flow.svg' alt='Flow theory in games')
-    .bottom-0.left-600.fragment
-        img.height-200(src=imgAssets+'press_f_to_help.jpg' alt='Press F1 to help Commander Keen')
+                img.width-440.ml-20(src=globalAssets+'memes/tutorials.jpg' alt='Jumping into game without playing a tutorial')
+    .bottom-0.right-170.fragment
+        img.height-300(src=imgAssets+'press_f_to_help.jpg' alt='Press F1 to help Commander Keen')
 +frameInbox('Instrukční manuály')
     .flex-cols-3.items-center.fill
         figure
@@ -74,22 +71,14 @@ include ../mixins/containers_aph.pug
         figure
             img.height-430(src=imgAssets+'portal.jpg' alt='Portal hints')
             p Portal (2007)
-+frameInbox('Wiki')
-    .flex-cols-2.items-center.fill
-        figure
-            img.height-500(src=imgAssets+'manual_warhammer.jpg' alt='Warhammer Online')
-            p Warhammer Online (2008)
-        figure
-            img.height-500(src=imgAssets+'hon.jpg' alt='Heroes of Newerth wiki')
-            p Heroes of Newerth (2010)
 +frameInbox('Skryté tutoriály')
     .flex-cols-2.items-center.fill
         figure
+            img.height-430(src=imgAssets+'halflife.png' alt='Half Life 2')
+            p Half-Life 2 (2004)
+        figure
             img.height-430(src=imgAssets+'inside.jpg' alt='INSIDE')
             p INSIDE (2016)
-        figure
-            img.height-430(src=imgAssets+'darksouls3.jpg' alt='YOU DIED - Dark Souls 3')
-            p Dark Souls 3 (2016)
 +frameInbox('Tutoriálové vzory')
     .flex-cols-2
         div
@@ -101,7 +90,7 @@ include ../mixins/containers_aph.pug
                         li.fragment(data-fragment-index="3") nenarušuje herní flow (Skyrim)
                         li.fragment(data-fragment-index="4") nedá se snadno failnout (Assassin's Creed)
                         li.fragment(data-fragment-index="5") je možno je přeskočit (Total War)
-                        li.fragment(data-fragment-index="6") bezpečné prostředí k experimentování (Rayman)
+                        li.fragment(data-fragment-index="6") bezpečné prostředí ke zkoušení (Rayman)
                 li.mt-20.fragment(data-fragment-index="7")
                     span.downside Negativní vzory
                     ul

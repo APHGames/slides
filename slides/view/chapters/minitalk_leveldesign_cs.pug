@@ -94,10 +94,11 @@ include ../mixins/containers_aph.pug
 	figure.bottom-0.right-500.fragment
 		img.height-340(src=imgAssets+'principle01_portal.jpg')
 		p Portal 2
-+frameInbox('Umístění objektů by mělo dávat smysl')
++frameInbox('Environmentální design posiluje imerzi')
 	div
 		ul
-			li.fragment realistický level design přidává do příběhu vrstvu, která posiluje gameplay experience
+			li.fragment explicitní narrative - dodán prostřednictvím intra a cutscén
+			li.fragment implicitní narrative - dodán prostřednictvím herního prostředí
 		.center.flex-row.mt-100
 			figure.mx-10.fragment
 				img.height-450(src=imgAssets+'placing_prince.png')
@@ -107,6 +108,30 @@ include ../mixins/containers_aph.pug
 				p Prey - byt hlavního protagonisty
 		.tip.fragment.bottom-20.right-450
 			img.height-700(src=imgAssets+'upgrade.jpg')
++frameInbox('Obtížnost levelu by měla reflektovat skill hráče')
+	div
+		ul
+			li.fragment designér musí předpokládat, že se hráč během hry učí
+			li.fragment levely by měly mít rozumně narůstající obtížnost
+		.center.flex-row.mt-100
+			figure.mx-10.fragment
+				img.height-450(src=imgAssets+'difficulty_gradius.png')
+				p Gradius - adaptivní obtížnost
+			figure.mx-10.fragment
+				img.height-450(src=imgAssets+'difficulty_pokemon.png')
+				p Pokémon - vyžaduje expení před další progresí
++frameInbox('Backtracking')
+	div
+		ul
+			li.fragment Hráč by se neměl vracet zpět stejnou cestou a pokud ano, mělo by ho při návratu něco překvapit.
+		.space-xl
+		.flex-cols-2.fill
+			figure.fragment
+				img.height-460(src=imgAssets+'backtrack_tombraider.jpg')
+				p Tomb Raider - zkratky
+			figure.fragment
+				img.height-460(src=imgAssets+'surprise_prince.png')
+				p Prince of Persia - surprise element
 +frameInbox('Kvalitní level design hráče neustále něco učí')
 	div
 		ul
@@ -119,7 +144,7 @@ include ../mixins/containers_aph.pug
 			figure.mx-10.fragment
 				img.height-450(src=imgAssets+'principle03_zelda.jpg')
 				p The Legend of Zelda - nové vybavení
-+frameInbox('Unikátní prvky rozbíjí generičnost')
++frameInbox('Unikátní prvky snižují generičnost')
 	div
 		ul
 			li.fragment "fun" prvek pramení také z nejistoty a překvapení
@@ -130,20 +155,56 @@ include ../mixins/containers_aph.pug
 			img.fragment.height-330(src=imgAssets+'sp_prince_04.png')
 			img.fragment.height-330(src=imgAssets+'sp_prince_05.png')
 			img.fragment.height-330(src=imgAssets+'sp_prince_06.png')
-+frameInbox('Styl gameplaye by se měl měnit')
++frameInbox('Nové mechaniky se uvedou, jakmile jsou potřeba')
 	div
 		ul
-			li.fragment Co najdeme na konci každého levelu/sekce?
+			li.fragment Hra by měla uvádět nové mechaniky/předměty v okamžiku, kdy si to vyžádá situace
+			li.fragment Noví nepřátelé by se měli objevit v okamžiku, kdy hráč disponuje skillem a vybavením, aby je porazil
+		.space-xl
+		.flex-cols-3.fill
+			figure.fragment
+				img.height-320(src=imgAssets+'intro_gravitygun.jpg')
+				p Half-Life - gravity gun na konci hry
+			figure.fragment
+				img.height-320(src=imgAssets+'intro_rayman.jpg')
+				p Rayman - hair-copter pro další progres
+			figure.fragment
+				img.height-320(src=imgAssets+'intro_pokemon.png')
+				p Pokémon séries - funkce surf pro překročení vody
++frameInbox('Tempo hry by se mělo měnit')
+	div
+		ul
+			li.fragment Hráč by měl mít příležitost odpočinout si od náročné fáze hry.
 		.space-xl
 		.flex-cols-3.fill
 			figure.fragment
 				img.height-320(src=imgAssets+'levels_cuphead.jpg')
-				p Cuphead - boss fighty
+				p Cuphead - pomalejší tempo po každém boss fightu
 				.tip.absolute.fragment.fade-in-then-out
 					img.height-650(src=globalAssets+'memes/bossfight.jpg')
 			figure.fragment
 				img.height-320(src=imgAssets+'levels_halflife.jpg')
-				p Half-Life - různá prostředí
+				p Half-Life - střídání prostředí s různými styly gameplaye
 			figure.fragment
 				img.height-320(src=imgAssets+'levels_tomb.jpg')
 				p Tomb Raider - exploration/action
++frameInbox('Progression obstacles')
+	div
+		ul
+			li.fragment Jak hra hráči znemožní sequence breaking?
+		.space-md
+		.grid.grid-cols-3.grid-rows-2.gap-5
+			figure.fragment
+				img.height-290(src=imgAssets+'obstacle_giants.png')
+				p Giants - piranha ve vodě
+			figure.fragment
+				img.height-290(src=imgAssets+'obstacle_gta.png')
+				p GTA III - rozbitý most
+			figure.fragment
+				img.height-290(src=imgAssets+'obstacle_doom.png')
+				p Doom Eternal - okamžitá smrt
+			div
+			figure.fragment
+				img.height-290(src=imgAssets+'obstacle_ori.jpg')
+				p Ori - získání potřebných skillů
+			div

@@ -7,15 +7,6 @@ include ../mixins/containers_aph.pug
 
 // ===================================================== SLIDES =====================================================
 +titleLecture('Design Patterny', 'Minitalk', imgAssets+'chapter_patterns.svg')
-+frameInbox('Design patterny')
-	div
-		ul
-			li.fragment.highlight úspěšné hry zřídkakdy vymýšlí nové mechaniky. Většinou je uvádí v novém kontextu.
-			li.fragment <span class="highlight-2">design hook</span> - pattern či mechanika, která hru odlišuje od ostatních
-				.bottom-30.left-450
-					figure
-						img.height-420(src=imgAssets+'braid.gif')
-						p Braid (2009)
 +frameInbox('Systém odměn')
 	div
 		ul
@@ -23,14 +14,14 @@ include ../mixins/containers_aph.pug
 		.space-xl
 		.flex-cols-3.fill
 			figure.fragment
-				img.height-320(src=imgAssets+'score_80s.jpg')
-				p Hry z 80. let - highscore
-			figure.fragment
 				img.height-320(src=imgAssets+'score_icy.jpg')
 				p Icy Tower - přímá vazba mezi score a gameplayem
 			figure.fragment
-				img.height-320(src=imgAssets+'score_gwars.jpg')
-				p Geometry Wars - střídání zbraní, blast bomb
+				img.height-320(src=imgAssets+'fishing.jpg')
+				p Ridiculous Fishing - peníze, za které vylepšujete výbavu
+			figure.fragment
+				img.height-320(src=imgAssets+'dev_tombraider.jpg')
+				p Tomb Raider - collectibles motivující hráče k prozkoumávání
 +frameInbox('HP')
 	div
 		ul
@@ -84,9 +75,9 @@ include ../mixins/containers_aph.pug
 		.flex-cols-3.fill
 			figure.fragment
 				img.height-320(src=imgAssets+'dev_duke.jpg')
-				p Duke Nukem - rychlejší zbraň
+				p Duke Nukem 1 - rychlejší zbraň
 			figure.fragment
-				img.height-320(src=imgAssets+'dev_pokemon.jpg')
+				img.height-320(src=imgAssets+'dev_pokemon.png')
 				p Pokémon series - levelování, evoluce,...
 			figure.fragment
 				img.height-320(src=imgAssets+'dev_tombraider.jpg')
@@ -113,17 +104,71 @@ include ../mixins/containers_aph.pug
 +frameInbox('Revisiting')
 	div
 		ul
-			li.fragment Jak hra motivuje hráče ke znovunavštívěný některých oblastí?
+			li.fragment Jak hra motivuje hráče ke znovunavštívění některých oblastí?
 		.space-xl
 		.flex-cols-3.fill
 			figure.fragment
 				img.height-320(src=imgAssets+'revisit_rayman.jpg')
 				p Rayman - po získání nových skillů
 			figure.fragment
-				img.height-320(src=imgAssets+'revisit_darksouls.jpg')
-				p Dark Souls - "I'm lost again!"
+				img.height-320(src=imgAssets+'revisit_vestinu.jpg')
+				p Adventury - zákys ve hře
 			figure.fragment
 				img.height-320(src=imgAssets+'revisit_openworld.jpg')
 				p Open world hry - questy
 				.tip.absolute.fragment.fade-in-then-out
 					img.height-550(src=globalAssets+'memes/quests.jpg')
++frameInbox('Clumping')
+	div
+		ul
+			li.fragment Hra by se měla vyvarovat situaci, kdy hráči předvede příliš mnoho funkcí/obsahu najednou.
+		.space-xl
+		.flex-cols-3.fill
+			figure.fragment
+				img.height-320(src=imgAssets+'clumping_adventures.jpg')
+				p Adventury - příliš mnoho místností
+			figure.fragment
+				img.height-320(src=imgAssets+'clumping_rpg.jpg')
+				p RPGčka - příliš mnoho NPC na velkém prostoru
+			figure.fragment
+				img.height-320(src=imgAssets+'clumping_platformers.jpg')
+				p Platformery - difficulty spike v level designu
++frameInbox('Flow breaking')
+	div
+		ul
+			li.fragment Hra může být těžká, neměla by ale být zákeřná.
+		.space-xl
+		.flex-cols-2.fill
+			figure.fragment
+				img.height-420(src=imgAssets+'prince_pc.png')
+				p Prince of Persia pro PC - těžká
+			figure.fragment
+				img.height-420(src=imgAssets+'prince_snes.png')
+				p Prince of Persia pro SNES - těžká, <br>zákeřná, frustrující, depresivní
+		.bottom-200.right-350
+			img.height-500(src=imgAssets+'meme_darksouls.png')
++frameInbox('Netradiční gameplay')
+	div
+		ul
+			li.fragment Jak hra naučí hráče netradiční styl gameplaye?
+		.space-xl
+		.flex-cols-2.fill
+			figure.fragment
+				img.height-480(src=imgAssets+'nontrad_portal.jpg')
+				p Portal - styl hraní má průnik s FPS žánrem
+			figure.fragment
+				img.height-480(src=imgAssets+'nontrad_dune.png')
+				p Dune I - začíná jako klasická adventura
++frameInbox('Předměty či zbraně by měly mít co nejmenší overlap')
+	div
+		ul
+			li.fragment Každý předmět/zbraň by měly být použitelné pro konkrétní účel.
+			li.fragment Jakmile bude overlap příliš velký, hráč nebude přepínat.
+		.space-xl
+		.flex-cols-2.fill
+			figure.fragment
+				img.height-420(src=imgAssets+'overlap_doom.jpg')
+				p Doom - každá zbraň se hodí na jiný styl boje
+			figure.fragment
+				img.height-420(src=imgAssets+'overlap_lol.jpg')
+				p LoL - každý předmět má unikátní funkci
