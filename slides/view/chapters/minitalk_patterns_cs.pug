@@ -1,0 +1,129 @@
+include ../mixins/title.pug
+include ../mixins/containers.pug
+include ../mixins/containers_aph.pug
+
+- var imgAssets = '../assets/minitalk_patterns/';
+- var defaultBgr = 'backgrounds/gears.jpg';
+
+// ===================================================== SLIDES =====================================================
++titleLecture('Design Patterny', 'Minitalk', imgAssets+'chapter_patterns.svg')
++frameInbox('Design patterny')
+	div
+		ul
+			li.fragment.highlight úspěšné hry zřídkakdy vymýšlí nové mechaniky. Většinou je uvádí v novém kontextu.
+			li.fragment <span class="highlight-2">design hook</span> - pattern či mechanika, která hru odlišuje od ostatních
+				.bottom-30.left-450
+					figure
+						img.height-420(src=imgAssets+'braid.gif')
+						p Braid (2009)
++frameInbox('Systém odměn')
+	div
+		ul
+			li.fragment Jakým způsobem hra hráče odměňuje?
+		.space-xl
+		.flex-cols-3.fill
+			figure.fragment
+				img.height-320(src=imgAssets+'score_80s.jpg')
+				p Hry z 80. let - highscore
+			figure.fragment
+				img.height-320(src=imgAssets+'score_icy.jpg')
+				p Icy Tower - přímá vazba mezi score a gameplayem
+			figure.fragment
+				img.height-320(src=imgAssets+'score_gwars.jpg')
+				p Geometry Wars - střídání zbraní, blast bomb
++frameInbox('HP')
+	div
+		ul
+			li.fragment Jak hra pracuje se zdravím hráče?
+		.space-xl
+		.flex-cols-3.fill
+			figure.fragment
+				img.height-320(src=imgAssets+'health_prince.jpg')
+				p Prince of Persia - extra životy
+			figure.fragment
+				img.height-320(src=imgAssets+'health_doom.jpg')
+				p Doom - lékárničky
+			figure.fragment
+				img.height-320(src=imgAssets+'health_wolf.jpg')
+				p Wolfenstein II - regenerace a lékárničky
++frameInbox('Respawn')
+	div
+		ul
+			li.fragment Pokud hráč umře, kde se respawne?
+		.space-xl
+		.flex-cols-3.fill
+			figure.fragment
+				img.height-320(src=imgAssets+'death_limbo.jpg')
+				p Limbo - velmi blízko
+			figure.fragment
+				img.height-320(src=imgAssets+'death_braid.jpg')
+				p Braid - čas se zastaví
+			figure.fragment
+				img.height-320(src=imgAssets+'death_fps.jpg')
+				p FPS hry - poslední quick-save
++frameInbox('Speciální módy')
+	div
+		ul
+			li.fragment Jaké speciální módy hra nabízí?
+		.space-xl
+		.flex-cols-3.fill
+			figure.fragment
+				img.height-320(src=imgAssets+'bonus_pacman.jpg')
+				p Pacman - power pellety
+			figure.fragment
+				img.height-320(src=imgAssets+'bonus_jazz.jpg')
+				p Jazz Jackrabbit - sugar rush
+			figure.fragment
+				img.height-320(src=imgAssets+'bonus_doom.jpg')
+				p Doom - sféra nesmrtelnosti
++frameInbox('Vývoj postavy')
+	div
+		ul
+			li.fragment Jakým způsobem hra utilizuje vývoj hlavní postavy?
+		.space-xl
+		.flex-cols-3.fill
+			figure.fragment
+				img.height-320(src=imgAssets+'dev_duke.jpg')
+				p Duke Nukem - rychlejší zbraň
+			figure.fragment
+				img.height-320(src=imgAssets+'dev_pokemon.jpg')
+				p Pokémon series - levelování, evoluce,...
+			figure.fragment
+				img.height-320(src=imgAssets+'dev_tombraider.jpg')
+				p Tomb Raider - gathering, levelling, exploring,...
++frameInbox('Limity pro vybavení')
+	div
+		ul
+			li.fragment Jaké jsou limity pro vybavení hráče?
+		.space-xl
+		.flex-cols-3.fill
+			figure.fragment
+				img.height-320(src=imgAssets+'equip_skyrim.jpg')
+				p RPGčka - omezený počet předmětů v inventáři
+				.tip.absolute.fragment.fade-in-then-out
+					img.height-500(src=globalAssets+'memes/backpack.jpg')
+			figure.fragment
+				img.height-320(src=imgAssets+'equip_fps.jpg')
+				p Některá FPS - pouze dvě zbraně
+				.tip.absolute.fragment.fade-in-then-out
+					img.height-650(src=globalAssets+'memes/fps_weapons.jpg')
+			figure.fragment
+				img.height-320(src=imgAssets+'equip_lol.jpg')
+				p LoL - 6 předmětů
++frameInbox('Revisiting')
+	div
+		ul
+			li.fragment Jak hra motivuje hráče ke znovunavštívěný některých oblastí?
+		.space-xl
+		.flex-cols-3.fill
+			figure.fragment
+				img.height-320(src=imgAssets+'revisit_rayman.jpg')
+				p Rayman - po získání nových skillů
+			figure.fragment
+				img.height-320(src=imgAssets+'revisit_darksouls.jpg')
+				p Dark Souls - "I'm lost again!"
+			figure.fragment
+				img.height-320(src=imgAssets+'revisit_openworld.jpg')
+				p Open world hry - questy
+				.tip.absolute.fragment.fade-in-then-out
+					img.height-550(src=globalAssets+'memes/quests.jpg')

@@ -1,0 +1,149 @@
+include ../mixins/containers.pug
+include ../mixins/containers_aph.pug
+
+- var imgAssets = '../assets/minitalk_leveldesign/';
+- var defaultBgr = 'backgrounds/levels.jpg';
+
+// ===================================================== SLIDES =====================================================
++mchapter('Level Design', imgAssets+'chapter_leveldesign.svg')
++frameInbox('Level Design')
+	div
+		ul
+			li.fragment řeší uspořádání herních objektů (místnosti, postavy, překážky, hazardy) na scéně tak, aby měl průchod hráče hrou jistá specifika
+			li.fragment na rozdíl od environmentálního designu se zaměřuje primárně na souhru herních mechanik, gameplaye a hráčovo schopností
+			li.fragment kvalitní design <span class="highlight">prezentuje</span> hráči jednotlivé mechaniky tak, aby maximalizoval jeho gameplay experience
+			li.mt-80.fragment <span class="highlight">Zodpovědnosti level designéra</span>
+				ul
+					li.fragment tvorba mapy - budovy, kopce, místnosti
+					li.fragment umisťování zdrojů - lékárničky, upgrady, bonusy, zbraně
+					li.fragment umisťování pastí a hazardů
+					li.fragment umisťování dveří, tlačítek, teleportů
+					li.fragment návrh skriptovaných akcí
+			.bottom-50.right-20
+				img.height-400(src=imgAssets+'level_editor.jpg')
++frameInbox('Prvky herního designu')
+	div
+		ul
+			li.fragment <span class="highlight">Spawnery</span> - prostor, kde se zjevují objekty (zpravidla hráči a nepřátelé)
+			li.fragment <span class="highlight">Triggery</span> - akce spuštěné hráčem (např. když vejde do místnosti)
+			li.fragment <span class="highlight">Resource placement</span> - způsob umisťování zdrojů tak, aby reflektovaly potřebu hráče a herní progrese
+			li.fragment <span class="highlight">Window</span> - objekt, který hráč vidí, ale nedostane se k němu přímou cestou
+			li.fragment <span class="highlight">Weenie</span> - mohutná struktura, která je vidět z velké části mapy (používá se jako referenční bod)
+			li.fragment <span class="highlight">Landmark</span> - snadno rozpoznatelný objekt pro lepší navigaci
+			li.fragment <span class="highlight">Progression obstacle</span> - překážka, která hráči znemožní tzv. sequence breaking
+				.center.flex-col.mt-10
+					div.flex-row
+						figure.mx-10
+							img.height-270(src=imgAssets+'blocker_01.png')
+							p Pokémon Ruby
+						figure.mx-10
+							img.height-270(src=imgAssets+'blocker_02.jpg')
+							p GTA III
+						figure.mx-10
+							img.height-270(src=imgAssets+'blocker_03.jpg')
+							p Dreamfall Chapters
++frameInbox('Příklad: Window a Weenie')
+	div
+		ul
+			li Window
+		.center.flex-col
+			div.flex-row
+				figure.mx-10.fragment
+					img.height-310(src=imgAssets+'window_01.png')
+					p Prince of Persia
+				figure.mx-10.fragment
+					img.height-310(src=imgAssets+'window_02.png')
+					p Rayman
+				figure.mx-10.fragment
+					img.height-310(src=imgAssets+'window_03.jpg')
+					p Doom
+		ul
+			li Weenie
+		.center.flex-col
+			div.flex-row
+				figure.mx-10.fragment
+					img.height-280(src=imgAssets+'weenie_esther.jpg')
+					p Dear Esther
+				figure.mx-10.fragment
+					img.height-280(src=imgAssets+'weenie_journey.jpg')
+					p Journey
+				figure.mx-10.fragment
+					img.height-280(src=imgAssets+'weenie_senua.jpg')
+					p Hellblade: Senua's Sacrifice
++frameInbox('Hráč by měl vědět, kde se nachází')
+	ul
+		li.fragment toto můžeme vyřešit pomocí landmark objektů
+	figure.top-100.left-20.fragment
+		img.height-420(src=imgAssets+'principle05_doom.png')
+		p Doom
+	figure.top-100.right-20.fragment
+		img.height-420(src=imgAssets+'principle05_prince.png')
+		p Prince of Persia
+	figure.bottom-0.right-500.fragment
+		img.height-340(src=imgAssets+'principle05_tombraider.jpg')
+		p Rise of the Tomb Raider
++frameInbox('Hráč by měl vědět, kam má jít')
+	ul
+		li.fragment použití vizuálního jazyka (světlo, barva, plakáty, malby, odlišné textury)
+	figure.top-100.left-20.fragment
+		img.height-400(src=imgAssets+'principle01_doom.jpg')
+		p Doom Eternal
+	figure.top-100.right-20.fragment
+		img.height-400(src=imgAssets+'principle01_mirrorsedge.jpg')
+		p Mirror's Edge
+	figure.bottom-0.right-500.fragment
+		img.height-340(src=imgAssets+'principle01_portal.jpg')
+		p Portal 2
++frameInbox('Umístění objektů by mělo dávat smysl')
+	div
+		ul
+			li.fragment realistický level design přidává do příběhu vrstvu, která posiluje gameplay experience
+		.center.flex-row.mt-100
+			figure.mx-10.fragment
+				img.height-450(src=imgAssets+'placing_prince.png')
+				p Prince of Persia - meč u kostlivce
+			figure.mx-10.fragment
+				img.height-450(src=imgAssets+'placing_prey.jpg')
+				p Prey - byt hlavního protagonisty
+		.tip.fragment.bottom-20.right-450
+			img.height-700(src=imgAssets+'upgrade.jpg')
++frameInbox('Kvalitní level design hráče neustále něco učí')
+	div
+		ul
+			li.fragment smyčka <span class="highlight">learn - play- challenge - surprise</span>
+			li.fragment každý další level vyžaduje, aby se buďto hráč naučil nový skill a nebo vylepšil ty stávající
+		.center.flex-row.mt-100
+			figure.mx-10.fragment
+				img.height-450(src=imgAssets+'principle03_doom.jpg')
+				p Doom - sebrání BFG
+			figure.mx-10.fragment
+				img.height-450(src=imgAssets+'principle03_zelda.jpg')
+				p The Legend of Zelda - nové vybavení
++frameInbox('Unikátní prvky rozbíjí generičnost')
+	div
+		ul
+			li.fragment "fun" prvek pramení také z nejistoty a překvapení
+		.grid.grid-cols-3.grid-rows-2.gap-10
+			img.fragment.height-330(src=imgAssets+'sp_prince_01.png')
+			img.fragment.height-330(src=imgAssets+'sp_prince_02.png')
+			img.fragment.height-330(src=imgAssets+'sp_prince_03.png')
+			img.fragment.height-330(src=imgAssets+'sp_prince_04.png')
+			img.fragment.height-330(src=imgAssets+'sp_prince_05.png')
+			img.fragment.height-330(src=imgAssets+'sp_prince_06.png')
++frameInbox('Styl gameplaye by se měl měnit')
+	div
+		ul
+			li.fragment Co najdeme na konci každého levelu/sekce?
+		.space-xl
+		.flex-cols-3.fill
+			figure.fragment
+				img.height-320(src=imgAssets+'levels_cuphead.jpg')
+				p Cuphead - boss fighty
+				.tip.absolute.fragment.fade-in-then-out
+					img.height-650(src=globalAssets+'memes/bossfight.jpg')
+			figure.fragment
+				img.height-320(src=imgAssets+'levels_halflife.jpg')
+				p Half-Life - různá prostředí
+			figure.fragment
+				img.height-320(src=imgAssets+'levels_tomb.jpg')
+				p Tomb Raider - exploration/action
