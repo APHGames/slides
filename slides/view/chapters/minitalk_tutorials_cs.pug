@@ -1,3 +1,4 @@
+include ../mixins/title.pug
 include ../mixins/containers.pug
 include ../mixins/containers_aph.pug
 
@@ -5,7 +6,7 @@ include ../mixins/containers_aph.pug
 - var defaultBgr = 'backgrounds/bgr_limbo.jpg';
 
 // ===================================================== SLIDES =====================================================
-+mchapter('Manuály a tutoriály', imgAssets+'chapter_tutorials.svg')
++titleLectureCs('Manuály a tutoriály', imgAssets+'chapter_tutorials.svg')
 +frameInbox('Manuály a tutoriály')
     .flex-cols-2
         div

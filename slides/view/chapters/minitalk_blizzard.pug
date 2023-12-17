@@ -1,3 +1,4 @@
+include ../mixins/title.pug
 include ../mixins/containers.pug
 include ../mixins/containers_aph.pug
 
@@ -5,7 +6,7 @@ include ../mixins/containers_aph.pug
 - var defaultBgr = 'backgrounds/blizzard2.jpg';
 
 // ===================================================== SLIDES =====================================================
-+mchapter('The Story of Blizzard', imgAssets+'chapter_blizzard.svg')
++titleLecture('The Story of Blizzard', imgAssets+'chapter_blizzard.svg')
 +frameInbox('Blizzard')
 	div
 		ul

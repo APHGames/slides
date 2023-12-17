@@ -127,7 +127,7 @@ include ../mixins/containers_aph.pug
 			li.fragment <span class="highlight">cíle</span> - dávají hře smysl
 			li.fragment <span class="highlight">challenge</span> - balancují flow hry
 				.bottom-50.right-70
-					img.width-550(src=imgAssets+'game_flow.svg')
+					img.width-550(src=imgAssets+'game_flow_cs.svg')
 			li.fragment <span class="highlight">skill</span> - do jaké úrovně se má hráč naučit ovládat akci
 			li.fragment <span class="highlight">strategie</span> - jaké cesty má hráč zvolit k dosažení cíle
 			li.fragment <span class="highlight">nejistota</span> - nepředvídatelné situace
@@ -146,7 +146,7 @@ include ../mixins/containers_aph.pug
 			span.highlight-2 Game Developer Blog (2016)
 +frameInbox('Game Design Document - Obsah')
 	div
-		ul.mt-40
+		ul
 			li.fragment pracovní název
 			li.fragment popis gameplay experience
 			li.fragment základní elementy (postavy)
@@ -167,7 +167,7 @@ include ../mixins/containers_aph.pug
 +frameInbox('Iterativní game design')
 	div
 		ul
-			li.fragment(data-fragment-index='2') <span class="highlight">conceptualize</span> - vytvoří se koncept nové mechaniky/levelu/struktury
+			li.fragment(data-fragment-index='2') <span class="highlight">conceptualizing</span> - vytvoří se koncept nové mechaniky/levelu/struktury
 			li.fragment(data-fragment-index='3') <span class="highlight">prototyping</span> - klíčové aspekty se implementují
 			li.fragment(data-fragment-index='4') <span class="highlight">playtesting</span> - prototyp se ukáže publiku
 			li.fragment(data-fragment-index='5') <span class="highlight">evaluation</span> - vyhodnotí se feedback, brainstormuje se a začne nová iterace
@@ -176,17 +176,19 @@ include ../mixins/containers_aph.pug
 +frameInbox('Playtesting')
 	div
 		ul
-			li moment, kdy se dozvíte pravdu o své hře
+			li příležitost, kdy se dozvíte pravdu o své hře
 			li probíhá podobně jako testování uživatelského rozhraní v softwaru
-			li pokud je příliš player-centrický, hrozí nebezpečí, že designér změní původní message, aby dal svému publiku to, co chce
-			li typy playtestů
+			li pokud je příliš player-centrický, hrozí nebezpečí, že designér změní původní koncept, aby dal svému publiku to, co chce
+			li <span class="highlight">Typy playtestů</span>
 				ul
 					li interní - testování prototypu týmem
 					li designérské - testování lidmi, kteří rozumí designu
-					li friend playtest - testování známými z blízkého okolí
-					li target audience playtest - testování cílovým publikem
-					li experienced player playtest - testování zkušenými hráči
-			li hlavní je zaznamenat co nejvíce vstupů včetně těch nonverbálních
+					li friend playtest - testování známými z okolí
+					li target audience playtest - testování cílovkou
+					li experienced player playtest - testování zkušenými<br> hráči
+			li hlavní je zaznamenat co nejvíce vstupů včetně<br> těch nonverbálních a vše vyhodnotit
+		.bottom-20.right-20
+			img.height-560(src=imgAssets+'playtesting.jpg')
 +frameInbox('Design hook')
 	div
 		ul
@@ -214,7 +216,7 @@ include ../mixins/containers_aph.pug
 			li.fragment Tabulky (skilly, ability)
 				.top-300.right-0
 					img.width-450(src=imgAssets+'struct_tables.jpg')
-			li.fragment Mockupy,...
+			li.fragment Schematika
 				.top-480.right-470
 					img.width-450(src=imgAssets+'struct_elements.jpg')
 			li.fragment Mapy
@@ -223,37 +225,24 @@ include ../mixins/containers_aph.pug
 +frameInbox('Příklady špatného designu')
 	div
 		ul
-			li.fragment nemožnost autosavů
 			li.highlight-2.fragment zbytečné čekání
 				.top-500.right-40
 					img.width-560(src=imgAssets+'bad_design_waiting.jpg')
 			li.fragment neskipnutelné cutscény
 			li.fragment nesmyslné dialogy
-			li.fragment neopodstatněné změny stylu gameplaye
+			li.fragment neopodstatněné změny<br>stylu gameplaye
 			li.highlight-2.fragment neviditelné zdi
 				.top-150.right-40
 					img.width-560(src=imgAssets+'bad_design_breadth_of_the_wild.jpg')
-			li.fragment absence minimapy
 			li.fragment QTE (quick-time eventy)
-			li.fragment absence fast-travel či fast-movement
+			li.fragment absence fast-travel či fast-movement mechaniky
 			li.fragment zaseknuté companion NPC
 			li.highlight-2.fragment long-distance checkpointy
 				.top-150.right-640
 					img.width-460(src=imgAssets+'bad_design_checkpoints.jpg')
-			li.fragment volby bez následků
+			li.fragment volby hráče, které ve hře nemají žádné následky
 			li.fragment repetitivní gameplay s nízkou diversitou
 - var defaultBgr = 'backgrounds/nebula.jpg';
-+frameInbox('Design - Prototype - Get Feedback - Iterate')
-	div
-		ul
-			li.fragment Vytvořte Game Design Document
-			li.fragment Analyzujte cílové publikum
-			li.fragment Analyzujte podobné hry
-			li.fragment Začněte prototypovat
-			li.fragment Ukažte prototyp lidem a vyhodnoťte feedback
-			li.fragment Iterujte, dokud se nedostanete na prezentovatelnou úroveň
-		.bottom-40.right-100
-			img.height-500(src=imgAssets+'skyrimbooks.png')
 +mcontainer('')
 	+frameShard.width-70px.height-30p.top-350.center.z-index-100
 		+quote('Nikdy nezapomínejte, že vaším hlavním cílem je hráče bavit.', 'Ernest Adams, Fundamentals of Game Design')
@@ -345,15 +334,17 @@ include ../mixins/containers_aph.pug
 		.top-250.right-20
 			a(href='https://www.gamesindustry.biz/articles/2020-07-22-how-to-guarantee-your-pitch-will-be-rejected/')
 				img.width-500(src=imgAssets+'article_pitch.jpg')
-+frameInbox('Co je důležité si klást za otázky')
++frameInbox('Jaké otázky je potřeba si klást')
 	div
 		ul.spacing-xl
-			li.fragment Pro koho tu hru vytvářím?
+			li.fragment Proč vytvářím hru?
 			li.fragment Co chci tou hrou světu sdělit?
+			li.fragment Pro koho tu hru vytvářím?
 			li.fragment Proč by měli hráči mojí hru hrát?
 			li.fragment Proč by se vůbec mělo jednat o hru?
-			li.framgnet Jaký je její <span class="highlight">design hook</span>?
+			li.framgnet Jaký je její design hook?
 			li.fragment Co se snažím hráče naučit?
+			li.fragment Jakým způsobem v ní otisknu svou identitu?
 		.bottom-40.right-40
 			img.height-750(src=imgAssets+'gamer.jpg')
 +frameInbox('Literatura')
@@ -363,7 +354,7 @@ include ../mixins/containers_aph.pug
 			li.fragment(data-fragment-index='2') Raph Koster, A Theory of Fun
 			li.fragment(data-fragment-index='3') Ernest Adams, Fundamentals of Game Design
 			li.fragment(data-fragment-index='4') Stephen Dinehart, Narrative Designer. Fabulator Ludus
-			li.fragment(data-fragment-index='5') Chris Barney, Pattern Language for Game Design
+			li.fragment(data-fragment-index='5') Scott Rogers, Level Up! - The Guide to Great Video Game Design
 		.top-0.right-250.fragment(data-fragment-index='1')
 			.kframe.height-300.width-240.absolute
 			.height-300.width-240.p-10
@@ -383,4 +374,4 @@ include ../mixins/containers_aph.pug
 		.top-600.right-250.fragment(data-fragment-index='5')
 			.kframe.height-300.width-240.absolute
 			.height-300.width-240.p-10
-				img.width-240.object-cover(src=imgAssets+'src_patterns.jpg')
+				img.width-240.object-cover(src=imgAssets+'source_levelup.png')

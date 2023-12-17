@@ -13,7 +13,8 @@ include ../mixins/containers_aph.pug
 			li.fragment řeší uspořádání herních objektů (místnosti, postavy, překážky, hazardy) na scéně tak, aby měl průchod hráče hrou jistá specifika
 			li.fragment na rozdíl od environmentálního designu se zaměřuje primárně na souhru herních mechanik, gameplaye a hráčovo schopností
 			li.fragment kvalitní design <span class="highlight">prezentuje</span> hráči jednotlivé mechaniky tak, aby maximalizoval jeho gameplay experience
-			li.mt-80.fragment <span class="highlight">Zodpovědnosti level designéra</span>
+			li.fragment i custom levely by měly následovat styl gameplaye
+			li.mt-40.fragment <span class="highlight">Zodpovědnosti level designéra</span>
 				ul
 					li.fragment tvorba mapy - budovy, kopce, místnosti
 					li.fragment umisťování zdrojů - lékárničky, upgrady, bonusy, zbraně
@@ -71,9 +72,9 @@ include ../mixins/containers_aph.pug
 				figure.mx-10.fragment
 					img.height-280(src=imgAssets+'weenie_senua.jpg')
 					p Hellblade: Senua's Sacrifice
-+frameInbox('Hráč by měl vědět, kde se nachází')
++frameInbox('Hráč by se neměl zatoulávat')
 	ul
-		li.fragment toto můžeme vyřešit pomocí landmark objektů
+		li.fragment Toto můžeme částečně vyřešit pomocí landmark objektů
 	figure.top-100.left-20.fragment
 		img.height-420(src=imgAssets+'principle05_doom.png')
 		p Doom
@@ -83,6 +84,8 @@ include ../mixins/containers_aph.pug
 	figure.bottom-0.right-500.fragment
 		img.height-340(src=imgAssets+'principle05_tombraider.jpg')
 		p Rise of the Tomb Raider
+	.bottom-100.left-160
+		img.height-600(src=imgAssets+'daggerfall_dungeon.png')
 +frameInbox('Hráč by měl vědět, kam má jít')
 	ul
 		li.fragment použití vizuálního jazyka (světlo, barva, plakáty, malby, odlišné textury)
@@ -95,32 +98,36 @@ include ../mixins/containers_aph.pug
 	figure.bottom-0.right-500.fragment
 		img.height-340(src=imgAssets+'principle01_portal.jpg')
 		p Portal 2
+	.bottom-100.left-300
+		img.height-600(src=imgAssets+'gothere.jpg')
 +frameInbox('Environmentální design posiluje imerzi')
-	div
-		ul
-			li.fragment explicitní narrative - dodán prostřednictvím intra a cutscén
-			li.fragment implicitní narrative - dodán prostřednictvím herního prostředí
-		.center.flex-row.mt-100
-			figure.mx-10.fragment
-				img.height-450(src=imgAssets+'placing_prince.png')
-				p Prince of Persia - meč u kostlivce
-			figure.mx-10.fragment
-				img.height-450(src=imgAssets+'placing_prey.jpg')
-				p Prey - byt hlavního protagonisty
-		.tip.fragment.bottom-20.right-450
-			img.height-700(src=imgAssets+'upgrade.jpg')
+	ul
+		li.fragment explicitní narrative - dodán prostřednictvím intra a cutscén
+		li.fragment implicitní narrative - dodán prostřednictvím herního prostředí
+	figure.top-120.left-20.fragment
+		img.height-320(src=imgAssets+'placing_prince.png')
+		p Prince of Persia<br>Meč u kostlivce
+	figure.top-120.right-20.fragment
+		img.height-320(src=imgAssets+'placing_portal.png')
+		p Portal<br>Postupné indicie
+	figure.bottom-0.right-500.fragment
+		img.height-320(src=imgAssets+'placing_pokemon.jpg')
+		p.color-tomato-light Pokémon Route 13<br>Nesmyslný plot
+	.tip.fragment.bottom-20.right-450
+		img.height-700(src=imgAssets+'upgrade.jpg')
 +frameInbox('Obtížnost levelu by měla reflektovat skill hráče')
-	div
-		ul
-			li.fragment designér musí předpokládat, že se hráč během hry učí
-			li.fragment levely by měly mít rozumně narůstající obtížnost
-		.center.flex-row.mt-100
-			figure.mx-10.fragment
-				img.height-450(src=imgAssets+'difficulty_gradius.png')
-				p Gradius - adaptivní obtížnost
-			figure.mx-10.fragment
-				img.height-450(src=imgAssets+'difficulty_pokemon.png')
-				p Pokémon - vyžaduje expení před další progresí
+	ul
+		li.fragment designér musí předpokládat, že se hráč během hry učí
+		li.fragment levely by měly mít rozumně narůstající obtížnost
+	figure.top-120.left-20.fragment
+		img.height-400(src=imgAssets+'difficulty_gradius.png')
+		p Gradius - adaptivní obtížnost
+	figure.top-120.right-20.fragment
+		img.height-400(src=imgAssets+'difficulty_pokemon.png')
+		p Pokémon - vyžaduje expení před další progresí
+	figure.bottom-0.right-500.fragment
+		img.height-320(src=imgAssets+'difficulty_another.jpg')
+		p.color-tomato-light Another World - umíráte od první scény
 +frameInbox('Backtracking')
 	div
 		ul
@@ -134,22 +141,22 @@ include ../mixins/containers_aph.pug
 				img.height-460(src=imgAssets+'surprise_prince.png')
 				p Prince of Persia - surprise element
 +frameInbox('Kvalitní level design hráče neustále něco učí')
-	div
-		ul
-			li.fragment smyčka <span class="highlight">learn - play- challenge - surprise</span>
-			li.fragment každý další level vyžaduje, aby se buďto hráč naučil nový skill a nebo vylepšil ty stávající
-		.center.flex-row.mt-100
-			figure.mx-10.fragment
-				img.height-450(src=imgAssets+'principle03_doom.jpg')
-				p Doom - sebrání BFG
-			figure.mx-10.fragment
-				img.height-450(src=imgAssets+'principle03_zelda.jpg')
-				p The Legend of Zelda - nové vybavení
+	ul
+		li.fragment každý další level vyžaduje, aby se buďto hráč naučil nový skill a nebo vylepšil ty stávající
+	figure.top-120.left-20.fragment
+		img.height-360(src=imgAssets+'principle03_doom.jpg')
+		p Doom<br>Sebrání BFG
+	figure.top-120.right-20.fragment
+		img.height-360(src=imgAssets+'principle03_zelda.jpg')
+		p &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The Legend of Zelda<br>Nové vybavení
+	figure.bottom-0.right-480.fragment
+		img.height-360(src=imgAssets+'principle03_portal.jpg')
+		p Portal - ve druhé fázi hry hráč zužitkuje to,<br> co se naučil v testovacích místnostech
 +frameInbox('Unikátní prvky snižují generičnost')
 	div
 		ul
 			li.fragment "fun" prvek pramení také z nejistoty a překvapení
-		.grid.grid-cols-3.grid-rows-2.gap-10
+		.grid.grid-cols-3.grid-rows-2.gap-10.mt-40
 			img.fragment.height-330(src=imgAssets+'sp_prince_01.png')
 			img.fragment.height-330(src=imgAssets+'sp_prince_02.png')
 			img.fragment.height-330(src=imgAssets+'sp_prince_03.png')
@@ -157,21 +164,18 @@ include ../mixins/containers_aph.pug
 			img.fragment.height-330(src=imgAssets+'sp_prince_05.png')
 			img.fragment.height-330(src=imgAssets+'sp_prince_06.png')
 +frameInbox('Nové mechaniky se uvedou, jakmile jsou potřeba')
-	div
-		ul
-			li.fragment Hra by měla uvádět nové mechaniky/předměty v okamžiku, kdy si to vyžádá situace
-			li.fragment Noví nepřátelé by se měli objevit v okamžiku, kdy hráč disponuje skillem a vybavením, aby je porazil
-		.space-xl
-		.flex-cols-3.fill
-			figure.fragment
-				img.height-320(src=imgAssets+'intro_gravitygun.jpg')
-				p Half-Life - gravity gun na konci hry
-			figure.fragment
-				img.height-320(src=imgAssets+'intro_rayman.jpg')
-				p Rayman - hair-copter pro další progres
-			figure.fragment
-				img.height-320(src=imgAssets+'intro_pokemon.png')
-				p Pokémon séries - funkce surf pro překročení vody
+	ul
+		li.fragment Hra by měla uvádět nové mechaniky/předměty v okamžiku, kdy si to vyžádá situace
+		li.fragment Noví nepřátelé by se měli objevit v okamžiku, kdy hráč disponuje skillem a vybavením, aby je porazil
+	figure.top-120.left-20.fragment
+		img.height-320(src=imgAssets+'intro_gravitygun.jpg')
+		p Half-Life <br>gravity gun<br> na konci hry
+	figure.top-120.right-20.fragment
+		img.height-320(src=imgAssets+'intro_rayman.jpg')
+		p Rayman<br>hair-copter pro překonání<br> propastí v dalších levelech
+	figure.bottom-0.right-500.fragment
+		img.height-320(src=imgAssets+'intro_pokemon.png')
+		p Pokémon séries - funkce surf pro překročení vody
 +frameInbox('Tempo hry by se mělo měnit')
 	div
 		ul
@@ -189,23 +193,16 @@ include ../mixins/containers_aph.pug
 			figure.fragment
 				img.height-320(src=imgAssets+'levels_tomb.jpg')
 				p Tomb Raider - exploration/action
-+frameInbox('Progression obstacles')
-	div
-		ul
-			li.fragment Jak hra hráči znemožní sequence breaking?
-		.space-md
-		.grid.grid-cols-3.grid-rows-2.gap-5
-			figure.fragment
-				img.height-290(src=imgAssets+'obstacle_giants.png')
-				p Giants - piranha ve vodě
-			figure.fragment
-				img.height-290(src=imgAssets+'obstacle_gta.png')
-				p GTA III - rozbitý most
-			figure.fragment
-				img.height-290(src=imgAssets+'obstacle_doom.png')
-				p Doom Eternal - okamžitá smrt
-			div
-			figure.fragment
-				img.height-290(src=imgAssets+'obstacle_ori.jpg')
-				p Ori - získání potřebných skillů
-			div
++frameInbox('Sequence breaking')
+	ul
+		li.fragment Jak hra hráči znemožní sequence breaking (kromě dříve zmíněných progression obstacles)?
+	figure.top-120.left-20.fragment
+		img.height-350(src=imgAssets+'obstacle_giants.png')
+		p Giants<br>piranha ve vodě
+	figure.top-120.right-20.fragment
+		img.height-350(src=imgAssets+'obstacle_doom.png')
+		p Doom Eternal<br>okamžitá smrt
+	figure.bottom-0.right-500.fragment
+		img.height-350(src=imgAssets+'obstacle_ori.jpg')
+		p Ori And The Blind Forest<br>nedostatečný skill postavy
+	

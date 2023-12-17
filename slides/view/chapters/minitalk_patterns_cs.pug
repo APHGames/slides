@@ -11,17 +11,20 @@ include ../mixins/containers_aph.pug
 	div
 		ul
 			li.fragment Jakým způsobem hra hráče odměňuje?
-		.space-xl
-		.flex-cols-3.fill
+		.grid.grid-cols-3.grid-rows-2.gap-5.mt-10
 			figure.fragment
-				img.height-320(src=imgAssets+'score_icy.jpg')
+				img.height-300(src=imgAssets+'score_icy.jpg')
 				p Icy Tower - přímá vazba mezi score a gameplayem
 			figure.fragment
-				img.height-320(src=imgAssets+'fishing.jpg')
+				img.height-300(src=imgAssets+'fishing.jpg')
 				p Ridiculous Fishing - peníze, za které vylepšujete výbavu
 			figure.fragment
-				img.height-320(src=imgAssets+'dev_tombraider.jpg')
+				img.height-300(src=imgAssets+'dev_tombraider.jpg')
 				p Tomb Raider - collectibles motivující hráče k prozkoumávání
+			div
+			figure.fragment
+				img.height-300(src=imgAssets+'score_trackmania.jpg')
+				p Trackmania - odemykání tratí
 +frameInbox('HP')
 	div
 		ul
@@ -70,18 +73,18 @@ include ../mixins/containers_aph.pug
 +frameInbox('Vývoj postavy')
 	div
 		ul
-			li.fragment Jakým způsobem hra utilizuje vývoj hlavní postavy?
+			li.fragment Jakým způsobem hra utilizuje vývoj postav?
 		.space-xl
 		.flex-cols-3.fill
 			figure.fragment
-				img.height-320(src=imgAssets+'dev_duke.jpg')
+				img.height-340(src=imgAssets+'dev_duke.jpg')
 				p Duke Nukem 1 - rychlejší zbraň
 			figure.fragment
-				img.height-320(src=imgAssets+'dev_pokemon.png')
+				img.height-340(src=imgAssets+'dev_pokemon.png')
 				p Pokémon series - levelování, evoluce,...
 			figure.fragment
-				img.height-320(src=imgAssets+'dev_tombraider.jpg')
-				p Tomb Raider - gathering, levelling, exploring,...
+				img.height-340(src=imgAssets+'dev_horizon.png')
+				p Horizon: Zero Dawn - psychologický i fyzický vývoj
 +frameInbox('Limity pro vybavení')
 	div
 		ul
@@ -112,7 +115,7 @@ include ../mixins/containers_aph.pug
 				p Rayman - po získání nových skillů
 			figure.fragment
 				img.height-320(src=imgAssets+'revisit_vestinu.jpg')
-				p Adventury - zákys ve hře
+				p.color-tomato-light Adventury - zákys ve hře
 			figure.fragment
 				img.height-320(src=imgAssets+'revisit_openworld.jpg')
 				p Open world hry - questy
@@ -126,13 +129,13 @@ include ../mixins/containers_aph.pug
 		.flex-cols-3.fill
 			figure.fragment
 				img.height-320(src=imgAssets+'clumping_adventures.jpg')
-				p Adventury - příliš mnoho místností
+				p.color-tomato-light Adventury - příliš mnoho místností
 			figure.fragment
 				img.height-320(src=imgAssets+'clumping_rpg.jpg')
 				p RPGčka - příliš mnoho NPC na velkém prostoru
 			figure.fragment
 				img.height-320(src=imgAssets+'clumping_platformers.jpg')
-				p Platformery - difficulty spike v level designu
+				p Platformery - difficulty spike mezi levely
 +frameInbox('Flow breaking')
 	div
 		ul
@@ -163,7 +166,7 @@ include ../mixins/containers_aph.pug
 	div
 		ul
 			li.fragment Každý předmět/zbraň by měly být použitelné pro konkrétní účel.
-			li.fragment Jakmile bude overlap příliš velký, hráč nebude přepínat.
+			li.fragment Jakmile bude overlap příliš velký, hráč bude používat pořád to samé.
 		.space-xl
 		.flex-cols-2.fill
 			figure.fragment

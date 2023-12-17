@@ -22,15 +22,13 @@ html(lang='cs')
 		.slides
 			+titleLectureCs('Design', 'Přednáška 12', globalAssets+'lectures/ic_lecture12.svg')
 			include ./chapters/design_design_cs.pug
-			+frameInbox('NI-APH Odkaz')
+			+frameInbox('Slovo závěrem')
 				div
 					.text-center.mt-100
 						img.height-600(src=imgAssets+'aphclass.png')
-					div.top-220.left-550.width-580.height-300
-						ul
-							li.fragment To get a <span class="highlight">preview</span> on what game development is and what challenges we may face there. 
-							li.fragment To get enough knowledge that could be advanced further by<br> self-education.
-			+quote-keen()
+					div.top-220.left-700.width-580.height-300
+						img.height-200(src=imgAssets+'pacman.png')
+			+quote-exuperycs()
 
 	+footer('Adam Vesecký (FIT ČVUT)', 'Architektura Počítačových Her, Přednáška 12: Design')
 	script(src!='../../scripts/reveal-setup.js')
