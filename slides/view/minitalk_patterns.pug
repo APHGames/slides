@@ -1,5 +1,5 @@
 // GROUP=Minitalks
-// NAME=Essential Mechanics
+// NAME=Design Patterns
 // LOCALE=en 
 // ORDER=5
 doctype html
@@ -11,10 +11,10 @@ include ./mixins/containers_aph.pug
 - var globalAssets = '../assets/all/';
 
 html(lang='en')
-	+header('Minitalk: Essential Mechanics', 'Adam Vesecký', themePath + 'resources/favicon.png', themePath + 'theme_aph.scss')
+	+header('Minitalk: Design Patterns', 'Adam Vesecký', themePath + 'resources/favicon.png', themePath + 'theme_aph.scss')
 	.reveal
 		.slides
-			include ./chapters/minitalk_mechanics.pug
+			include ./chapters/minitalk_patterns.pug
 					
-	+footer('Adam Vesecký (FIT CTU)', 'Architecture of Video Games, Minitalk: Essential Mechanics')
+	+footer('Adam Vesecký (FIT CTU)', 'Architecture of Video Games, Minitalk: Design Patterns')
 	script(src!='../../scripts/reveal-setup.js')
