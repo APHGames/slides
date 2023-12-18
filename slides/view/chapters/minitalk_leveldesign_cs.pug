@@ -17,7 +17,7 @@ include ../mixins/containers_aph.pug
 			li.mt-40.fragment <span class="highlight">Zodpovědnosti level designéra</span>
 				ul
 					li.fragment tvorba mapy - budovy, kopce, místnosti
-					li.fragment umisťování zdrojů - lékárničky, upgrady, bonusy, zbraně
+					li.fragment umisťování zdrojů - collectibles, bonusy
 					li.fragment umisťování pastí a hazardů
 					li.fragment umisťování dveří, tlačítek, teleportů
 					li.fragment návrh skriptovaných akcí
@@ -84,7 +84,7 @@ include ../mixins/containers_aph.pug
 	figure.bottom-0.right-500.fragment
 		img.height-340(src=imgAssets+'principle05_tombraider.jpg')
 		p Rise of the Tomb Raider
-	.bottom-100.left-160
+	.bottom-100.left-160.tip.fragment
 		img.height-600(src=imgAssets+'daggerfall_dungeon.png')
 +frameInbox('Hráč by měl vědět, kam má jít')
 	ul
@@ -98,7 +98,7 @@ include ../mixins/containers_aph.pug
 	figure.bottom-0.right-500.fragment
 		img.height-340(src=imgAssets+'principle01_portal.jpg')
 		p Portal 2
-	.bottom-100.left-300
+	.bottom-100.left-300.tip.fragment
 		img.height-600(src=imgAssets+'gothere.jpg')
 +frameInbox('Environmentální design posiluje imerzi')
 	ul
@@ -109,7 +109,7 @@ include ../mixins/containers_aph.pug
 		p Prince of Persia<br>Meč u kostlivce
 	figure.top-120.right-20.fragment
 		img.height-320(src=imgAssets+'placing_portal.png')
-		p Portal<br>Postupné indicie
+		p Portal<br>Odhalení zákulisí
 	figure.bottom-0.right-500.fragment
 		img.height-320(src=imgAssets+'placing_pokemon.jpg')
 		p.color-tomato-light Pokémon Route 13<br>Nesmyslný plot
@@ -124,7 +124,7 @@ include ../mixins/containers_aph.pug
 		p Gradius - adaptivní obtížnost
 	figure.top-120.right-20.fragment
 		img.height-400(src=imgAssets+'difficulty_pokemon.png')
-		p Pokémon - vyžaduje expení před další progresí
+		p Pokémon - vyžaduje<br> &nbsp;&nbsp;expení před další progresí
 	figure.bottom-0.right-500.fragment
 		img.height-320(src=imgAssets+'difficulty_another.jpg')
 		p.color-tomato-light Another World - umíráte od první scény
@@ -151,8 +151,8 @@ include ../mixins/containers_aph.pug
 		p &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The Legend of Zelda<br>Nové vybavení
 	figure.bottom-0.right-480.fragment
 		img.height-360(src=imgAssets+'principle03_portal.jpg')
-		p Portal - ve druhé fázi hry hráč zužitkuje to,<br> co se naučil v testovacích místnostech
-+frameInbox('Unikátní prvky snižují generičnost')
+		p Portal - v každé další testovací<br>místnosti se naučíme něco nového
++frameInbox('Unikátní prvky posilují diversitu')
 	div
 		ul
 			li.fragment "fun" prvek pramení také z nejistoty a překvapení
@@ -185,8 +185,6 @@ include ../mixins/containers_aph.pug
 			figure.fragment
 				img.height-320(src=imgAssets+'levels_cuphead.jpg')
 				p Cuphead - pomalejší tempo po každém boss fightu
-				.tip.absolute.fragment.fade-in-then-out
-					img.height-650(src=globalAssets+'memes/bossfight.jpg')
 			figure.fragment
 				img.height-320(src=imgAssets+'levels_halflife.jpg')
 				p Half-Life - střídání prostředí s různými styly gameplaye
@@ -205,4 +203,3 @@ include ../mixins/containers_aph.pug
 	figure.bottom-0.right-500.fragment
 		img.height-350(src=imgAssets+'obstacle_ori.jpg')
 		p Ori And The Blind Forest<br>nedostatečný skill postavy
-	
