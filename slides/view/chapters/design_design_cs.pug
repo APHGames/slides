@@ -50,7 +50,7 @@ include ../mixins/containers_aph.pug
 	.top-220.right-400
 		img.height-500(src=imgAssets+'g_rules_cs.png')
 - var defaultBgr = 'backgrounds/voxels.jpg';
-+frameInbox('Vztah mezi gameplayem a patterny')(autoAnimate=true)
++frameInbox('Gameplay následuje herní patterny')(autoAnimate=true)
 	div
 		.top-400.left-200
 			img.height-100(src=imgAssets+'g_gameplay.png')#g1
@@ -58,7 +58,7 @@ include ../mixins/containers_aph.pug
 			img.height-100(src=imgAssets+'arrow.png')#g2
 		.top-220.right-200
 			img.height-500(src=imgAssets+'g_patterns_cs.png')#g3
-+frameInbox('Vztah mezi patterny a challengemi')(autoAnimate=true)
++frameInbox('Herní patterny zprostředkovávají challenge')(autoAnimate=true)
 	div
 		.top-400.left-80
 			img.height-100(src=imgAssets+'g_gameplay.png')#g1
@@ -70,9 +70,6 @@ include ../mixins/containers_aph.pug
 			img.height-100(src=imgAssets+'arrow.png')
 		.top-220.right-80
 			img.height-500(src=imgAssets+'g_challenge.png')
-+frameInbox('Gameplay loop')
-	div.fill.center
-		img.height-700(src=imgAssets+'gameloop_cs.png')
 +frameInbox('Kdo je to herní designér')
 	div
 		ul.leading-xl.spacing-md
@@ -80,7 +77,7 @@ include ../mixins/containers_aph.pug
 			li.fragment Ten, kdo navrhuje herní pravidla.
 			li.fragment Ten, kdo vytváří patterny, které se má hráč naučit.
 			li.fragment Ten, kdo navrhuje challenge, na kterých má hráč vylepšovat svůj skill.
-			li.fragment Ten, kdo navrhuje, jakým způsobem bude hráč dostávat zpětnou vazbu o svých krocích.
+			li.fragment Ten, kdo navrhuje, jakým způsobem bude hra hráči poskytovat zpětnou vazbu.
 			li.fragment Ten, kdo navrhuje koncept hry, příběh a obecně smysl hry.
 			li.fragment Ten, kdo zajišťuje, aby hráč dohrál hru dřív, než se začne nudit.
 			li.fragment.highlight Herní designér není herní vývojář
@@ -127,19 +124,19 @@ include ../mixins/containers_aph.pug
 			li.fragment <span class="highlight">cíle</span> - dávají hře smysl
 			li.fragment <span class="highlight">challenge</span> - balancují flow hry
 				.bottom-50.right-70
-					img.width-550(src=imgAssets+'game_flow_cs.svg')
+					img.width-600(src=imgAssets+'game_flow_cs.svg')
 			li.fragment <span class="highlight">skill</span> - do jaké úrovně se má hráč naučit ovládat akci
 			li.fragment <span class="highlight">strategie</span> - jaké cesty má hráč zvolit k dosažení cíle
 			li.fragment <span class="highlight">nejistota</span> - nepředvídatelné situace
 			li.fragment <span class="highlight">feedback</span> - jak je hráči dodána zpětná vazba
-			li.fragment <span class="highlight">téma</span> - spojená s world-buildingem
+			li.fragment <span class="highlight">theme</span> - atmosféra hry v průběhu hraní 
 			li.fragment <span class="highlight">storytelling</span> - přidává další vrstvu imerze a ospravedlňuje cíle
 +mcontainer('Game Design Document')
 	+frameShard.width-840.top-3p.fragment.fade-up
 		p Design dokument je <span class="highlight">bible</span>, ve které designéři reflektují své nápady. 
 			span.highlight-2 Gamasutra (1999)
 	+frameShard.width-860.top-6p.left-20p.fragment.fade-up
-		p Design dokument by měl být jen tak dlouhý, aby dokázal přesně vystihnout, o co ve hře jde.
+		p Design dokument by měl být jen tak dlouhý, aby dokázal přesně vystihnout, o co ve hře jde. 
 			span.highlight-2 Scott Rogers (2010)
 	+frameShard.width-860.top-9p.left-47p.fragment.fade-up
 		p Design dokument je <span class="highlight">blueprint</span>, ze kterého se hra tvoří. 
@@ -246,25 +243,6 @@ include ../mixins/containers_aph.pug
 +mcontainer('')
 	+frameShard.width-70px.height-30p.top-350.center.z-index-100
 		+quote('Nikdy nezapomínejte, že vaším hlavním cílem je hráče bavit.', 'Ernest Adams, Fundamentals of Game Design')
-+frameInbox('Hry vytvořené jedinou osobou')
-	div
-		.grid-rows-2.grid-cols-4.grid.gap-10.width-90p.ml-100.mt-40
-			.fragment
-				+gbGameBig(imgAssets+'singledev_tetris.jpg', 'Tetris')
-			.fragment
-				+gbGameBig(imgAssets+'singledev_cavestory.jpg', 'Cave Story')
-			.fragment
-				+gbGameBig(imgAssets+'singledev_braid.jpg', 'Braid')
-			.fragment
-				+gbGameBig(imgAssets+'singledev_minecraft.jpg', 'Minecraft')
-			.fragment
-				+gbGameBig(imgAssets+'singledev_dust.jpg', 'Dust: An Elysian Tale')
-			.fragment
-				+gbGameBig(imgAssets+'singledev_flappy.jpg', 'FlappyBird')
-			.fragment
-				+gbGameBig(imgAssets+'singledev_undertale.jpg', 'Undertale')
-			.fragment
-				+gbGameBig(imgAssets+'singledev_axiom.jpg', 'Axiom Verge')
 +frameInbox('Faily herní historie')
 	div
 		.grid-rows-2.grid-cols-4.grid.gap-10.width-90p.mt-60.ml-80
