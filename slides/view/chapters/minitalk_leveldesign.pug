@@ -1,3 +1,4 @@
+include ../mixins/title.pug
 include ../mixins/containers.pug
 include ../mixins/containers_aph.pug
 
@@ -5,7 +6,7 @@ include ../mixins/containers_aph.pug
 - var defaultBgr = 'backgrounds/levels.jpg';
 
 // ===================================================== SLIDES =====================================================
-+mchapter('Level Design', imgAssets+'chapter_leveldesign.svg')
++titleLecture('Level Design', 'Minitalk', imgAssets+'chapter_leveldesign.svg')
 +frameInbox('Level Design')
 	div
 		ul
@@ -15,10 +16,9 @@ include ../mixins/containers_aph.pug
 			li.mt-80.fragment <span class="highlight">Responsibilities</span>
 				ul
 					li.fragment laying out map features - buildings, hills, rooms,...
-					li.fragment determining environmental conditions (day, night)
-					li.fragment placing resources - equipment, new weapons, medkits
+					li.fragment placing resources - equipment, weapons, medkits
 					li.fragment utilizing surprise elements, ambushes,...
-					li.fragment specifying nonstatic parts - doors, buttons, teleporters
+					li.fragment specifying nonstatic parts - doors, teleporters
 					li.fragment creating scripted events triggered by player's actions
 			.bottom-50.right-20
 				img.height-400(src=imgAssets+'level_editor.jpg')
@@ -71,7 +71,7 @@ include ../mixins/containers_aph.pug
 				figure.mx-10.fragment
 					img.height-280(src=imgAssets+'weenie_senua.jpg')
 					p Hellblade: Senua's Sacrifice
-+frameInbox('Principle #1 - The player must know where he/she is')
++frameInbox('The player should navigate easily')
 	ul
 		li.fragment put easily-recognizable landmarks to help the player navigate in complex environment
 	figure.top-100.left-20.fragment
@@ -83,9 +83,9 @@ include ../mixins/containers_aph.pug
 	figure.bottom-0.right-500.fragment
 		img.height-340(src=imgAssets+'principle05_tombraider.jpg')
 		p Rise of the Tomb Raider
-+frameInbox('Principle #2 - The player must know where to go')
++frameInbox('The player must know where to go')
 	ul
-		li.fragment use visual language (light, color, detail-rich spots, posters, graffiti, paintings,...)
+		li.fragment use visual language (light, color, posters, graffiti, different textures)
 	figure.top-100.left-20.fragment
 		img.height-400(src=imgAssets+'principle01_doom.jpg')
 		p Doom Eternal
@@ -95,57 +95,108 @@ include ../mixins/containers_aph.pug
 	figure.bottom-0.right-500.fragment
 		img.height-340(src=imgAssets+'principle01_portal.jpg')
 		p Portal 2
-+frameInbox('Principle #2 - The player must know where to go')
+	.bottom-100.left-300.tip.fragment
+		img.height-600(src=imgAssets+'gothere.jpg')
++frameInbox('Environmental design elevates immersion')
 	ul
-		li.fragment if a level contains uniform doors and paths with little to no variation, the player will get lost
-			.bottom-0.right-0
-				img.height-600(src=imgAssets+'doom_doors.jpg')
-			.bottom-0.right-600.fragment
-				img.height-380(src=globalAssets+'memes/travolta.gif')
-+frameInbox('Principle #3 - Placing of items and objects makes sense')
+		li.fragment explicit narrative - delivered via intros and cutscenes
+		li.fragment implicit narrative - delivered via the game environment
+	figure.top-120.left-20.fragment
+		img.height-320(src=imgAssets+'placing_prince.png')
+		p Prince of Persia<br>A sword next to a skeleton
+	figure.top-120.right-20.fragment
+		img.height-320(src=imgAssets+'placing_portal.png')
+		p Portal<br>Backstage uncover
+	figure.bottom-0.right-500.fragment
+		img.height-320(src=imgAssets+'placing_pokemon.jpg')
+		p.color-tomato-light Pokémon Route 13<br>Senseless fence
+	.tip.fragment.bottom-20.right-450
+		img.height-700(src=imgAssets+'upgrade.jpg')
++frameInbox('The level difficulty should reflect the player\'s skill')
+	ul
+		li.fragment the designer should pressume that the player is constantly learning
+		li.fragment levels should have gradually increasing difficulty
+	figure.top-120.left-20.fragment
+		img.height-400(src=imgAssets+'difficulty_gradius.png')
+		p Gradius - adaptive<br>difficulty
+	figure.top-120.right-20.fragment
+		img.height-400(src=imgAssets+'difficulty_pokemon.png')
+		p Pokémon - requires<br> &nbsp;&nbsp;levelling before another progression
+	figure.bottom-0.right-500.fragment
+		img.height-320(src=imgAssets+'difficulty_another.jpg')
+		p.color-tomato-light Another World - you are dying since the first scene
++frameInbox('Backtracking')
 	div
 		ul
-			li.fragment story-based games are always realistic to some degree
-			li.fragment active elements should have a meaning, in order to reinforce the story 
-		.center.flex-row.mt-100
-			figure.mx-10.fragment
-				img.height-450(src=imgAssets+'placing_prince.png')
-				p Prince of Persia - sword of a dead body
-			figure.mx-10.fragment
-				img.height-450(src=imgAssets+'placing_prey.jpg')
-				p Prey - the apartment
-		.tip.fragment.bottom-20.right-450
-			img.height-700(src=imgAssets+'upgrade.jpg')
-+frameInbox('Principle #4 - The player is constantly learning')
+			li.fragment If the player should go back the same way, the experience should differ.
+		.space-xl
+		.flex-cols-2.fill
+			figure.fragment
+				img.height-460(src=imgAssets+'backtrack_tombraider.jpg')
+				p Tomb Raider - shortcuts
+			figure.fragment
+				img.height-460(src=imgAssets+'surprise_prince.png')
+				p Prince of Persia - surprise element
++frameInbox('Good level design is constantly teaching the player')
+	ul
+		li.fragment every next level requires the player to either teach a new skill or hone the already acquired ones
+	figure.top-120.left-20.fragment
+		img.height-360(src=imgAssets+'principle03_doom.jpg')
+		p Doom<br>Picking up BFG
+	figure.top-120.right-20.fragment
+		img.height-360(src=imgAssets+'principle03_zelda.jpg')
+		p &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The Legend of Zelda<br>new equipment
+	figure.bottom-0.right-480.fragment
+		img.height-360(src=imgAssets+'principle03_portal.jpg')
+		p Portal - we learn something new in<br>every next testing room
++frameInbox('Unique elements elevate diversity')
 	div
 		ul
-			li.fragment <span class="highlight">learn - play- challenge - surprise</span> loop
-			li.fragment every new challenge will require the player to use his/her equipment in new ways
-		.center.flex-row.mt-100
-			figure.mx-10.fragment
-				img.height-450(src=imgAssets+'principle03_doom.jpg')
-				p Doom - picking up BFG
-			figure.mx-10.fragment
-				img.height-450(src=imgAssets+'principle03_zelda.jpg')
-				p The Legend of Zelda - new equipment
-+frameInbox('Principle #5 - The game introduces surprise elements')
-	div
-		ul
-			li.fragment flip existing paradigms to boost the game experience
-			li.fragment fun is created through uncertainty and surprise
-		.center.flex-row.mt-100
-			figure.mx-10.fragment
-				img.height-450(src=imgAssets+'principle04_doom.jpg')
-				p Doom E1M8 - Barons of Hell (first encounter)
-			figure.mx-10.fragment
-				img.height-450(src=imgAssets+'principle04_portal2.jpg')
-				p Portal 2 - falling into a trap
-+frameInbox('Prince of Persia - surprise elements')
-	div
-		.grid.grid-cols-3.grid-rows-2.gap-10
+			li.fragment Additionally, "fun" element comes from uncertainty and surprise
+		.grid.grid-cols-3.grid-rows-2.gap-10.mt-40
 			img.fragment.height-330(src=imgAssets+'sp_prince_01.png')
 			img.fragment.height-330(src=imgAssets+'sp_prince_02.png')
 			img.fragment.height-330(src=imgAssets+'sp_prince_03.png')
 			img.fragment.height-330(src=imgAssets+'sp_prince_04.png')
 			img.fragment.height-330(src=imgAssets+'sp_prince_05.png')
 			img.fragment.height-330(src=imgAssets+'sp_prince_06.png')
++frameInbox('New mechanics are introduced once they\'re needed')
+	ul
+		li.fragment The game should introduce new mechanics/items at the moment of they need
+		li.fragment New enemies should show up, once the player possesses the skill and equipment to defeat them
+	figure.top-120.left-20.fragment
+		img.height-320(src=imgAssets+'intro_gravitygun.jpg')
+		p Half-Life <br>gravity gun<br> at the end
+	figure.top-120.right-20.fragment
+		img.height-320(src=imgAssets+'intro_rayman.jpg')
+		p Rayman<br>hair-copter for overcoming<br> long-distance pits
+	figure.bottom-0.right-500.fragment
+		img.height-320(src=imgAssets+'intro_pokemon.png')
+		p Pokémon séries - surf skill for swimming to new areas
++frameInbox('The pacing of the game should gradually change')
+	div
+		ul
+			li.fragment The player should be given the opportunity to rest after a demanding phase.
+		.space-xl
+		.flex-cols-3.fill
+			figure.fragment
+				img.height-320(src=imgAssets+'levels_cuphead.jpg')
+				p Cuphead - slower pace after each boss fight
+			figure.fragment
+				img.height-320(src=imgAssets+'levels_halflife.jpg')
+				p Half-Life - switching environments with different pacing
+			figure.fragment
+				img.height-320(src=imgAssets+'levels_tomb.jpg')
+				p Tomb Raider - exploration/action
++frameInbox('Sequence breaking')
+	ul
+		li.fragment How the game prevents sequence breaking (apart from progression obstacles)?
+	figure.top-120.left-20.fragment
+		img.height-350(src=imgAssets+'obstacle_giants.png')
+		p Giants<br>piranhas in the sea&nbsp;&nbsp;&nbsp;
+	figure.top-120.right-20.fragment
+		img.height-350(src=imgAssets+'obstacle_doom.png')
+		p Doom Eternal<br>instant death
+	figure.bottom-0.right-500.fragment
+		img.height-350(src=imgAssets+'obstacle_ori.jpg')
+		p Ori And The Blind Forest<br>insufficient skill

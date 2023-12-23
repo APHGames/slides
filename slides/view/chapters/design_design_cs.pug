@@ -1,0 +1,355 @@
+include ../mixins/containers.pug
+include ../mixins/containers_aph.pug
+
+- var imgAssets = '../assets/design_design/';
+
+- var defaultBgr = 'backgrounds/mario.jpg';
+
++mchapter('Úvod do herního designu', imgAssets+'chapter_design.svg')
+- var defaultBgr = 'backgrounds/zelda.jpg';
++frameInbox('Herní designér')
+	div.center
+		.grid.grid-cols-3.grid-rows-2.gap-20.width-80p.mt-60
+			figure.fragment
+				img.height-260(src=imgAssets+'gdev_1.jpg')
+				p What my friends think I do
+			figure.fragment
+				img.height-260(src=imgAssets+'gdev_2.jpg')
+				p What my parents think I do
+			figure.fragment
+				img.height-260(src=imgAssets+'gdev_3.jpg')
+				p What society thinks I do
+			figure.fragment
+				img.height-260(src=imgAssets+'gdev_4.jpg')
+				p What the players think I do
+			figure.fragment
+				img.height-260(src=imgAssets+'gdev_5.jpg')
+				p What I think I do
+			figure.fragment
+				img.height-260(src=imgAssets+'gdev_6.jpg')
+				p What I really do
++frameInbox('Akce')
+	div
+		ul
+			li.fragment co hráč může ve hře provádět
+		.text-center.mt-100
+			img.height-500(src=imgAssets+'g_mechanics_cs.png')
++frameInbox('Pravidla')
+	div
+		ul.spacing-xs
+			li.fragment Kotví gameplay hráče a win/lose podmínky
+			li.fragment Jsou ospravedlnitelná a konzistentní
+			li.fragment Jsou srozumitelná
+		.text-center.mt-10
+			img.height-500(src=imgAssets+'g_rules_cs.png')
++frameInbox('Akce a pravidla utváří gameplay')
+	.top-80.right-620
+		img.height-100(src=imgAssets+'g_gameplay.png')
+	.top-220.left-400
+		img.height-500(src=imgAssets+'g_mechanics_cs.png')
+	.top-220.right-400
+		img.height-500(src=imgAssets+'g_rules_cs.png')
+- var defaultBgr = 'backgrounds/voxels.jpg';
++frameInbox('Gameplay následuje herní patterny')(autoAnimate=true)
+	div
+		.top-400.left-200
+			img.height-100(src=imgAssets+'g_gameplay.png')#g1
+		.top-400.left-750
+			img.height-100(src=imgAssets+'arrow.png')#g2
+		.top-220.right-200
+			img.height-500(src=imgAssets+'g_patterns_cs.png')#g3
++frameInbox('Herní patterny zprostředkovávají challenge')(autoAnimate=true)
+	div
+		.top-400.left-80
+			img.height-100(src=imgAssets+'g_gameplay.png')#g1
+		.top-400.left-500
+			img.height-100(src=imgAssets+'arrow.png')#g2
+		.top-220.left-670
+			img.height-500(src=imgAssets+'g_patterns_cs.png')#g3
+		.top-400.right-450
+			img.height-100(src=imgAssets+'arrow.png')
+		.top-220.right-80
+			img.height-500(src=imgAssets+'g_challenge.png')
++frameInbox('Kdo je to herní designér')
+	div
+		ul.leading-xl.spacing-md
+			li.fragment Ten, kdo navrhuje herní mechaniky.
+			li.fragment Ten, kdo navrhuje herní pravidla.
+			li.fragment Ten, kdo vytváří patterny, které se má hráč naučit.
+			li.fragment Ten, kdo navrhuje challenge, na kterých má hráč vylepšovat svůj skill.
+			li.fragment Ten, kdo navrhuje, jakým způsobem bude hra hráči poskytovat zpětnou vazbu.
+			li.fragment Ten, kdo navrhuje koncept hry, příběh a obecně smysl hry.
+			li.fragment Ten, kdo zajišťuje, aby hráč dohrál hru dřív, než se začne nudit.
+			li.fragment.highlight Herní designér není herní vývojář
+		.bottom-0.right-0
+			img.height-500(src=imgAssets+'cake.png')
+- var defaultBgr = 'backgrounds/kosterdef_cs.jpg';
++mcontainer('')
+- var defaultBgr = 'backgrounds/hom3.jpg';
++frameInbox('Typy herních designérů')
+	div
+		ul
+			li.fragment(data-fragment-index='1') Gameplay Designer
+			li.fragment(data-fragment-index='2') AI Behavior Designer
+			li.fragment(data-fragment-index='3') Narrative Designer
+			li.fragment(data-fragment-index='4') Combat Designer
+			li.fragment(data-fragment-index='5') Encounter Designer
+			li.fragment(data-fragment-index='6') World Designer
+			li.fragment(data-fragment-index='7') Quest Designer
+			li.fragment(data-fragment-index='8') Level Designer
+		.bottom-0.right-0
+			img.height-500(src=imgAssets+'tree.png')
+		.bottom-70.right-350.fragment(data-fragment-index='1')
+			img.height-150(src=imgAssets+'spr02.png')
+		.bottom-140.right-500.fragment(data-fragment-index='2')
+			img.height-70(src=imgAssets+'spr06.png')
+		.bottom-70.right-600.fragment(data-fragment-index='3')
+			img.height-150(src=imgAssets+'spr01.png')
+		.bottom-70.right-720.fragment(data-fragment-index='4')
+			img.height-150(src=imgAssets+'spr07.png')
+		.bottom-50.right-870.fragment(data-fragment-index='5')
+			img.height-150(src=imgAssets+'spr03.png')
+		.bottom-70.right-1000.fragment(data-fragment-index='6')
+			img.height-120(src=imgAssets+'spr05.png')
+		.bottom-70.right-1150.fragment(data-fragment-index='7')
+			img.height-130(src=imgAssets+'spr08.png')
+		.bottom-70.right-1250.fragment(data-fragment-index='8')
+			img.height-120(src=imgAssets+'spr04.png')
++frameInbox('Stavební bloky herního designu')
+	div
+		ul
+			li.fragment <span class="highlight">constraint</span> - jak limitovat akce a interakce
+			li.fragment <span class="highlight">přímé akce</span> - bezprostřední interakce s objekty
+			li.fragment <span class="highlight">nepřímé akce</span> - interakce bez přímého kontaktu
+			li.fragment <span class="highlight">cíle</span> - dávají hře smysl
+			li.fragment <span class="highlight">challenge</span> - balancují flow hry
+				.bottom-50.right-70
+					img.width-600(src=imgAssets+'game_flow_cs.svg')
+			li.fragment <span class="highlight">skill</span> - do jaké úrovně se má hráč naučit ovládat akci
+			li.fragment <span class="highlight">strategie</span> - jaké cesty má hráč zvolit k dosažení cíle
+			li.fragment <span class="highlight">nejistota</span> - nepředvídatelné situace
+			li.fragment <span class="highlight">feedback</span> - jak je hráči dodána zpětná vazba
+			li.fragment <span class="highlight">theme</span> - atmosféra hry v průběhu hraní 
+			li.fragment <span class="highlight">storytelling</span> - přidává další vrstvu imerze a ospravedlňuje cíle
++mcontainer('Game Design Document')
+	+frameShard.width-840.top-3p.fragment.fade-up
+		p Design dokument je <span class="highlight">bible</span>, ve které designéři reflektují své nápady. 
+			span.highlight-2 Gamasutra (1999)
+	+frameShard.width-860.top-6p.left-20p.fragment.fade-up
+		p Design dokument by měl být jen tak dlouhý, aby dokázal přesně vystihnout, o co ve hře jde. 
+			span.highlight-2 Scott Rogers (2010)
+	+frameShard.width-860.top-9p.left-47p.fragment.fade-up
+		p Design dokument je <span class="highlight">blueprint</span>, ze kterého se hra tvoří. 
+			span.highlight-2 Game Developer Blog (2016)
++frameInbox('Game Design Document - Obsah')
+	div
+		ul
+			li.fragment pracovní název
+			li.fragment popis gameplay experience
+			li.fragment základní elementy (postavy)
+			li.fragment gameplay, cíle, mechaniky
+			li.fragment design hooky
+			li.fragment interface a ovládání
+			li.fragment schematika (storyboardy)
+			li.fragment technické záležitosti
+			li.fragment příběh, kampaně, módy
+			li.fragment cílové publikum
+			li.fragment ESRB/PEGI rating
+			li.fragment podobné hry
+		.bottom-80.right-200
+			img.height-600(src=imgAssets+'gdc.png')
++frameInbox('Příklad: Prince of Persia 2')
+	div.text-center
+		img.height-770(src=imgAssets+'pop.jpg')
++frameInbox('Iterativní game design')
+	div
+		ul
+			li.fragment(data-fragment-index='2') <span class="highlight">conceptualizing</span> - vytvoří se koncept nové mechaniky/levelu/struktury
+			li.fragment(data-fragment-index='3') <span class="highlight">prototyping</span> - klíčové aspekty se implementují
+			li.fragment(data-fragment-index='4') <span class="highlight">playtesting</span> - prototyp se ukáže publiku
+			li.fragment(data-fragment-index='5') <span class="highlight">evaluation</span> - vyhodnotí se feedback, brainstormuje se a začne nová iterace
+		.text-center.mt-20.fragment(data-fragment-index='1')
+			img.height-500(src=imgAssets+'game_design_iterations.svg')
++frameInbox('Playtesting')
+	div
+		ul
+			li.fragment příležitost, kdy se dozvíte pravdu o své hře
+			li.fragment probíhá podobně jako testování uživatelského rozhraní v softwaru
+			li.fragment pokud je příliš player-centrický, hrozí nebezpečí, že designér změní původní koncept, aby dal svému publiku to, co chce
+			li.fragment <span class="highlight">Typy playtestů</span>
+				ul
+					li.fragment interní - testování prototypu týmem
+					li.fragment designérské - testování lidmi, kteří rozumí designu
+					li.fragment friend playtest - testování známými z okolí
+					li.fragment target audience playtest - testování cílovkou
+					li.fragment experienced player playtest - testování zkušenými<br> hráči
+			li.fragment hlavní je zaznamenat co nejvíce vstupů včetně<br> těch nonverbálních a vše vyhodnotit
+		.bottom-20.right-20
+			img.height-560(src=imgAssets+'playtesting_cs.jpg')
++frameInbox('Design hook')
+	div
+		ul
+			li.fragment(data-fragment-index='1') unikátní aspekty hry, díky kterým se odlišuje od ostatních
+		.space-lg
+		.flex.flex-row.justify-between.m-60.fragment(data-fragment-index='2')
+			figure
+				img.height-400(src=imgAssets+'dvalues_cuphead.jpg')
+				p Cuphead
+			figure
+				img.height-400(src=imgAssets+'dvalues_horizon.jpg')
+				p Horizon: Zero Dawn
++frameInbox('Struktury designu')
+	div
+		ul
+			li.fragment Sketche
+				.top-80.right-470
+					img.width-450(src=imgAssets+'prototyping_01.jpg')
+			li.fragment Scénář
+				.top-0.right-0
+					img.width-450(src=imgAssets+'struct_script_gta.jpg')
+			li.fragment Storyboardy
+				.top-200.right-750
+					img.width-450(src=imgAssets+'struct_storyboard.png')
+			li.fragment Tabulky (skilly, ability)
+				.top-300.right-0
+					img.width-450(src=imgAssets+'struct_tables.jpg')
+			li.fragment Schematika
+				.top-480.right-470
+					img.width-450(src=imgAssets+'struct_elements.jpg')
+			li.fragment Mapy
+				.top-600.right-0
+					img.width-450(src=imgAssets+'struct_map.png')
++frameInbox('Příklady špatného designu')
+	div
+		ul
+			li.highlight-2.fragment zbytečné čekání
+				.top-500.right-40
+					img.width-560(src=imgAssets+'bad_design_waiting.jpg')
+			li.fragment neskipnutelné cutscény
+			li.fragment nesmyslné dialogy
+			li.fragment neopodstatněné změny<br>stylu gameplaye
+			li.highlight-2.fragment neviditelné zdi
+				.top-150.right-40
+					img.width-560(src=imgAssets+'bad_design_breadth_of_the_wild.jpg')
+			li.fragment QTE (quick-time eventy)
+			li.fragment absence fast-travel či fast-movement mechaniky
+			li.fragment zaseknuté companion NPC
+			li.highlight-2.fragment long-distance checkpointy
+				.top-150.right-640
+					img.width-460(src=imgAssets+'bad_design_checkpoints.jpg')
+			li.fragment volby hráče, které ve hře nemají žádné následky
+			li.fragment repetitivní gameplay s nízkou diversitou
+- var defaultBgr = 'backgrounds/nebula.jpg';
++mcontainer('')
+	+frameShard.width-70px.height-30p.top-350.center.z-index-100
+		+quote('Nikdy nezapomínejte, že vaším hlavním cílem je hráče bavit.', 'Ernest Adams, Fundamentals of Game Design')
++frameInbox('Faily herní historie')
+	div
+		.grid-rows-2.grid-cols-4.grid.gap-10.width-90p.mt-60.ml-80
+			.fragment
+				+gbGameBig(imgAssets+'failure_daikatana.jpg', 'Daikatana')
+			.fragment
+				+gbGameBig(imgAssets+'failure_spore.jpg', 'Spore')
+			.fragment
+				+gbGameBig(imgAssets+'failure_duke.jpg', 'Duke Nukem Forever')
+			.fragment
+				+gbGameBig(imgAssets+'failure_simcity.jpg', 'Simcity 2013')
+			div
+			.fragment
+				+gbGameBig(imgAssets+'failure_titan.jpg', 'Halo MMO')
+			.fragment
+				+gbGameBig(imgAssets+'failure_lastofus.jpg', 'The Last of Us Online')
++frameInbox('Jak nevytvářet hru')
+	div
+		.top-100.left-40.fragment
+			img.width-470(src=imgAssets+'untitled_project.jpg')
+		.top-300.left-540.fragment
+			img.height-240(src=imgAssets+'gamedev_fail_flow.svg')
+		.bottom-40.right-20.fragment
+			img.height-300(src=imgAssets+'side_projects.jpg')
+		.bottom-40.left-40.fragment
+			img.width-470(src=imgAssets+'unfinished_projects.jpg')
+		.top-100.right-20.fragment
+			img.height-440(src=imgAssets+'unfinished_projects_2.jpg')
++frameInbox('The wall of depression')
+	div
+		.top-100.left-20
+			a(href='http://gingearstudio.com/why-i-quit-my-dream-job-at-ubisoft')
+				img.width-500(src=imgAssets+'article_ubisoft.jpg')
+		.top-260.left-20
+			a(href='https://www.gamasutra.com/blogs/AdrielWallick/20140226/211761/Make_Many_Games_Learn_Many_Things.php')
+				img.width-500(src=imgAssets+'article_games.jpg')
+		.top-380.left-20
+			a(href='https://www.reddit.com/r/gamedev/comments/dwfwtp/three_years_ago_my_wife_and_i_quit_our_jobs_to/')
+				img.width-500(src=imgAssets+'article_ninefaced.png')
+		.top-580.left-20
+			a(href='https://enterprisecraftsmanship.com/posts/how-i-tried-to-get-into-game-development-and-failed/')
+				img.width-500(src=imgAssets+'article_khorikov.jpg')
+		.bottom-10.left-20
+			a(href='https://medium.com/@doandaniel/7-reasons-why-most-indie-game-developers-fail-5d6648ca6343/')
+				img.width-500(src=imgAssets+'article_7_mistakes.jpg')
+		.top-600.right-20
+			a(href='https://www.polygon.com/2019/2/16/18226581/activision-blizzard-layoffs-executive-pay-unions')
+				img.width-500(src=imgAssets+'article_blizzard.jpg')
+		.top-340.right-530
+			a(href='https://www.theverge.com/2018/10/4/17934166/telltale-games-studio-closed-layoffs-end-the-walking-dead')
+				img.width-580(src=imgAssets+'article_telltale.jpg')
+		.top-100.right-530
+			a(href='https://www.vice.com/en/article/mb5qpx/routine-release-date-space-horror-alien')
+				img.width-580(src=imgAssets+'article_routine.jpg')
+		.bottom-10.right-530
+			a(href='https://www.youtube.com/watch?v=JmwbYl6f11c')
+				img.width-580(src=imgAssets+'article_nohit.jpg')
+		.top-420.right-20
+			a(href='https://www.reddit.com/r/gamedev/comments/74fdi8/my_indie_game_failed_hard_on_steam/')
+				img.width-500(src=imgAssets+'article_indie_fail.jpg')
+		.top-100.right-20
+			a(href='https://www.gamasutra.com/blogs/AlvaMajo/20160801/278241/My_first_indie_game_failed_hard_Heres_the_data.php')
+				img.width-500(src=imgAssets+'article_first_game.jpg')
+		.bottom-10.right-20
+			a(href='https://siliconangle.com/2013/08/29/the-dark-side-of-failed-indie-game-developers/')
+				img.width-500(src=imgAssets+'article_failed_dev.jpg')
+		.top-250.right-20
+			a(href='https://www.gamesindustry.biz/articles/2020-07-22-how-to-guarantee-your-pitch-will-be-rejected/')
+				img.width-500(src=imgAssets+'article_pitch.jpg')
++frameInbox('Jaké otázky je potřeba si klást')
+	div
+		ul.spacing-xl
+			li.fragment Proč vytvářím hru?
+			li.fragment Co chci tou hrou světu sdělit?
+			li.fragment Pro koho tu hru vytvářím?
+			li.fragment Proč by měli hráči mojí hru hrát?
+			li.fragment Proč by se vůbec mělo jednat o hru?
+			li.fragment Jaký je její design hook?
+			li.fragment Co se snažím hráče naučit?
+			li.fragment Jakým způsobem v ní otisknu svou identitu?
+		.bottom-40.right-40
+			img.height-750(src=imgAssets+'gamer.jpg')
++frameInbox('Literatura')
+	div
+		ul.text-xl.spacing-md.leading-xl
+			li.fragment(data-fragment-index='1') Jesse Schell, The Art of Game Design
+			li.fragment(data-fragment-index='2') Raph Koster, A Theory of Fun
+			li.fragment(data-fragment-index='3') Ernest Adams, Fundamentals of Game Design
+			li.fragment(data-fragment-index='4') Colleen Macklin, Games, Design and Play: A detailed <br>approach to iterative game design
+			li.fragment(data-fragment-index='5') Scott Rogers, Level Up! - The Guide to Great <br>Video Game Design
+		.top-0.right-250.fragment(data-fragment-index='1')
+			.kframe.height-300.width-240.absolute
+			.height-300.width-240.p-10
+				img.width-240.object-cover(src=imgAssets+'src_art.jpg')
+		.top-100.right-50.fragment(data-fragment-index='2')
+			.kframe.height-300.width-240.absolute
+			.height-300.width-240.p-10
+				img.width-240.object-cover(src=imgAssets+'src_theory.jpg')
+		.top-300.right-250.fragment(data-fragment-index='3')
+			.kframe.height-300.width-240.absolute
+			.height-300.width-240.p-10
+				img.width-240.object-cover(src=imgAssets+'src_fundamentals.jpg')
+		.top-400.right-50.fragment(data-fragment-index='4')
+			.kframe.height-300.width-240.absolute
+			.height-300.width-240.p-10
+				img.width-240.object-cover(src=imgAssets+'src_play.jpg')
+		.top-600.right-250.fragment(data-fragment-index='5')
+			.kframe.height-300.width-240.absolute
+			.height-300.width-240.p-10
+				img.width-240.object-cover(src=imgAssets+'source_levelup.png')

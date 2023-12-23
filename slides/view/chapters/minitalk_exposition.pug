@@ -1,3 +1,4 @@
+include ../mixins/title.pug
 include ../mixins/containers.pug
 include ../mixins/containers_aph.pug
 
@@ -5,7 +6,7 @@ include ../mixins/containers_aph.pug
 - var defaultBgr = 'backgrounds/shadowlands.jpg';
 
 // ===================================================== SLIDES =====================================================
-+mchapter('Exposition', imgAssets+'chapter_exposition.svg')
++titleLecture('Exposition', 'Minitalk', imgAssets+'chapter_exposition.svg')
 +frameInbox('Exposition')
     .bottom-80.right-0.nopadding.fragment
         img.height-400(src=imgAssets+'lothric_castle.jpg' alt='Lothric castle')

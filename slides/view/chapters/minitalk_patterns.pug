@@ -1,0 +1,171 @@
+include ../mixins/title.pug
+include ../mixins/containers.pug
+include ../mixins/containers_aph.pug
+
+- var imgAssets = '../assets/minitalk_patterns/';
+- var defaultBgr = 'backgrounds/gears.jpg';
+
+// ===================================================== SLIDES =====================================================
++titleLectureCs('Design Patterns', 'Minitalk', imgAssets+'chapter_patterns.svg')
++frameInbox('Reward system')
+	div
+		ul
+			li.fragment How does the game reward the player?
+		.grid.grid-cols-3.grid-rows-2.gap-5.mt-10
+			figure.fragment
+				img.height-300(src=imgAssets+'score_icy.jpg')
+				p Icy Tower - skill reflects the score
+			figure.fragment
+				img.height-300(src=imgAssets+'fishing.jpg')
+				p Ridiculous Fishing - money for buying new gear
+			figure.fragment
+				img.height-300(src=imgAssets+'dev_tombraider.jpg')
+				p Tomb Raider - collectibles encouraging exploration
+			div
+			figure.fragment
+				img.height-300(src=imgAssets+'score_trackmania.jpg')
+				p Trackmania - tracks unlocking
++frameInbox('HP')
+	div
+		ul
+			li.fragment How does the game utilize health?
+		.space-xl
+		.flex-cols-3.fill
+			figure.fragment
+				img.height-320(src=imgAssets+'health_prince.jpg')
+				p Prince of Persia - extra lives
+			figure.fragment
+				img.height-320(src=imgAssets+'health_doom.jpg')
+				p Doom - aid kids
+			figure.fragment
+				img.height-320(src=imgAssets+'health_wolf.jpg')
+				p Wolfenstein II - regeneration and aid kids
++frameInbox('Respawn')
+	div
+		ul
+			li.fragment If the player dies, where do they respawn?
+		.space-xl
+		.flex-cols-3.fill
+			figure.fragment
+				img.height-320(src=imgAssets+'death_limbo.jpg')
+				p Limbo - very close
+			figure.fragment
+				img.height-320(src=imgAssets+'death_braid.jpg')
+				p Braid - the time stops
+			figure.fragment
+				img.height-320(src=imgAssets+'death_fps.jpg')
+				p FPS games - the last quick-save
++frameInbox('Special modes')
+	div
+		ul
+			li.fragment What special modes does the game offer?
+		.space-xl
+		.flex-cols-3.fill
+			figure.fragment
+				img.height-320(src=imgAssets+'bonus_pacman.jpg')
+				p Pacman - power pellets
+			figure.fragment
+				img.height-320(src=imgAssets+'bonus_jazz.jpg')
+				p Jazz Jackrabbit - sugar rush
+			figure.fragment
+				img.height-320(src=imgAssets+'bonus_doom.jpg')
+				p Doom - invulnerability sphere
++frameInbox('Character development')
+	div
+		ul
+			li.fragment How does the game utilize character development?
+		.space-xl
+		.flex-cols-3.fill
+			figure.fragment
+				img.height-340(src=imgAssets+'dev_duke.jpg')
+				p Duke Nukem 1 - faster weapon
+			figure.fragment
+				img.height-340(src=imgAssets+'dev_pokemon.png')
+				p Pokémon series - levelling, evolution,...
+			figure.fragment
+				img.height-340(src=imgAssets+'dev_horizon.png')
+				p Horizon: Zero Dawn - psychological and physical development
++frameInbox('Equipment limits')
+	div
+		ul
+			li.fragment What limits does the player's equipment have?
+		.space-xl
+		.flex-cols-3.fill
+			figure.fragment
+				img.height-320(src=imgAssets+'equip_skyrim.jpg')
+				p RPGs - limited amount of items in inventory
+			figure.fragment
+				img.height-320(src=imgAssets+'equip_fps.jpg')
+				p Some FPS - two weapons max
+			figure.fragment
+				img.height-320(src=imgAssets+'equip_lol.jpg')
+				p LoL - 6 items
++frameInbox('Revisiting')
+	div
+		ul
+			li.fragment How does the game encourage player to revisit some areas?
+		.space-xl
+		.flex-cols-3.fill
+			figure.fragment
+				img.height-350(src=imgAssets+'revisit_rayman.jpg')
+				p Rayman - after acquiring new skills
+			figure.fragment
+				img.height-350(src=imgAssets+'clumping_adventures.jpg')
+				p.color-tomato-light Adventures - getting stuck
+			figure.fragment
+				img.height-350(src=imgAssets+'revisit_openworld.jpg')
+				p Open world games - quests
++frameInbox('Clumping')
+	div
+		ul
+			li.fragment The game should avoid presenting the player with too many enemies/mechanics at once.
+		.space-xl
+		.flex-cols-3.fill
+			figure.fragment
+				img.height-320(src=imgAssets+'equip_lol.jpg')
+				p MOBA - other players have similar stats
+			figure.fragment
+				img.height-320(src=imgAssets+'clumping_rpg.jpg')
+				p.color-tomato-light RPGs - too many NPCs in a large area
+			figure.fragment
+				img.height-320(src=imgAssets+'clumping_platformers.jpg')
+				p.color-tomato-light Platformers - difficulty spikes between levels
++frameInbox('Flow breaking')
+	div
+		ul
+			li.fragment The game can be hard, but it shouldn't be insidious.
+		.space-xl
+		.flex-cols-2.fill
+			figure.fragment
+				img.height-520(src=imgAssets+'prince_pc.png')
+				p Prince of Persia for PC - hard
+			figure.fragment
+				img.height-520(src=imgAssets+'prince_snes.png')
+				p Prince of Persia for SNES - hard, <br>insidious, frustrating, depressive
+		.bottom-200.right-350.tip.fragment
+			img.height-500(src=imgAssets+'meme_darksouls.png')
++frameInbox('Uncommon gameplay')
+	div
+		ul
+			li.fragment How the game teaches the player an uncommon gameplay style?
+		.space-xl
+		.flex-cols-2.fill
+			figure.fragment
+				img.height-480(src=imgAssets+'nontrad_portal.jpg')
+				p Portal - intersection with FPS genre
+			figure.fragment
+				img.height-480(src=imgAssets+'nontrad_dune.png')
+				p Dune I - starts as an ordinary adventure
++frameInbox('Items and weapons shouldn\'t have too big overlap')
+	div
+		ul
+			li.fragment Each item/weapon should serve a specific purpose.
+			li.fragment If the overlap is too big, the player will only use a small subset.
+		.space-xl
+		.flex-cols-2.fill
+			figure.fragment
+				img.height-420(src=imgAssets+'overlap_doom.jpg')
+				p Doom - each weapon is suitable for a different situation
+			figure.fragment
+				img.height-420(src=imgAssets+'overlap_lol.jpg')
+				p LoL - each item has a unique effect

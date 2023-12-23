@@ -1,0 +1,107 @@
+include ../mixins/title.pug
+include ../mixins/containers.pug
+include ../mixins/containers_aph.pug
+
+- var imgAssets = '../assets/minitalk_tutorials/';
+- var defaultBgr = 'backgrounds/bgr_limbo.jpg';
+
+// ===================================================== SLIDES =====================================================
++titleLectureCs('Manuály a tutoriály', 'Minitalk', imgAssets+'chapter_tutorials.svg')
++frameInbox('Manuály a tutoriály')
+    .flex-cols-2
+        div
+            ul
+                li.fragment tutoriál je proces, který hráči vysvětlí základní mechaniky
+                li.fragment často se vyvíjí úplně na konci
+                li.fragment nedostatečná informovanost hráče může vést ke špatnému gameplayi
+                li.mt-20.fragment <span class="highlight">formy</span>
+                    ul
+                        li.fragment vytištěné manuály
+                        li.fragment first-play tutoriály
+                        li.fragment tréninkové levely
+                        li.fragment hinty a tipy
+                        li.fragment skryté tutoriály
+        div.text-center.fragment
+            div
+                img.width-440.ml-20(src=globalAssets+'memes/tutorials.jpg' alt='Jumping into game without playing a tutorial')
+    .bottom-0.right-170.fragment
+        img.height-300(src=imgAssets+'press_f_to_help.jpg' alt='Press F1 to help Commander Keen')
++frameInbox('Instrukční manuály')
+    .flex-cols-3.items-center.fill
+        figure
+            img.height-360(src=imgAssets+'kingsquest.jpg' alt='Kings Quest manual')
+            p King's Quest (1984)
+        figure
+            img.height-360(src=imgAssets+'earthbound.jpg' alt='Earthbound manual')
+            p Earthbound (1994)
+        figure
+            img.height-360(src=imgAssets+'manual_wolfenstein.jpg' alt='Return to Castle Wolfenstein manual')
+            p Return to Castle Wolfenstein (2001)
++frameInbox('Instrukční manuály')
+    .flex-cols-3.items-center.fill
+        figure
+            img.height-600(src=imgAssets+'wing.jpg' alt='Wing Commander manual')
+            p Wing Commander (1990)
+        figure
+            img.height-600(src=imgAssets+'raptor.jpg' alt='Raptor manual')
+            p Raptor (1994)
+        figure
+            img.height-600(src=imgAssets+'aoe2.jpg' alt='Age of Empires 2 manual')
+            p Age of Empires 2 (1999)
++frameInbox('First-play tutoriály')
+    .flex-cols-2.items-center.fill
+        figure
+            img.height-500(src=imgAssets+'skyrim.jpg' alt='Skyrim manual')
+            p Skyrim (2011)
+        figure
+            img.height-500(src=imgAssets+'assassins.jpg' alt='Assassins Creed Odyssey manual')
+            p Assassin's Creed Odyssey (2018)
++frameInbox('Tréninkové levely')
+    .flex-cols-2.items-center.fill
+        figure
+            img.height-500(src=imgAssets+'warcraft3.jpg' alt='Warcraft 3')
+            p Warcraft 3 (2002)
+        figure
+            img.height-500(src=imgAssets+'vietcong.jpg' alt='Vietcong')
+            p Vietcong (2003)
++frameInbox('Hinty a tipy')
+    .flex-cols-2.items-center.fill
+        figure
+            img.height-430(src=imgAssets+'duke1.jpg' alt='Duke Nukem 1 hints')
+            p Duke Nukem 1 (1991)
+        figure
+            img.height-430(src=imgAssets+'portal.jpg' alt='Portal hints')
+            p Portal (2007)
++frameInbox('Skryté tutoriály')
+    .flex-cols-2.items-center.fill
+        figure
+            img.height-430(src=imgAssets+'halflife.png' alt='Half Life 2')
+            p Half-Life 2 (2004)
+        figure
+            img.height-430(src=imgAssets+'inside.jpg' alt='INSIDE')
+            p INSIDE (2016)
++frameInbox('Tutoriálové vzory')
+    .flex-cols-2
+        div
+            ul
+                li.fragment(data-fragment-index="1")
+                    span.upside Pozitivní vzory
+                    ul
+                        li.fragment(data-fragment-index="2") nepůsobí jako tutoriál (INSIDE, Super Mario)
+                        li.fragment(data-fragment-index="3") nenarušuje herní flow (Skyrim)
+                        li.fragment(data-fragment-index="4") nedá se snadno failnout (Assassin's Creed)
+                        li.fragment(data-fragment-index="5") je možno je přeskočit (Total War)
+                        li.fragment(data-fragment-index="6") bezpečné prostředí ke zkoušení (Rayman)
+                li.mt-20.fragment(data-fragment-index="7")
+                    span.downside Negativní vzory
+                    ul
+                        li.fragment(data-fragment-index="8") hand-holding (Warcraft 3)
+                        li.fragment(data-fragment-index="9") příliš mnoho informací (Total War)
+                        li.fragment(data-fragment-index="10") irelevantní informace (Mario & Luigi: Dream Team)
+                        li.fragment(data-fragment-index="11") příliš komplikované (The Witcher 2)
+                        li.fragment(data-fragment-index="12") příliš dlouhé (The Legend Of Zelda: Twilight Princess)
+        div.text-center
+            div.mt-20.fragment(data-fragment-index="6")
+                img.width-600(src=imgAssets+'rayman.jpg' alt='Rayman Fairy')
+            div.mt-50.fragment(data-fragment-index="10")
+                img.width-600(src=imgAssets+'mario.jpg' alt='Mario tutorial')

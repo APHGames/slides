@@ -1,3 +1,4 @@
+include ../mixins/title.pug
 include ../mixins/containers.pug
 include ../mixins/containers_aph.pug
 
@@ -5,7 +6,7 @@ include ../mixins/containers_aph.pug
 - var defaultBgr = 'backgrounds/accessibility.jpg';
 
 // ===================================================== SLIDES =====================================================
-+mchapter('Accessibility', imgAssets+'chapter_accessibility.svg')
++titleLecture('Accessibility', 'Minitalk', imgAssets+'chapter_accessibility.svg')
 +frameInbox('Accessibility')
     ul.spacing-lg.top-0
         li.fragment <span class="highlight-2">gaming accessibility</span> - a usability concept that involves playing games by people with special needs

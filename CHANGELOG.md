@@ -6,6 +6,11 @@ Versioning info:
 - second number indicates a week (1 for the first week)
 - third number indicates minor changes, such as hotfixes and updates
 
+## [6.14] - 2023-12-23
+### Added
+Lecture 12 slides
+Design Patterns and Level Design minitalks
+
 ## [6.13] - 2023-12-16
 ### Added
 Lecture 11 CZ slides

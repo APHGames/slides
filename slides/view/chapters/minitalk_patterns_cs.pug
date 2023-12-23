@@ -1,0 +1,171 @@
+include ../mixins/title.pug
+include ../mixins/containers.pug
+include ../mixins/containers_aph.pug
+
+- var imgAssets = '../assets/minitalk_patterns/';
+- var defaultBgr = 'backgrounds/gears.jpg';
+
+// ===================================================== SLIDES =====================================================
++titleLectureCs('Design Patterny', 'Minitalk', imgAssets+'chapter_patterns.svg')
++frameInbox('Systém odměn')
+	div
+		ul
+			li.fragment Jakým způsobem hra hráče odměňuje?
+		.grid.grid-cols-3.grid-rows-2.gap-5.mt-10
+			figure.fragment
+				img.height-300(src=imgAssets+'score_icy.jpg')
+				p Icy Tower - skill reflektuje score
+			figure.fragment
+				img.height-300(src=imgAssets+'fishing.jpg')
+				p Ridiculous Fishing - peníze, za které vylepšujete výbavu
+			figure.fragment
+				img.height-300(src=imgAssets+'dev_tombraider.jpg')
+				p Tomb Raider - collectibles motivující hráče k prozkoumávání
+			div
+			figure.fragment
+				img.height-300(src=imgAssets+'score_trackmania.jpg')
+				p Trackmania - odemykání tratí
++frameInbox('HP')
+	div
+		ul
+			li.fragment Jak hra pracuje se zdravím hráče?
+		.space-xl
+		.flex-cols-3.fill
+			figure.fragment
+				img.height-320(src=imgAssets+'health_prince.jpg')
+				p Prince of Persia - extra životy
+			figure.fragment
+				img.height-320(src=imgAssets+'health_doom.jpg')
+				p Doom - lékárničky
+			figure.fragment
+				img.height-320(src=imgAssets+'health_wolf.jpg')
+				p Wolfenstein II - regenerace a lékárničky
++frameInbox('Respawn')
+	div
+		ul
+			li.fragment Pokud hráč umře, kde se respawne?
+		.space-xl
+		.flex-cols-3.fill
+			figure.fragment
+				img.height-320(src=imgAssets+'death_limbo.jpg')
+				p Limbo - velmi blízko
+			figure.fragment
+				img.height-320(src=imgAssets+'death_braid.jpg')
+				p Braid - čas se zastaví
+			figure.fragment
+				img.height-320(src=imgAssets+'death_fps.jpg')
+				p FPS hry - poslední quick-save
++frameInbox('Speciální módy')
+	div
+		ul
+			li.fragment Jaké speciální módy hra nabízí?
+		.space-xl
+		.flex-cols-3.fill
+			figure.fragment
+				img.height-320(src=imgAssets+'bonus_pacman.jpg')
+				p Pacman - power pellety
+			figure.fragment
+				img.height-320(src=imgAssets+'bonus_jazz.jpg')
+				p Jazz Jackrabbit - sugar rush
+			figure.fragment
+				img.height-320(src=imgAssets+'bonus_doom.jpg')
+				p Doom - sféra nesmrtelnosti
++frameInbox('Vývoj postavy')
+	div
+		ul
+			li.fragment Jakým způsobem hra utilizuje vývoj postav?
+		.space-xl
+		.flex-cols-3.fill
+			figure.fragment
+				img.height-340(src=imgAssets+'dev_duke.jpg')
+				p Duke Nukem 1 - rychlejší zbraň
+			figure.fragment
+				img.height-340(src=imgAssets+'dev_pokemon.png')
+				p Pokémon series - levelování, evoluce,...
+			figure.fragment
+				img.height-340(src=imgAssets+'dev_horizon.png')
+				p Horizon: Zero Dawn - psychologický i fyzický vývoj
++frameInbox('Limity pro vybavení')
+	div
+		ul
+			li.fragment Jaké jsou limity pro vybavení hráče?
+		.space-xl
+		.flex-cols-3.fill
+			figure.fragment
+				img.height-320(src=imgAssets+'equip_skyrim.jpg')
+				p RPGčka - omezený počet předmětů v inventáři
+			figure.fragment
+				img.height-320(src=imgAssets+'equip_fps.jpg')
+				p Některá FPS - pouze dvě zbraně
+			figure.fragment
+				img.height-320(src=imgAssets+'equip_lol.jpg')
+				p LoL - 6 předmětů
++frameInbox('Revisiting')
+	div
+		ul
+			li.fragment Jak hra motivuje hráče ke znovunavštívění některých oblastí?
+		.space-xl
+		.flex-cols-3.fill
+			figure.fragment
+				img.height-350(src=imgAssets+'revisit_rayman.jpg')
+				p Rayman - po získání nových skillů
+			figure.fragment
+				img.height-350(src=imgAssets+'clumping_adventures.jpg')
+				p.color-tomato-light Adventury - zákys ve hře
+			figure.fragment
+				img.height-350(src=imgAssets+'revisit_openworld.jpg')
+				p Open world hry - questy
++frameInbox('Clumping')
+	div
+		ul
+			li.fragment Hra by se měla vyvarovat situaci, kdy hráči předvede příliš mnoho funkcí/obsahu najednou.
+		.space-xl
+		.flex-cols-3.fill
+			figure.fragment
+				img.height-320(src=imgAssets+'equip_lol.jpg')
+				p MOBA - stejně silní hráči
+			figure.fragment
+				img.height-320(src=imgAssets+'clumping_rpg.jpg')
+				p.color-tomato-light RPGčka - příliš mnoho NPC na velkém prostoru
+			figure.fragment
+				img.height-320(src=imgAssets+'clumping_platformers.jpg')
+				p.color-tomato-light Platformery - difficulty spike mezi levely
++frameInbox('Flow breaking')
+	div
+		ul
+			li.fragment Hra může být těžká, neměla by ale být zákeřná.
+		.space-xl
+		.flex-cols-2.fill
+			figure.fragment
+				img.height-520(src=imgAssets+'prince_pc.png')
+				p Prince of Persia pro PC - těžká
+			figure.fragment
+				img.height-520(src=imgAssets+'prince_snes.png')
+				p Prince of Persia pro SNES - těžká, <br>zákeřná, frustrující, depresivní
+		.bottom-200.right-350.tip.fragment
+			img.height-500(src=imgAssets+'meme_darksouls.png')
++frameInbox('Netradiční gameplay')
+	div
+		ul
+			li.fragment Jak hra naučí hráče netradiční styl gameplaye?
+		.space-xl
+		.flex-cols-2.fill
+			figure.fragment
+				img.height-480(src=imgAssets+'nontrad_portal.jpg')
+				p Portal - styl hraní má průnik s FPS žánrem
+			figure.fragment
+				img.height-480(src=imgAssets+'nontrad_dune.png')
+				p Dune I - začíná jako klasická adventura
++frameInbox('Předměty či zbraně by měly mít co nejmenší overlap')
+	div
+		ul
+			li.fragment Každý předmět/zbraň by měly být použitelné pro konkrétní účel.
+			li.fragment Jakmile bude overlap příliš velký, hráč bude používat pořád to samé.
+		.space-xl
+		.flex-cols-2.fill
+			figure.fragment
+				img.height-420(src=imgAssets+'overlap_doom.jpg')
+				p Doom - každá zbraň se hodí na jiný styl boje
+			figure.fragment
+				img.height-420(src=imgAssets+'overlap_lol.jpg')
+				p LoL - každý předmět má unikátní funkci
