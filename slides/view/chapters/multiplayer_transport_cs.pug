@@ -89,7 +89,7 @@ include ../mixins/containers_aph.pug
 				li.fragment RTS bitva
 				li.fragment 5 hráčů
 				li.fragment 500 pohybujících se jednotek
-				li.fragment každý jednotka má 20 atributů velikosti 32-bitů -> 80 B na jednotku
+				li.fragment každá jednotka má 20 atributů velikosti 32-bitů -> 80 B na jednotku
 				li.fragment server pošle 30 zpráv za sekundu
 				li.fragment velikost headeru je 42B (IP + UDP + networking header)
 				li.fragment potřebný bandwidth pro server: 
@@ -152,7 +152,7 @@ include ../mixins/containers_aph.pug
 			p Delta zprávy
 			ul
 				li.fragment pokud se číslo příliš nezmění, nezmění se příliš ani jeho bity
-				li.fragment mezi dvěma framy se změní pouze několik mál obitů (pozice, rotace)
+				li.fragment mezi dvěma framy se změní pouze několik málo bitů (pozice, rotace)
 				li.fragment uložíme pouze rozdíly pomocí XOR operace
 				li.fragment velmi efektivní, ale citlivé na ztrátovost paketů
 				li.fragment můžeme uložit 2/3 atributů jako rozdíl a 1/3 jako plná data - budeme potřebovat pouze 3 po sobě jdoucí pakety pro reprodukci kompletního stavu   
