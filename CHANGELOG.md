@@ -6,6 +6,10 @@ Versioning info:
 - second number indicates a week (1 for the first week)
 - third number indicates minor changes, such as hotfixes and updates
 
+## [6.15.1] - 2024-04-09
+### Added
+New gamification slides
+
 ## [6.14.2] - 2024-02-11
 ### Changed
 Fixed typos

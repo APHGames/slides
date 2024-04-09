@@ -6,15 +6,15 @@ include ../mixins/containers_aph.pug
 
 
 // ===================================================== SLIDES =====================================================
++frameInbox('Pár slov o mně')
+	.fill.center
+		img.height-700(src=imgAssets+'dodo.jpg')
 +mcontainer('')
 	+frameShard.height-30p.top-280.center.z-index-100
 		div.text-3xl Co je to hra?
 +frameInbox('Je toto hra?')
 	.fill.center
 		img.height-700(src=imgAssets+'game01.jpg')
-+frameInbox('Je toto hra?')
-	.fill.center
-		img.height-700(src=imgAssets+'game02.jpg')
 +frameInbox('Je toto hra?')
 	.fill.center
 		img.height-700(src=imgAssets+'game03.jpg')
@@ -29,31 +29,31 @@ include ../mixins/containers_aph.pug
 		img.height-700(src=imgAssets+'game06.jpg')
 +mcontainer('Co je to hra?')
 	+frameShard.width-880.top-3p.fragment.fade-up
-		div Hra je <span class="highlight">aktivita</span>, která nás <span class="highlight">baví</span> a vyvolává v nás pocit <span class="highlight">uspokojení</span> z <span class="highlight">progresu</span>.
+		div Hra je <span class="highlight">aktivita</span>, která nás <span class="highlight">baví</span> a vyvolává v nás pocit <span class="highlight">uspokojení</span> z <span class="highlight">progresu</span>. 
 			span.highlight-2 (Jesse Schell)
 	+frameShard.width-860.top-14p.left-20p.fragment.fade-up
-		div Hra je <span class="highlight">interaktivní</span> struktura, která ponouká hráče k dosažení daných <span class="highlight">cílů</span>.
+		div Hra je <span class="highlight">interaktivní</span> struktura, která motivuje hráče k dosažení daných <span class="highlight">cílů</span>. 
 			span.highlight-2 (Greg Costikyan)
 	+frameShard.width-860.top-25p.left-40p.fragment.fade-up
-		div Hra je <span class="highlight">aktivita</span> vymezena <span class="highlight">pravidly</span>, ve kterých se hráč snaží dosáhnout různých <span class="highlight">cílů</span>.
+		div Hra je <span class="highlight">aktivita</span> vymezena <span class="highlight">pravidly</span>, ve kterých se hráč snaží dosáhnout různých <span class="highlight">cílů</span>. 
 			span.highlight-2 (Alexander Galloway)
-+mcontainer('Lidi rádi hrají hry')
-	.top-110.fragment
-		.kframe.height-400.width-700.absolute
-		.height-400.width-700.p-10
-			img.height-400.object-cover(src=imgAssets+'games_people.jpg')
-	.top-110.right-140.fragment
++mcontainer('Lidé rádi hrají hry')
+	.top-110.left-50.fragment
 		.kframe.height-400.width-700.absolute
 		.height-400.width-700.p-10
 			img.height-400.object-cover(src=imgAssets+'game_people2.jpg')
-	.bottom-0.left-240.fragment
+	.top-110.right-140.fragment
 		.kframe.height-400.width-700.absolute
 		.height-400.width-700.p-10
 			img.height-400.object-cover(src=imgAssets+'game_people4.jpg')
+	.bottom-0.left-160.fragment
+		.kframe.height-400.width-700.absolute
+		.height-400.width-700.p-10
+			img.height-400.object-cover(src=imgAssets+'games_people.jpg')
 	.bottom-0.right-40.fragment
-		.kframe.height-400.width-500.absolute
-		.height-400.width-500.p-10
-			img.height-400.object-cover(src=imgAssets+'game_people3.jpg')
+		.kframe.height-400.width-700.absolute
+		.height-400.width-700.p-10
+			img.height-400.object-cover(src=imgAssets+'game_people5.jpg')
 +mcontainer('')
 	+frameShard.height-30p.top-280.center.z-index-100
 		div.text-3xl Proč hrajeme hry?
@@ -65,22 +65,30 @@ include ../mixins/containers_aph.pug
 		.kframe.height-400.width-470.absolute
 		.height-400.width-470.p-10
 			img.height-400.object-cover(src=imgAssets+'dopamine_birds.jpg')
-	.top-110.right-340.fragment
+	.top-110.left-480.fragment
 		.kframe.height-400.width-600.absolute
 		.height-400.width-600.p-10
 			img.height-400.object-cover(src=imgAssets+'dopamine_cats.jpg')
-	.bottom-0.left-240.fragment
+	.top-110.right-0.fragment
+		.kframe.height-400.width-550.absolute
+		.height-400.width-550.p-10
+			img.height-400.object-cover(src=imgAssets+'dopamine_bears.jpg')
+	.bottom-0.left-0.fragment
 		.kframe.height-400.width-530.absolute
 		.height-400.width-530.p-10
 			img.height-400.object-cover(src=imgAssets+'dopamine_dogs.jpg')
-	.bottom-0.right-40.fragment
+	.bottom-0.left-580.fragment
 		.kframe.height-400.width-520.absolute
 		.height-400.width-520.p-10
 			img.height-400.object-cover(src=imgAssets+'dopamine_shark.jpg')
+	.bottom-0.right-0.fragment
+		.kframe.height-400.width-520.absolute
+		.height-400.width-520.p-10
+			img.height-400.object-cover(src=imgAssets+'dopamine_bees.jpg')
 +frameInbox('Proč hrajeme hry')
 	div
-		ol.spacing-xl
-			li.fragment Dopamine surge, který hraje důležitou roli pro pocit štěstí
+		ol.spacing-xl.mt-40
+			li.fragment Příliv dopaminu, který hraje důležitou roli pro pocit štěstí
 			li.fragment Uspokojivá práce - vidíme progres u jasně definovaných aktivit
 			li.fragment Úspěch - lidé chtějí být úspěšní
 			li.fragment Sociální vazby
@@ -91,63 +99,112 @@ include ../mixins/containers_aph.pug
 	+frameShard.height-30p.top-280.center.z-index-100
 		div.text-3xl Co je to gamifikace?
 +mcontainer('Co je to gamifikace')
-	+frameShard.height-30p.top-280.center.z-index-100
+	+frameShard.fragment.height-30p.top-100.center.z-index-100
 		div.text-xl Gamifikace je proces integrace <span class="highlight">herních</span> prvků do <span class="highlight">neherního</span> prostředí za účelem podněcovat <span class="highlight">hravost</span> a zvýšit tak <span class="highlight">motivaci</span> účastníků.
+	+frameShard.fragment.height-30p.top-200.center.z-index-100
+		div.text-xl Gamifikace je proces <span class="highlight">změny</span> prostředí, procesu či úkolu tak, aby se k němu přistupovalo jako ke <span class="highlight">hře</span>.
 +mcontainer('Historie gamifikace')
 	.top-110.fragment
-		.kframe.height-400.width-470.absolute
-		.height-400.width-470.p-10
+		.kframe.height-400.width-500.absolute
+		.height-400.width-500.p-10
 			img.height-400.object-cover(src=imgAssets+'dice.jpg')
-	.top-110.right-340.fragment
-		.kframe.height-400.width-600.absolute
+	.top-110.left-560.fragment
+		.kframe.height-400.width-500.absolute
 		.height-400.width-600.p-10
-			img.height-400.object-cover(src=imgAssets+'labyrint.jpg')
-	.bottom-0.left-240.fragment
+			img.height-400.width-480.object-crop(src=imgAssets+'komensky.jpg')
+	.top-110.right-40.fragment
 		.kframe.height-400.width-500.absolute
 		.height-400.width-500.p-10
 			img.height-400.object-cover(src=imgAssets+'scouting.jpg')
+	.bottom-0.fragment
+		.kframe.height-400.width-500.absolute
+		.height-400.width-500.p-10
+			img.height-400.object-cover(src=imgAssets+'sesamestreet.jpg')
+	.bottom-0.left-560.fragment
+		.kframe.height-400.width-500.absolute
+		.height-400.width-600.p-10
+			img.height-400.width-480.object-crop(src=imgAssets+'ataccama2.jpg')
 	.bottom-0.right-40.fragment
-		.kframe.height-400.width-520.absolute
-		.height-400.width-520.p-10
-			img.height-400.object-cover(src=imgAssets+'gamification_modern.jpg')
+		.kframe.height-400.width-500.absolute
+		.height-400.width-500.p-10
+			img.height-400.object-cover(src=imgAssets+'linkedin.jpg')
 +frameInbox('Gamifikace - časová osa')
 	div.center
-		img.height-780(src=imgAssets+'timeline.svg')
+		.top-100
+			img.height-780.fragment.fade-in-then-out(src=imgAssets+'timeline05.svg')
+		.top-100
+			img.height-780.fragment.fade-in-then-out(src=imgAssets+'timeline06.svg')
+		.top-100
+			img.height-780.fragment.fade-in-then-out(src=imgAssets+'timeline07.svg')
+		.top-100
+			img.height-780.fragment.fade-in-then-out(src=imgAssets+'timeline08.svg')
+		.top-100
+			img.height-780.fragment.fade-in-then-out(src=imgAssets+'timeline09.svg')
+		.top-100
+			img.height-780.fragment.fade-in-then-out(src=imgAssets+'timeline10.svg')
+		.top-100
+			img.height-780.fragment.fade-in-then-out(src=imgAssets+'timeline11.svg')
+		.top-100
+			img.height-780.fragment.fade-in-then-out(src=imgAssets+'timeline12.svg')
+		.top-100
+			img.height-780.fragment.fade-in-then-out(src=imgAssets+'timeline13.svg')
+		.top-100
+			img.height-780.fragment.fade-in-then-out(src=imgAssets+'timeline14.svg')
+		.top-100
+			img.height-780.fragment.fade-in-then-out(src=imgAssets+'timeline15.svg')
+		.top-100
+			img.height-780.fragment.fade-in-then-out(src=imgAssets+'timeline16.svg')
+		.top-100
+			img.height-780.fragment.fade-in-then-out(src=imgAssets+'timeline17.svg')
+		.top-100
+			img.height-780.fragment.fade-in-then-out(src=imgAssets+'timeline18.svg')
+		.top-100
+			img.height-780.fragment.fade-in-then-out(src=imgAssets+'timeline19.svg')
+		.top-100
+			img.height-780.fragment.fade-in-then-out(src=imgAssets+'timeline20.svg')
+		.top-100
+			img.height-780.fragment.fade-in-then-out(src=imgAssets+'timeline21.svg')
 +frameInbox('Homo Sapiens Laboriosi')
-	div.flex-cols-3.items-center
-		img.height-700.fragment(src=imgAssets+'memes_games.png')
-		img.height-500.fragment(src=imgAssets+'memes_great.png')
-		img.height-300.fragment(src=imgAssets+'memes_wddth.png')
-		.bottom-0.right-0.fragment
-			img.height-300(src=imgAssets+'roosevelt.jpg')
-+frameInbox('Homo Sapiens Laboriosi')
-	div.center
-		img.height-420.fragment(src=imgAssets+'gamifikace_prace.jpg')
-		img.height-240.mt-20.fragment(src=imgAssets+'gamifikace_prace2.jpg')
-+frameInbox('Gamifikace - Ford Leaves')
+	.div.center
+		.top-100.left-0
+			img.height-600.fragment(src=imgAssets+'memes_games.png')
+		.top-100.left-500
+			img.width-470.fragment(src=imgAssets+'memes_great.png')
+		.bottom-0.left-500
+			img.width-470.fragment(src=imgAssets+'memes_wddth.png')
+		.bottom-20.right-0.fragment
+			img.width-650(src=imgAssets+'roosevelt.jpg')
+		.top-10.right-0.fragment
+			img.height-300(src=imgAssets+'work70hrs.jpg')
+		.bottom-330.right-0.fragment
+			img.width-650(src=imgAssets+'gamifikace_prace.jpg')
++frameInbox('CX Gamifikace - Ford Leaves')
 	.fill.center
 		img.height-700(src=imgAssets+'gamification_leaves.png')
-+frameInbox('Gamifikace - loterie pro řidiče')
++frameInbox('CX Gamifikace - loterie pro řidiče')
 	.fill.center
 		img.height-700(src=imgAssets+'gamification_lottery.jpg')
-+frameInbox('Gamifikace - hudební silnice')
++frameInbox('CX Gamifikace - hudební silnice')
 	.fill.center
 		img.height-700(src=imgAssets+'gamification_road.png')
-+frameInbox('Gamifikace - duolingo')
++frameInbox('CX Gamifikace - Gather Town')
 	.fill.center
-		img.height-700(src=imgAssets+'gamification_duolingo.png')
-+frameInbox('Gamifikace - NPDD')
-	.fill.center
-		img.height-700(src=imgAssets+'npdd.png')
-+frameInbox('Gamifikace - OKR')
+		img.height-700(src=imgAssets+'gamification_gather.png')
++frameInbox('EX Gamifikace - OKR')
 	.fill.center
 		img.height-280(src=imgAssets+'gamification_okr.png')
-+frameInbox('Gamifikace - Scrum Poker')
++frameInbox('EX Gamifikace - Scrum Poker')
 	.fill.center
 		img.height-700(src=imgAssets+'gamification_poker.jpg')
-+frameInbox('Gamifikace - Ataccama a SpaceUP')
++frameInbox('EX Gamifikace - Ataccama a SpaceUP')
 	.fill.center
 		img.height-700(src=imgAssets+'ataccama.jpg')
++frameInbox('EX Gamifikace - Workshop box')
+	.fill.center
+		img.height-700(src=imgAssets+'workshopbox.jpg')
++frameInbox('EX Gamifikace - Nectar Points')
+	.fill.center
+		img.height-700(src=imgAssets+'mews_nektarpoints.jpg')
 +frameInbox('Co pro gamifikaci potřebujeme?')
 	div
 		ol.text-xl
@@ -195,11 +252,13 @@ include ../mixins/containers_aph.pug
 				p Příklad: Super Mario boss fighty
 +frameInbox('Antipatterny gamifikace')
 	div
-		.top-100.left-20.fragment
-			img.height-780(src=imgAssets+'udernik2.jpg')
-		.top-100.left-680.fragment
-			img.height-400(src=imgAssets+'meme_performance.png')
-		.bottom-30.left-680.fragment
-			img.height-350(src=imgAssets+'zamroku.png')
-		.top-100.right-40.fragment
-			img.height-300(src=imgAssets+'meme_extramile.png')
+		.top-100.left-50.fragment
+			img.height-380(src=imgAssets+'udernik.jpg')
+		.top-100.right-60.fragment
+			img.height-380(src=imgAssets+'meme_performance.png')
+		.bottom-30.left-50.fragment
+			img.height-330(src=imgAssets+'zamroku.png')
+		.top-100.left-500.fragment
+			img.height-380(src=imgAssets+'meme_extramile.png')
+		.bottom-30.right-60.fragment
+			img.height-330(src=imgAssets+'scoreboards.jpg')
